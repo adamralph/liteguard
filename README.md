@@ -31,7 +31,7 @@ The aim of LiteGuard is to be most simple and lightweight guard clause library a
 
 ### No fluent API
 
-A fluent API requires the creation of objects which no purpose other than to provide an access point for the next method in the DSL. The creation of these objects decreases performance, increases memory usage and adds pressure to the garbage collector. It is our belief that a guard clause library has no business in doing this. It should use as few resources as possible and be eligible for use in as wide a set of applications as possible. We love a good fluent API but it has its places and a guard clause library is not one of them.
+A fluent API requires the creation of objects which serve no purpose other than to provide an access point for the next method in the DSL. The creation of these objects decreases performance, increases memory usage and adds pressure to the garbage collector. It is our belief that a guard clause library has no business in doing this. It should use as few resources as possible and be eligible for use in as wide a set of applications as possible. We love a good fluent API but it has its places and a guard clause library is not one of them.
 
 ### No business rule clauses
 
