@@ -17,12 +17,6 @@ You'll hardly know it's there!
         // rest of your method
     }
 
-## Where do I get it?
-
-Install it from [Nuget](https://nuget.org/packages/LiteGuard/). For update notifications, follow [@adamralph](https://twitter.com/#!/adamralph).
-
-To build manually, clone or fork this repository and see ['How to build'](https://github.com/liteguard/liteguard/blob/master/how_to_build.txt).
-
 ## Why did we create it?
 
 Because there are not enough guard clause libraries.
@@ -42,6 +36,12 @@ A fluent API requires the creation of objects which no purpose other than to pro
 ### No business rule clauses
 
 Many guard clause libraries provide a huge range of methods for determining whether arguments satisfy all manner of business rules. In our opinion, it is not the job of a guard clause library to validate arguments against business rules. We believe the role of a guard clause library is to prevent method calls with null arguments or null argument values. Ideally, we'd like such things to be built into .NET languages. If that ever happens we will happily allow LiteGuard to retire gracefully to a small but comfortable home near the seaside with a carriage clock and a little Havanese.
+
+## Where do I get it?
+
+Install it from [Nuget](https://nuget.org/packages/LiteGuard/). For update notifications, follow [@adamralph](https://twitter.com/#!/adamralph).
+
+To build manually, clone or fork this repository and see ['How to build'](https://github.com/liteguard/liteguard/blob/master/how_to_build.txt).
 
 ## Can I help to improve it and/or fix bugs? ##
 
