@@ -47,7 +47,7 @@ To build manually, clone or fork this repository and see ['How to build'](https:
 
 Absolutely! Please feel free to raise issues, fork the source code, send pull requests, etc.
 
-No pull request is too small. Even whitespace fixes are appreciated. Before you contribute anything make sure you read [CONTRIBUTING.md](https://github.com/liteguard/liteguard.net/blob/master/CONTRIBUTING.md).
+No pull request is too small. Even whitespace fixes are appreciated. Before you contribute anything make sure you read [CONTRIBUTING.md](https://github.com/liteguard/liteguard/blob/master/CONTRIBUTING.md).
 
 ## What do the version numbers mean? ##
 
