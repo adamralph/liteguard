@@ -14,7 +14,7 @@ You'll hardly know it's there!
 	    Guard.AgainstNullArgumentProperty("bar", "Baz", bar.Baz);
         Guard.AgainstNullArgumentProperty("bar", "Baz.Bazza", bar.Baz.Bazza);
 
-        // rest of your method
+        // the rest of your method, nice and safe, wrapped in the protecting arms of LiteGuard
     }
 
 ## Why did we create it?
@@ -25,17 +25,31 @@ Naturally everyone writes their own guard clause library but there are only a li
 
 This means we all have to do our bit in working toward the ultimate number of published guard clause libraries which, at current estimates, is somewhere in the region of 6.02214129(27) × 10^23.
 
-## What makes it Different?
+## What makes it different?
 
-The aim of LiteGuard is to be most simple and lightweight guard clause library available.
+The aim of LiteGuard is to be the most unambiguous, simple and lightweight guard clause library available.
+
+### A very explicit DSL
+
+The names of LiteGuard clauses are unambiguous to ensure correct usage. Misuse should be obvious.
+
+    public void Foo(Bar bar)
+    {
+	    var baz = GetBaz();
+    	Guard.AgainstNullArgument("baz", baz); // clearly incorrect - baz is not an argument
+    }
 
 ### No fluent API
+
+Some guard clause libraries provide a fluent API.
 
 A fluent API requires the creation of objects which serve no purpose other than to provide an access point for the next method in the DSL. The creation of these objects decreases performance, increases memory usage and adds pressure to the garbage collector. It is our belief that a guard clause library has no business in doing this. It should use as few resources as possible and be eligible for use in as wide a set of applications as possible. We love a good fluent API but it has its places and a guard clause library is not one of them.
 
 ### No business rule clauses
 
-Many guard clause libraries provide a huge range of methods for determining whether arguments satisfy all manner of business rules. In our opinion, it is not the job of a guard clause library to validate arguments against business rules. We believe the role of a guard clause library is to prevent method calls with null arguments or null argument values. Ideally, we'd like such things to be built into .NET languages. If that ever happens we will happily allow LiteGuard to retire gracefully to a small but comfortable home near the seaside with a carriage clock and a little Havanese.
+Many guard clause libraries provide a huge range of methods for determining whether arguments satisfy all manner of business rules.
+
+In our opinion, it is not the job of a guard clause library to validate arguments against business rules. We believe the role of a guard clause library is to prevent method calls with null arguments or null argument values. Ideally, we'd like such things to be built into .NET languages. If that ever happens we will happily allow LiteGuard to retire gracefully to a small but comfortable home near the seaside with a carriage clock and a little Havanese.
 
 ## Where do I get it?
 
