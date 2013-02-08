@@ -12,6 +12,14 @@ end
 desc "Executes clean, build, spec, feature and nugetpack"
 task :default => [ :clean, :build, :spec, :nugetpack ]
 
+desc "Use Mono in Windows"
+task :mono do
+  ENV["Mono"] = "x"
+  if ARGV.length == 1 && ARGV[0] = "mono"
+    Rake::Task["default"].invoke
+  end
+end
+
 desc "Clean solution"
 task :clean do
   FileUtils.rmtree "bin"

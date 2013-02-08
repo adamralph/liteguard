@@ -1,5 +1,5 @@
 How to build
-========================
+============
 
 *NOTE* These instructions are *only* for building with Rake - if you just want to build manually you can do so just by loading the solution into Visual Studio and pressing build :-)
 
@@ -9,17 +9,25 @@ Prerequisites
 1. Download and install Ruby 1.8.7+ from http://www.ruby-lang.org/en/downloads
 2. At the command prompt run the following to update RubyGems to the latest version: 
 
-	gem update --system
+    gem update --system
 
 3. You will need the albacore gem, install this at the command prompt with:
 
-	gem install albacore
+    gem install albacore
 
-If you have already installed albacore, please update to the lastest version (0.2.6+):
+If you have already installed albacore, please update to the latest version (0.2.6+):
 
-	gem update albacore
+    gem update albacore
 
 4. In order to build using Mono, install Mono 2.10.9 or higher. Earlier versions may also work if Microsoft.Build.dll is manually added to the Mono GAC.
+
+5. If using Linux or OSX, you may have to grant yourself execute permissions on the shell script files under src/rakehelper. This can be done with (assuming you are in the src folder):
+
+    chmod 744 rakehelper/*.sh
+
+You may also need to change your Git configuration to ignore the file mode changes with:
+
+    git config core.filemode false
 
 Building
 --------
@@ -27,24 +35,25 @@ Building
 1. At the command prompt, navigate to the src folder (should contain rakefile.rb)
 2. To run the default build (which will compile, test and package) type the following command:
 
-	rake
+    rake
 
 In addition, you can see the full list of all the build tasks by running:
 
-	rake -T
+    rake -T
 
 To run a particular task ('spec' for example), use the following command:
 
-	rake spec
+    rake spec
 
 You can run multiple tasks by listing them ('spec' then 'nugetpack' for example):
 
-	rake spec nugetpack
+    rake spec nugetpack
 
-You can force the use of Mono in Windows by setting the 'mono' variable to a non-empty value.
+You can force the use of Mono in Windows by executing the 'mono' task. Specifying the 'mono' task alone will execute the default build using Mono. Specifying the 'mono' task in conjunction with other tasks will force the use of Mono for all the tasks which follow the 'mono' task.
 
-    rake mono=x
-    rake mono=x spec
-    rake mono=x spec nugetpack
+    rake mono
+    rake mono spec
+    rake mono spec nugetpack
+    rake build mono spec nugetpack  # this will execute 'build' using .NET and 'spec' and 'nugetpack' using Mono
     
 After the build has completed, there will be a new folder in the src folder called "bin" containing the build artifacts.
