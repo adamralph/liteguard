@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>LiteGuard</id>
-    <version>0.2.0</version>
+    <version>0.3.0</version>
     <title>LiteGuard</title>
     <authors>Adam Ralph, LiteGuard contributors</authors>
     <projectUrl>https://github.com/liteguard/liteguard</projectUrl>
