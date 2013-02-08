@@ -38,7 +38,8 @@ namespace LiteGuard
         /// <param name="argumentProperty">The argument property.</param>
         /// <exception cref="System.ArgumentException"><paramref name="argumentProperty"/> is <c>null</c>.</exception>
         [DebuggerStepThrough]
-        public static void AgainstNullArgumentProperty<TProperty>(string parameterName, string propertyName, [ValidatedNotNull]TProperty argumentProperty) where TProperty : class
+        public static void AgainstNullArgumentProperty<TProperty>(string parameterName, string propertyName, [ValidatedNotNull]TProperty argumentProperty)
+            where TProperty : class
         {
             if (argumentProperty == null)
             {
