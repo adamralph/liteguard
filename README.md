@@ -39,7 +39,7 @@ This means we all have to do our bit in working toward the ultimate number of pu
 
 ## What makes it different?
 
-The aim of LiteGuard is to be the most unambiguous, simple and lightweight guard clause library available.
+The aim of LiteGuard is to be the most simple, unambiguous and lightweight guard clause library available.
 
 ### A very explicit DSL
 
