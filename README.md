@@ -17,6 +17,18 @@ You'll hardly know it's there!
         // the rest of your method, nice and safe, wrapped in the protecting arms of LiteGuard
     }
 
+    public void Foo<T>(T bar) where T : class
+    {
+		Guard.AgainstNullArgument("bar", bar);
+        ...
+    }
+
+    public void Foo<T>(T bar)
+    {
+		Guard.AgainstNullArgumentIfNullable("bar", bar);
+        ...
+    }
+
 ## Why did we create it?
 
 Because there are not enough guard clause libraries.
