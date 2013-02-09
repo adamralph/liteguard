@@ -20,6 +20,7 @@ namespace LiteGuard
         /// <param name="parameterName">Name of the parameter.</param>
         /// <param name="argument">The argument.</param>
         /// <exception cref="System.ArgumentNullException"><paramref name="argument" /> is <c>null</c>.</exception>
+        /// <remarks><typeparamref name="TArgument"/> is restricted to reference types to avoid boxing of value type objects.</remarks>
         [DebuggerStepThrough]
         public static void AgainstNullArgument<TArgument>(string parameterName, [ValidatedNotNull]TArgument argument) where TArgument : class
         {
@@ -36,6 +37,9 @@ namespace LiteGuard
         /// <param name="parameterName">Name of the parameter.</param>
         /// <param name="argument">The argument.</param>
         /// <exception cref="System.ArgumentNullException"><paramref name="argument" /> is <c>null</c>.</exception>
+        /// <remarks>
+        /// Performs a type check to avoid boxing of value type objects.
+        /// </remarks>
         [DebuggerStepThrough]
         public static void AgainstNullArgumentIfNullable<TArgument>(string parameterName, [ValidatedNotNull]TArgument argument)
         {
@@ -53,8 +57,10 @@ namespace LiteGuard
         /// <param name="propertyName">Name of the property.</param>
         /// <param name="argumentProperty">The argument property.</param>
         /// <exception cref="System.ArgumentException"><paramref name="argumentProperty" /> is <c>null</c>.</exception>
+        /// <remarks><typeparamref name="TProperty"/> is restricted to reference types to avoid boxing of value type objects.</remarks>
         [DebuggerStepThrough]
-        public static void AgainstNullArgumentProperty<TProperty>(string parameterName, string propertyName, [ValidatedNotNull]TProperty argumentProperty) where TProperty : class
+        public static void AgainstNullArgumentProperty<TProperty>(string parameterName, string propertyName, [ValidatedNotNull]TProperty argumentProperty)
+            where TProperty : class
         {
             if (argumentProperty == null)
             {
@@ -62,14 +68,30 @@ namespace LiteGuard
             }
         }
 
-        private static bool IsNullableType(this Type type)
+        /// <summary>
+        /// Guards against a null argument property value if <typeparamref name="TProperty"/> is a nullable type.
+        /// </summary>
+        /// <typeparam name="TProperty">The type of the property.</typeparam>
+        /// <param name="parameterName">Name of the parameter.</param>
+        /// <param name="propertyName">Name of the property.</param>
+        /// <param name="argumentProperty">The argument property.</param>
+        /// <exception cref="System.ArgumentException"><paramref name="argumentProperty" /> is <c>null</c>.</exception>
+        /// <remarks>
+        /// Performs a type check to avoid boxing of value type objects.
+        /// </remarks>
+        [DebuggerStepThrough]
+        public static void AgainstNullArgumentPropertyIfNullable<TProperty>(
+            string parameterName, string propertyName, [ValidatedNotNull]TProperty argumentProperty)
         {
-            return !type.IsValueType || type.IsNullableValueType();
+            if (typeof(TProperty).IsNullableType() && argumentProperty == null)
+            {
+                throw new ArgumentException(string.Format(CultureInfo.InvariantCulture, "{0}.{1} is null.", parameterName, propertyName), parameterName);
+            }
         }
 
-        private static bool IsNullableValueType(this Type type)
+        private static bool IsNullableType(this Type type)
         {
-            return type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>);
+            return !type.IsValueType || (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>));
         }
 
         // NOTE: when applied to a parameter, this attribute provides an indication to code analysis that the argument has been null checked
