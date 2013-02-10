@@ -67,7 +67,7 @@ In our opinion, it is not the job of a guard clause library to validate argument
 
 Install it from [Nuget](https://nuget.org/packages/LiteGuard/). For update notifications, follow [@adamralph](https://twitter.com/#!/adamralph).
 
-To build manually, clone or fork this repository and see ['How to build'](https://github.com/liteguard/liteguard/blob/master/src/how_to_build.txt).
+To build manually, clone or fork this repository and see ['How to build'](https://github.com/liteguard/liteguard/blob/master/how_to_build.txt).
 
 ## Can I help to improve it and/or fix bugs? ##
 
