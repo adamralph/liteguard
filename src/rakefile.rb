@@ -9,7 +9,7 @@ Albacore.configure do |config|
   config.log_level = :verbose
 end
 
-desc "Executes clean, build, spec, feature and nugetpack"
+desc "Executes clean, build, spec and nugetpack"
 task :default => [ :clean, :build, :spec, :nugetpack ]
 
 desc "Use Mono in Windows"

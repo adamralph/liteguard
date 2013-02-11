@@ -1,44 +1,45 @@
 #How to build#
 
-**NOTE:** These instructions are *only* for building with Rake, which includes compilation, test execution and packaging. You can also build the solution in Visual Studio 2012.
+These instructions are *only* for building with Rake, which includes compilation, test execution and packaging. Once you have the prerequisites set up this is the simplest way of building the assemblies.
+
+You can also build the solution using Visual Studio 2012.
 
 ## Prerequisites ##
 
 1. [Install Ruby 1.8.7 or later](http://www.ruby-lang.org/en/downloads/)
-1. Using a command prompt, update RubyGems to the latest version: 
+1. Using a command prompt, update RubyGems to the latest version*:
 
     `gem update --system`
 
-1. Install the albacore gem:
+1. Install the Albacore gem*:
 
     `gem install albacore`
-
- or if you have already installed albacore, please update to the latest version:
-
-    `gem update albacore`
 
 1. If you are using Linux, install Mono:
 
     `sudo apt-get install mono-complete`
 
-1. If you are using OSX, or if you want to build using Mono in Windows, [install Mono 2.10.9 or later](http://www.go-mono.com/mono-downloads/)*.
+1. If you are using OSX, or if you want to build using Mono in Windows, [install Mono 2.10.9 or later](http://www.go-mono.com/mono-downloads/)**.
 
-1. If you are using Linux or OSX, you may have to grant yourself execute permissions on the shell script files under src/rakehelper (assuming you are in the src folder):
+1. If you are using Linux or OSX, you may have to grant yourself execute permissions on the bash scripts by navigating to `src/rakehelper` and executing:
 
-    `chmod 744 rakehelper/*.sh`
+    `chmod 744 *.sh`
 
- You may also need to change your Git configuration to ignore the file mode changes:
+ You will also need to change your Git configuration to ignore file mode changes by navigating to your clone root folder and executing:
 
     `git config core.filemode false`
 
+*** If you are using Linux or OSX, you may have to execute these commands using `sudo`
+
+**** Earlier versions of Mono may also work if Microsoft.Build.dll is manually added to the Mono GAC.
+
 ## Building ##
 
-1. Using a command prompt, navigate to the src folder (which contains rakefile.rb)
-1. Run the default build (compile, test and package) by typing the following command:
+Using a command prompt, navigate to the `src` folder and execute:
 
-    `rake`
+	rake
 
-After the build has completed, there will be a new folder in the src folder called "bin" containing the build artifacts.
+This executes the default build tasks. After the build has completed, the build artifacts will be located in `src/bin`.
 
 ##Extras##
 
@@ -66,10 +67,8 @@ After the build has completed, there will be a new folder in the src folder call
 
 	`rake mono spec nugetpack`
 	
-* Run initial tasks using .NET and further tasks using Mono in Windows (barely useful but ultra cool)
+* Run initial tasks using .NET and further tasks using Mono in Windows (barely useful but ultra cool):
 
-    rake clean build mono spec feature nugetpack
+    `rake clean build mono spec nugetpack`
 
  (All tasks before `mono` will use .NET and all tasks after `mono` will use Mono.)
-
-*** Earlier versions of Mono may also work if Microsoft.Build.dll is manually added to the Mono GAC.
