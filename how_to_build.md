@@ -37,7 +37,7 @@ You can also build the solution using Visual Studio 2012.
 
 Using a command prompt, navigate to the `src` folder and execute:
 
-	rake
+`rake`
 
 This executes the default build tasks. After the build has completed, the build artifacts will be located in `src/bin`.
 
