@@ -29,9 +29,9 @@ You can also build the solution using Visual Studio 2012.
 
     `git config core.filemode false`
 
-*** If you are using Linux or OSX, you may have to execute these commands using `sudo`
+*If you are using Linux or OSX, you may have to execute these commands using `sudo`
 
-**** Earlier versions of Mono may also work if Microsoft.Build.dll is manually added to the Mono GAC.
+**Earlier versions of Mono may also work if Microsoft.Build.dll is manually added to the Mono GAC.
 
 ## Building ##
 
