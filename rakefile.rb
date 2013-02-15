@@ -2,8 +2,8 @@ require 'albacore'
 require 'fileutils'
 require File.expand_path('rakehelper/rakehelper', File.dirname(__FILE__))
 
-ENV["XunitConsole_net20"] = "../packages/xunit.runners.1.9.1/tools/xunit.console.exe"
-ENV["NuGetConsole"] = "../packages/NuGet.CommandLine.2.2.0/tools/NuGet.exe"
+ENV["XunitConsole_net20"] = "packages/xunit.runners.1.9.1/tools/xunit.console.exe"
+ENV["NuGetConsole"] = "packages/NuGet.CommandLine.2.2.0/tools/NuGet.exe"
 
 Albacore.configure do |config|
   config.log_level = :verbose
@@ -27,7 +27,7 @@ task :clean do
   build = RakeHelper.use_mono ? XBuild.new : MSBuild.new
   build.properties = { :configuration => :Release }
   build.targets = [ :Clean ]
-  build.solution = "LiteGuard.sln"
+  build.solution = "src/LiteGuard.sln"
   build.execute
 end
 
@@ -36,14 +36,14 @@ task :build do
   build = RakeHelper.use_mono ? XBuild.new : MSBuild.new
   build.properties = { :configuration => :Release }
   build.targets = [ :Build ]
-  build.solution = "LiteGuard.sln"
+  build.solution = "src/LiteGuard.sln"
   build.execute
 end
 
 desc "Execute specs"
 task :spec do
   specs = [
-    { :version => :net20, :path => "test/LiteGuard.Specifications/bin/Debug/LiteGuard.Specifications.dll" },
+    { :version => :net20, :path => "src/test/LiteGuard.Specifications/bin/Debug/LiteGuard.Specifications.dll" },
   ]
   execute specs
 end
@@ -54,7 +54,7 @@ nugetpack :nugetpack do |nuget|
   
   # NOTE (Adam): nuspec files can be consolidated after NuGet 2.3 is released - see http://nuget.codeplex.com/workitem/2767
   nuget.command = RakeHelper.nuget_command
-  nuget.nuspec = [ "LiteGuard", ENV["OS"], "nuspec" ].select { |token| token }.join(".")  
+  nuget.nuspec = [ "src/LiteGuard", ENV["OS"], "nuspec" ].select { |token| token }.join(".")  
   nuget.output = "bin"
 end
 
