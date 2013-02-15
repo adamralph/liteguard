@@ -10,7 +10,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFiles", "SolutionFi
 		LiteGuard.snk = LiteGuard.snk
 		LiteGuard.Windows_NT.nuspec = LiteGuard.Windows_NT.nuspec
 		nuget.config = nuget.config
-		rakefile.rb = rakefile.rb
 		Settings.StyleCop = Settings.StyleCop
 	EndProjectSection
 EndProject
