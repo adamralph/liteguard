@@ -18,5 +18,7 @@ This is the LiteGuard binary package. LiteGuard is also available as a source co
   <files>
     <file src="LiteGuard/bin/Release/LiteGuard.dll" target="lib/net35" />
     <file src="LiteGuard/bin/Release/LiteGuard.xml" target="lib/net35" />
+    <file src="LiteGuard.Pcl/bin/Release/LiteGuard.dll" target="lib/portable40-win8+net40+sl40+wp7" />
+    <file src="LiteGuard.Pcl/bin/Release/LiteGuard.xml" target="lib/portable40-win8+net40+sl40+wp7" />
   </files>
 </package>
