@@ -1,6 +1,5 @@
 require 'albacore'
 require 'fileutils'
-require File.expand_path('rakehelper/rakehelper', File.dirname(__FILE__))
 
 ENV["XunitConsole_net20"] = "packages/xunit.runners.1.9.1/tools/xunit.console.exe"
 ENV["NuGetConsole"] = "packages/NuGet.CommandLine.2.2.0/tools/NuGet.exe"
