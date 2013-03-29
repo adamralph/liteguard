@@ -13,7 +13,7 @@ The aim of LiteGuard is to be the most simple, unambiguous and lightweight guard
 This is the LiteGuard source code package. LiteGuard is also available as a binary package named 'LiteGuard'. If your project is an application or library which is not packaged and/or exported for use in other solutions then the binary package is usually the best choice. If you are writing a library which is packaged and/or exported for use in other solutions then the source code package is usually the best choice.
 After installing this package you may change the source code as required to match your coding conventions.</description>
     <releaseNotes>TBD</releaseNotes>
-    <copyright>Copyright (c) LiteGuard contributors. (lightguard.ch@gmail.com)</copyright>
+    <copyright>Copyright (c) LiteGuard contributors. (liteguard.ch@gmail.com)</copyright>
     <tags>guard clause arguments light avogadro</tags>
   </metadata>
   <files>
