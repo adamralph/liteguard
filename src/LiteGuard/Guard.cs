@@ -31,7 +31,7 @@ namespace LiteGuard
         }
 
         /// <summary>
-        /// Guards against a null argument if <typeparamref name="TArgument" /> is a nullable type.
+        /// Guards against a null argument if <typeparamref name="TArgument" /> can be <c>null</c>.
         /// </summary>
         /// <typeparam name="TArgument">The type of the argument.</typeparam>
         /// <param name="parameterName">Name of the parameter.</param>
@@ -69,7 +69,7 @@ namespace LiteGuard
         }
 
         /// <summary>
-        /// Guards against a null argument property value if <typeparamref name="TProperty"/> is a nullable type.
+        /// Guards against a null argument property value if <typeparamref name="TProperty"/> can be <c>null</c>.
         /// </summary>
         /// <typeparam name="TProperty">The type of the property.</typeparam>
         /// <param name="parameterName">Name of the parameter.</param>

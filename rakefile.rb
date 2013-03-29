@@ -8,8 +8,8 @@ Albacore.configure do |config|
   config.log_level = :verbose
 end
 
-desc "Executes clean, build, spec and nugetpack"
-task :default => [ :clean, :build, :spec, :nugetpack ]
+desc "Executes clean, build, spec, nugetpack and packsrc"
+task :default => [ :clean, :build, :spec, :nugetpack, :packsrc ]
 
 desc "Use Mono in Windows"
 task :mono do
@@ -47,13 +47,30 @@ task :spec do
   execute specs
 end
 
-desc "Create the nuget package"
+desc "Create the binary nuget package"
 nugetpack :nugetpack do |nuget|
   FileUtils.mkpath "bin"
   
   # NOTE (Adam): nuspec files can be consolidated after NuGet 2.3 is released - see http://nuget.codeplex.com/workitem/2767
   nuget.command = RakeHelper.nuget_command
   nuget.nuspec = [ "src/LiteGuard", ENV["OS"], "nuspec" ].select { |token| token }.join(".")  
+  nuget.output = "bin"
+end
+
+desc "Create the source code nuget package"
+nugetpack :packsrc do |nuget|
+  File.open("src/LiteGuard/Guard.cs") { |from|
+    contents = from.read
+    contents.sub!(/.*namespace LiteGuard/m, 'namespace $rootnamespace$')
+    contents.sub!(/public static class/, 'internal static class')
+    File.open("src/LiteGuard/bin/Release/Guard.cs.pp", "w+") { |to| to.write(contents) }
+  }
+
+  FileUtils.mkpath "bin"
+
+  # NOTE (Adam): nuspec files can be consolidated after NuGet 2.3 is released - see http://nuget.codeplex.com/workitem/2767
+  nuget.command = RakeHelper.nuget_command
+  nuget.nuspec = [ "src/LiteGuard.Source", ENV["OS"], "nuspec" ].select { |token| token }.join(".")  
   nuget.output = "bin"
 end
 
