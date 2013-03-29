@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>LiteGuard</id>
-    <version>0.5.0</version>
+    <version>0.6.0-beta01</version>
     <title>LiteGuard</title>
     <authors>Adam Ralph, LiteGuard contributors</authors>
     <projectUrl>https://github.com/liteguard/liteguard</projectUrl>
@@ -11,7 +11,7 @@
 We all have to do our bit in working toward the ultimate number of published guard clause libraries which, at current estimates, is somewhere in the region of 6.02214129(27) × 10^23.
 The aim of LiteGuard is to be the most simple, unambiguous and lightweight guard clause library available. See the project site for details.
 This is the LiteGuard binary package. LiteGuard is also available as a source code package named 'LiteGuard.Source'. If your project is an application or library which is not packaged and/or exported for use in other solutions then the binary package is usually the best choice. If you are writing a library which is packaged and/or exported for use in other solutions then the source code package is usually the best choice.</description>
-    <releaseNotes>Enhancement: Add source code package - https://github.com/liteguard/liteguard/issues/5/</releaseNotes>
+    <releaseNotes>TBD</releaseNotes>
     <copyright>Copyright (c) LiteGuard contributors. (lightguard.ch@gmail.com)</copyright>
     <tags>guard clause arguments light avogadro</tags>
   </metadata>
