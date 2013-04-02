@@ -29,6 +29,11 @@ You'll hardly know it's there!
         ...
     }
 
+## Sponsors ##
+Our build server is kindly provided by [CodeBetter](http://codebetter.com/) and [JetBrains](http://www.jetbrains.com/).
+
+![YouTrack and TeamCity](http://www.jetbrains.com/img/banners/Codebetter300x250.png)
+
 ## Why did we create it?
 
 Because there are not enough guard clause libraries.
