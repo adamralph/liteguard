@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>LiteGuard.Source</id>
-    <version>0.6.0-beta03</version>
+    <version>0.6.0</version>
     <title>LiteGuard.Source</title>
     <authors>Adam Ralph, LiteGuard contributors</authors>
     <projectUrl>https://github.com/liteguard/liteguard</projectUrl>
@@ -15,7 +15,7 @@ Compatible with .NET 3.5, Mono 2.10.8, Windows Store 8, Silverlight 4 and Window
 This is the LiteGuard source code package. Also available as a binary package (LiteGuard). If your project is an application or library which is not packaged and/or exported for use in other solutions then the binary package is usually the best choice. If you are writing a library which is packaged and/or exported for use in other solutions then the source code package is usually the best choice.
 After installing this package you may change the source code as required to match your coding conventions.
 We all have to do our bit in working toward the ultimate number of published guard clause libraries which, at current estimates, is somewhere in the region of 6.02214129(27) × 10^23.</description>
-    <releaseNotes>TBD</releaseNotes>
+    <releaseNotes>Enhancement: Add Portable Class Library to NuGet packages - https://github.com/liteguard/liteguard/issues/9/</releaseNotes>
     <copyright>Copyright (c) LiteGuard contributors. (liteguard.ch@gmail.com)</copyright>
     <tags>guard clause arguments light avogadro</tags>
   </metadata>
