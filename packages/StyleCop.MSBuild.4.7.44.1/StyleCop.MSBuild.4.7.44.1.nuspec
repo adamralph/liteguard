@@ -3,6 +3,7 @@
   <metadata>
     <id>StyleCop.MSBuild</id>
     <version>4.7.44.1</version>
+    <title>StyleCop.MSBuild</title>
     <authors>Andy Reeves,  Adam Ralph</authors>
     <owners>Andy Reeves,  Adam Ralph</owners>
     <licenseUrl>https://bitbucket.org/adamralph/stylecop-msbuild/src/f067e2091562/license.txt</licenseUrl>

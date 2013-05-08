@@ -5,10 +5,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFiles", "SolutionFi
 	ProjectSection(SolutionItems) = preProject
 		CommonAssemblyInfo.cs = CommonAssemblyInfo.cs
 		LiteGuard.CustomDictionary.xml = LiteGuard.CustomDictionary.xml
-		LiteGuard.nuspec = LiteGuard.nuspec
 		LiteGuard.ruleset = LiteGuard.ruleset
 		LiteGuard.snk = LiteGuard.snk
-		LiteGuard.Windows_NT.nuspec = LiteGuard.Windows_NT.nuspec
+		Microsoft.Portable.CSharp.targets = Microsoft.Portable.CSharp.targets
 		nuget.config = nuget.config
 		Settings.StyleCop = Settings.StyleCop
 	EndProjectSection
@@ -24,6 +23,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiteGuard", "LiteGuard\Lite
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiteGuard.Specifications", "test\LiteGuard.Specifications\LiteGuard.Specifications.csproj", "{FCADACC8-D552-4BFF-A7E1-16BC169B05C6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiteGuard.Pcl", "LiteGuard.Pcl\LiteGuard.Pcl.csproj", "{65BCAB3D-F66F-4608-9229-F1B4F72725EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiteGuard.Specifications.Net40", "test\LiteGuard.Specifications.Net40\LiteGuard.Specifications.Net40.csproj", "{4DA89A08-6879-4556-BE1A-B0BA043EA2E0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuspec", "nuspec", "{D0208A9A-7E9E-4F0E-81FB-0548AF6F5073}"
+	ProjectSection(SolutionItems) = preProject
+		LiteGuard.nuspec = LiteGuard.nuspec
+		LiteGuard.Source.nuspec = LiteGuard.Source.nuspec
+		LiteGuard.Source.Windows_NT.nuspec = LiteGuard.Source.Windows_NT.nuspec
+		LiteGuard.Windows_NT.nuspec = LiteGuard.Windows_NT.nuspec
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,11 +49,21 @@ Global
 		{FCADACC8-D552-4BFF-A7E1-16BC169B05C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCADACC8-D552-4BFF-A7E1-16BC169B05C6}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{FCADACC8-D552-4BFF-A7E1-16BC169B05C6}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{65BCAB3D-F66F-4608-9229-F1B4F72725EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65BCAB3D-F66F-4608-9229-F1B4F72725EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65BCAB3D-F66F-4608-9229-F1B4F72725EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65BCAB3D-F66F-4608-9229-F1B4F72725EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DA89A08-6879-4556-BE1A-B0BA043EA2E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DA89A08-6879-4556-BE1A-B0BA043EA2E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DA89A08-6879-4556-BE1A-B0BA043EA2E0}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DA89A08-6879-4556-BE1A-B0BA043EA2E0}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{D0208A9A-7E9E-4F0E-81FB-0548AF6F5073} = {1DAD0ED8-7F96-4299-BEBB-04F3C25BFC76}
 		{FCADACC8-D552-4BFF-A7E1-16BC169B05C6} = {3CE881F9-3E00-4C16-8A90-9C5F57FA9565}
+		{4DA89A08-6879-4556-BE1A-B0BA043EA2E0} = {3CE881F9-3E00-4C16-8A90-9C5F57FA9565}
 	EndGlobalSection
 EndGlobal

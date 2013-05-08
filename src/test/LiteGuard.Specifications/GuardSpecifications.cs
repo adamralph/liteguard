@@ -5,7 +5,6 @@
 namespace LiteGuard.Specifications
 {
     using System;
-    using FakeItEasy;
     using FluentAssertions;
     using Xbehave;
     using Xunit;

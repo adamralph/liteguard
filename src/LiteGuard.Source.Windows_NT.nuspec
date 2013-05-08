@@ -18,5 +18,6 @@ After installing this package you may change the source code as required to matc
   </metadata>
   <files>
     <file src="LiteGuard\bin\Release\Guard.cs.pp" target="content\net35" />
+    <file src="LiteGuard\bin\Release\Guard.cs.pp" target="content\portable40-win8+net40+sl40+wp7" />
   </files>
 </package>

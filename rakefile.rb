@@ -2,6 +2,7 @@ require 'albacore'
 require 'fileutils'
 
 ENV["XunitConsole_net20"] = "packages/xunit.runners.1.9.1/tools/xunit.console.exe"
+ENV["XunitConsole_net40"] = "packages/xunit.runners.1.9.1/tools/xunit.console.clr4.exe"
 ENV["NuGetConsole"] = "packages/NuGet.CommandLine.2.2.0/tools/NuGet.exe"
 
 Albacore.configure do |config|
@@ -43,6 +44,7 @@ desc "Execute specs"
 task :spec do
   specs = [
     { :version => :net20, :path => "src/test/LiteGuard.Specifications/bin/Debug/LiteGuard.Specifications.dll" },
+    { :version => :net40, :path => "src/test/LiteGuard.Specifications.Net40/bin/Debug/LiteGuard.Specifications.dll" },
   ]
   execute specs
 end
