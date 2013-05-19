@@ -85,3 +85,7 @@ No pull request is too small. Even whitespace fixes are appreciated. Before you 
 ## What do the version numbers mean? ##
 
 LiteGuard uses [Semantic Versioning](http://semver.org/). The current release is 0.x which means 'initial development'. Version 1.0 is imminent.
+
+## Credits ##
+
+LiteGuard logo designed by Vanja Pakaski.
