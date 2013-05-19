@@ -6,6 +6,7 @@
     <title>LiteGuard.Source</title>
     <authors>Adam Ralph, LiteGuard contributors</authors>
     <projectUrl>https://github.com/liteguard/liteguard</projectUrl>
+    <iconUrl>https://raw.github.com/liteguard/liteguard/master/assets/liteguard_128.png</iconUrl>
     <licenseUrl>https://github.com/liteguard/liteguard/blob/master/license.txt</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>The most simple, unambiguous and lightweight guard clause library. This is the source code package. Also available as a binary package (LiteGuard).</summary>
