@@ -1,10 +1,12 @@
-# LiteGuard
+![LiteGuard](https://raw.github.com/liteguard/liteguard/master/assets/liteguard_128.png)
 
 Why, it's lighter than air!
 
 The guard clause library which stands out from the crowd like the faintest passing whisper.
 
 You'll hardly know it's there!
+
+Get it at [NuGet](https://nuget.org/packages?q=liteguard "LiteGuard on NuGet").
 
 ## How do I use it?
 
