@@ -1,16 +1,31 @@
 require 'albacore'
 require 'fileutils'
 
-ENV["XunitConsole_net20"] = "packages/xunit.runners.1.9.1/tools/xunit.console.exe"
-ENV["XunitConsole_net40"] = "packages/xunit.runners.1.9.1/tools/xunit.console.clr4.exe"
-ENV["NuGetConsole"] = "packages/NuGet.CommandLine.2.2.0/tools/NuGet.exe"
+net20 = "2.0.50727"
+net40 = "4.0.30319"
+xunit_console_net20 = { :command => "packages/xunit.runners.1.9.1/tools/xunit.console.exe", :net_version => net20 }
+xunit_console_net40 = { :command => "packages/xunit.runners.1.9.1/tools/xunit.console.clr4.exe", :net_version => net40 }
+nuget_console = { :command => "packages/NuGet.CommandLine.2.5.0/tools/NuGet.exe", :net_version => net40 }
+solution = "src/LiteGuard.sln"
+output = "bin"
+
+specs = [
+  { :console => xunit_console_net20, :assembly => "src/test/LiteGuard.Specifications/bin/Debug/LiteGuard.Specifications.dll" },
+  { :console => xunit_console_net40, :assembly => "src/test/LiteGuard.Specifications.Net40/bin/Debug/LiteGuard.Specifications.dll" },
+]
+
+# NOTE (Adam): nuspec path values fail under Mono on Windows if using / or Mono on Linux if using \
+nuspecs = [
+  ["src/LiteGuard", ENV["OS"], "nuspec"].select { |token| token }.join("."),
+  ["src/LiteGuard.Source", ENV["OS"], "nuspec"].select { |token| token }.join("."),
+]
 
 Albacore.configure do |config|
   config.log_level = :verbose
 end
 
-desc "Executes clean, build, spec, nugetpack and packsrc"
-task :default => [ :clean, :build, :spec, :nugetpack, :packsrc ]
+desc "Execute default tasks"
+task :default => [:spec, :pack]
 
 desc "Use Mono in Windows"
 task :mono do
@@ -22,66 +37,75 @@ end
 
 desc "Clean solution"
 task :clean do
-  FileUtils.rmtree "bin"
-
-  build = RakeHelper.use_mono ? XBuild.new : MSBuild.new
-  build.properties = { :configuration => :Release }
-  build.targets = [ :Clean ]
-  build.solution = "src/LiteGuard.sln"
-  build.execute
+  FileUtils.rmtree output
+  execute_build [:Clean], solution
 end
 
 desc "Build solution"
-task :build do
-  build = RakeHelper.use_mono ? XBuild.new : MSBuild.new
-  build.properties = { :configuration => :Release }
-  build.targets = [ :Build ]
-  build.solution = "src/LiteGuard.sln"
-  build.execute
+task :build => [:clean] do
+  execute_build [:Build], solution
 end
 
 desc "Execute specs"
-task :spec do
-  specs = [
-    { :version => :net20, :path => "src/test/LiteGuard.Specifications/bin/Debug/LiteGuard.Specifications.dll" },
-    { :version => :net40, :path => "src/test/LiteGuard.Specifications.Net40/bin/Debug/LiteGuard.Specifications.dll" },
-  ]
-  execute specs
+task :spec => [:build] do
+  execute_xunit specs
 end
 
-desc "Create the binary nuget package"
-nugetpack :nugetpack do |nuget|
-  FileUtils.mkpath "bin"
-  
-  # NOTE (Adam): nuspec files can be consolidated after NuGet 2.3 is released - see http://nuget.codeplex.com/workitem/2767
-  nuget.command = RakeHelper.nuget_command
-  nuget.nuspec = [ "src/LiteGuard", ENV["OS"], "nuspec" ].select { |token| token }.join(".")  
-  nuget.output = "bin"
-end
-
-desc "Create the source code nuget package"
-nugetpack :packsrc do |nuget|
+desc "Prepare source code for packaging"
+task :src do
   File.open("src/LiteGuard/Guard.cs") { |from|
     contents = from.read
     contents.sub!(/.*namespace LiteGuard/m, 'namespace $rootnamespace$')
     contents.sub!(/public static class/, 'internal static class')
     File.open("src/LiteGuard/bin/Release/Guard.cs.pp", "w+") { |to| to.write(contents) }
   }
-
-  FileUtils.mkpath "bin"
-
-  # NOTE (Adam): nuspec files can be consolidated after NuGet 2.3 is released - see http://nuget.codeplex.com/workitem/2767
-  nuget.command = RakeHelper.nuget_command
-  nuget.nuspec = [ "src/LiteGuard.Source", ENV["OS"], "nuspec" ].select { |token| token }.join(".")  
-  nuget.output = "bin"
 end
 
-def execute(tests)
+desc "Create the nuget packages"
+task :pack => [:build, :src] do
+  FileUtils.mkpath output
+  execute_nugetpack nuspecs, nuget_console, output
+end
+
+def execute_build(targets, solution)
+  build = use_mono ? XBuild.new : MSBuild.new
+  build.properties = { :configuration => :Release }
+  build.targets = targets
+  build.solution = solution
+  build.execute
+end
+
+def execute_xunit(tests)
   tests.each do |test|
-    xunit = XUnitTestRunner.new
-    xunit.command = RakeHelper.xunit_command(test[:version])
-    xunit.assembly = test[:path]
-    xunit.options "/html " + test[:path] + ".html"
-    xunit.execute  
+    cmd = Exec.new
+    prepare_task cmd, test[:console][:command], test[:console][:net_version]
+    cmd.parameters << test[:assembly] << "/html" << test[:assembly] + ".TestResults.html" << "/xml" << test[:assembly] + ".TestResults.xml"
+    cmd.execute  
   end
+end
+
+def execute_nugetpack(nuspecs, nuget_console, output)
+  nuspecs.each do |nuspec|
+    cmd = Exec.new
+    prepare_task cmd, nuget_console[:command], nuget_console[:net_version]
+    cmd.parameters << "pack" << nuspec << "-OutputDirectory" << output
+    cmd.execute
+  end
+end
+
+def prepare_task(task, command, net_version)
+    if use_mono then
+      task.command = "mono"
+      task.parameters << "--runtime=v" + net_version << command
+    else
+      task.command = command
+    end  
+end
+
+def use_mono
+  return !is_windows || ENV["Mono"]
+end
+
+def is_windows
+  return ENV["OS"] == "Windows_NT"
 end
