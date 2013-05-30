@@ -32,9 +32,9 @@
     </Reference>
     <Reference Include="System.XML" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="Xbehave, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e4957f48888f9fe8, processorArchitecture=MSIL">
+    <Reference Include="Xbehave, Version=0.15.0.0, Culture=neutral, PublicKeyToken=e4957f48888f9fe8, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\Xbehave.1.0.0-beta04\lib\net35\Xbehave.dll</HintPath>
+      <HintPath>..\..\..\packages\Xbehave.0.15.0-beta04\lib\net35\Xbehave.dll</HintPath>
     </Reference>
     <Reference Include="xunit, Version=1.9.1.1600, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

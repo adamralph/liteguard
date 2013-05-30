@@ -23,6 +23,147 @@
             <param name="method">The test method.</param>
             <returns>An instance of <see cref="T:System.Collections.Generic.IEnumerable`1"/> representing the backgrounds defined by the <paramref name="method"/>.</returns>
         </member>
+        <member name="T:Xbehave.ContinueOnFailureAfterAttribute">
+            <summary>
+            Allows step execution within a scenario to continue after a failed step.
+            <example>
+            To allow step execution to continue after any failed step:
+            <code>[ContinueOnFailureAfter(StepType.Any)]</code>.
+            </example>
+            <example>
+            To allow step execution to continue after a failed step but only after the execution of the first "Then" step, use
+            <code>[ContinueOnFailureAfter(StepType.Then)]</code>.
+            </example>
+            The default setting is <c>StepType.None</c>.
+            This attribute can be applied at the level of method (scenario), class (feature) or assembly (product).
+            </summary>
+        </member>
+        <member name="M:Xbehave.ContinueOnFailureAfterAttribute.#ctor(Xbehave.StepType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xbehave.ContinueOnFailureAfterAttribute"/> class.
+            </summary>
+            <param name="stepType">Type of the step.</param>
+        </member>
+        <member name="P:Xbehave.ContinueOnFailureAfterAttribute.StepType">
+            <summary>
+            Gets the type of the step.
+            </summary>
+            <value>
+            The type of the step.
+            </value>
+        </member>
+        <member name="T:Xbehave.OmitArgumentsFromScenarioNamesAttribute">
+            <summary>
+            Omits arguments passed to scenario methods (e.g. using <see cref="T:Xbehave.ExampleAttribute"/>) from scenario names in test output.
+            Disabled by default.
+            This attribute can be applied at the level of method (scenario), class (feature) or assembly (product).
+            </summary>
+        </member>
+        <member name="M:Xbehave.OmitArgumentsFromScenarioNamesAttribute.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xbehave.OmitArgumentsFromScenarioNamesAttribute"/> class.
+            </summary>
+            <param name="enabled">If set to <c>true</c> [enabled].</param>
+        </member>
+        <member name="P:Xbehave.OmitArgumentsFromScenarioNamesAttribute.Enabled">
+            <summary>
+            Gets a value indicating whether this <see cref="T:Xbehave.OmitArgumentsFromScenarioNamesAttribute"/> is enabled.
+            </summary>
+            <value>
+              <c>true</c> if enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Xbehave.StepType">
+            <summary>
+            Represents the type of a step.
+            </summary>
+        </member>
+        <member name="F:Xbehave.StepType.Any">
+            <summary>
+            Represents any step type.
+            </summary>
+        </member>
+        <member name="F:Xbehave.StepType.None">
+            <summary>
+            Represents no step type.
+            </summary>
+        </member>
+        <member name="F:Xbehave.StepType.Given">
+            <summary>
+            Represents a "Given" step.
+            </summary>
+        </member>
+        <member name="F:Xbehave.StepType.When">
+            <summary>
+            Represents a "When" step.
+            </summary>
+        </member>
+        <member name="F:Xbehave.StepType.Then">
+            <summary>
+            Represents a "Then" step.
+            </summary>
+        </member>
+        <member name="F:Xbehave.StepType.And">
+            <summary>
+            Represents a "And" step.
+            </summary>
+        </member>
+        <member name="F:Xbehave.StepType.But">
+            <summary>
+            Represents a "But" step.
+            </summary>
+        </member>
+        <member name="T:Xbehave.Guard">
+            <summary>
+            Provides guard clauses.
+            </summary>
+        </member>
+        <member name="M:Xbehave.Guard.AgainstNullArgument``1(System.String,``0)">
+            <summary>
+            Guards against a null argument.
+            </summary>
+            <typeparam name="TArgument">The type of the argument.</typeparam>
+            <param name="parameterName">Name of the parameter.</param>
+            <param name="argument">The argument.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="argument"/> is <c>null</c>.</exception>
+            <remarks><typeparamref name="TArgument"/> is restricted to reference types to avoid boxing of value type objects.</remarks>
+        </member>
+        <member name="M:Xbehave.Guard.AgainstNullArgumentIfNullable``1(System.String,``0)">
+            <summary>
+            Guards against a null argument if <typeparamref name="TArgument"/> can be <c>null</c>.
+            </summary>
+            <typeparam name="TArgument">The type of the argument.</typeparam>
+            <param name="parameterName">Name of the parameter.</param>
+            <param name="argument">The argument.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="argument"/> is <c>null</c>.</exception>
+            <remarks>
+            Performs a type check to avoid boxing of value type objects.
+            </remarks>
+        </member>
+        <member name="M:Xbehave.Guard.AgainstNullArgumentProperty``1(System.String,System.String,``0)">
+            <summary>
+            Guards against a null argument property value.
+            </summary>
+            <typeparam name="TProperty">The type of the property.</typeparam>
+            <param name="parameterName">Name of the parameter.</param>
+            <param name="propertyName">Name of the property.</param>
+            <param name="argumentProperty">The argument property.</param>
+            <exception cref="T:System.ArgumentException"><paramref name="argumentProperty"/> is <c>null</c>.</exception>
+            <remarks><typeparamref name="TProperty"/> is restricted to reference types to avoid boxing of value type objects.</remarks>
+        </member>
+        <member name="M:Xbehave.Guard.AgainstNullArgumentPropertyIfNullable``1(System.String,System.String,``0)">
+            <summary>
+            Guards against a null argument property value if <typeparamref name="TProperty"/> can be <c>null</c>.
+            </summary>
+            <typeparam name="TProperty">The type of the property.</typeparam>
+            <param name="parameterName">Name of the parameter.</param>
+            <param name="propertyName">Name of the property.</param>
+            <param name="argumentProperty">The argument property.</param>
+            <exception cref="T:System.ArgumentException"><paramref name="argumentProperty"/> is <c>null</c>.</exception>
+            <remarks>
+            Performs a type check to avoid boxing of value type objects.
+            </remarks>
+        </member>
         <member name="T:Xbehave.DisposableExtensions">
             <summary>
             <see cref="T:System.IDisposable"/> extensions.
@@ -242,6 +383,33 @@
             <returns>
             An instance of <see cref="T:Xbehave.Fluent.IStep"/>.
             </returns>
+        </member>
+        <member name="M:Xbehave.StringExtensions.f(System.String,System.Action)">
+            <summary>
+            Defines a step in the current scenario.
+            </summary>
+            <param name="text">The step text.</param>
+            <param name="body">The action that will perform the step.</param>
+            <returns>
+            An instance of <see cref="T:Xbehave.Fluent.IStep"/>.
+            </returns>
+        </member>
+        <member name="M:Xbehave.StringExtensions._(System.String,System.Action)">
+            <summary>
+            Defines a step in the current scenario.
+            </summary>
+            <param name="text">The step text.</param>
+            <param name="body">The action that will perform the step.</param>
+            <returns>
+            An instance of <see cref="T:Xbehave.Fluent.IStep"/>.
+            </returns>
+        </member>
+        <member name="M:Xbehave.StringExtensions.GetStepType(System.String)">
+            <summary>
+            Get the appropriate step type based on the the text.
+            </summary>
+            <param name="text">The step text.</param>
+            <returns>The appropriate step type based on the text.</returns>
         </member>
         <member name="T:Xbehave._">
             <summary>
