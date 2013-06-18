@@ -1,6 +1,7 @@
 require 'albacore'
 require 'fileutils'
 
+@version = IO.read("src/CommonAssemblyInfo.cs").split(/AssemblyInformationalVersion\("/, 2)[1].split(/"/).first
 net20 = "2.0.50727"
 net40 = "4.0.30319"
 xunit_console_net20 = { :command => "packages/xunit.runners.1.9.1/tools/xunit.console.exe", :net_version => net20 }
@@ -88,7 +89,7 @@ def execute_nugetpack(nuspecs, nuget_console, output)
   nuspecs.each do |nuspec|
     cmd = Exec.new
     prepare_task cmd, nuget_console[:command], nuget_console[:net_version]
-    cmd.parameters << "pack" << nuspec << "-OutputDirectory" << output
+    cmd.parameters << "pack" << nuspec << "-Version" << @version << "-OutputDirectory" << output
     cmd.execute
   end
 end
