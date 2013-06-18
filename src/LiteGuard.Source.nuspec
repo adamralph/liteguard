@@ -23,5 +23,6 @@ We all have to do our bit in working toward the ultimate number of published gua
   <files>
     <file src="LiteGuard/bin/Release/Guard.cs.pp" target="content/net35" />
     <file src="LiteGuard/bin/Release/Guard.cs.pp" target="content/portable40-win8+net40+sl40+wp7" />
+    <file src="LiteGuard.Net45/bin/Release/Guard.cs.pp" target="content/net45" />
   </files>
 </package>

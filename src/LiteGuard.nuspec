@@ -24,5 +24,7 @@ We all have to do our bit in working toward the ultimate number of published gua
     <file src="LiteGuard/bin/Release/LiteGuard.xml" target="lib/net35" />
     <file src="LiteGuard.Pcl/bin/Release/LiteGuard.dll" target="lib/portable40-win8+net40+sl40+wp7" />
     <file src="LiteGuard.Pcl/bin/Release/LiteGuard.xml" target="lib/portable40-win8+net40+sl40+wp7" />
+    <file src="LiteGuard.Net45/bin/Release/LiteGuard.dll" target="lib/net45" />
+    <file src="LiteGuard.Net45/bin/Release/LiteGuard.xml" target="lib/net45" />
   </files>
 </package>
