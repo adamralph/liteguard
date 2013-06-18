@@ -13,6 +13,7 @@ output = "bin"
 specs = [
   { :console => xunit_console_net20, :assembly => "src/test/LiteGuard.Specifications/bin/Debug/LiteGuard.Specifications.dll" },
   { :console => xunit_console_net40, :assembly => "src/test/LiteGuard.Specifications.Net40/bin/Debug/LiteGuard.Specifications.dll" },
+  { :console => xunit_console_net40, :assembly => "src/test/LiteGuard.Specifications.Net45/bin/Debug/LiteGuard.Specifications.dll" },
 ]
 
 # NOTE (Adam): nuspec path values fail under Mono on Windows if using / or Mono on Linux if using \
@@ -59,6 +60,12 @@ task :src do
     contents.sub!(/.*namespace LiteGuard/m, 'namespace $rootnamespace$')
     contents.sub!(/public static class/, 'internal static class')
     File.open("src/LiteGuard/bin/Release/Guard.cs.pp", "w+") { |to| to.write(contents) }
+  }
+  File.open("src/LiteGuard.Net45/Guard.cs") { |from|
+    contents = from.read
+    contents.sub!(/.*namespace LiteGuard/m, 'namespace $rootnamespace$')
+    contents.sub!(/public static class/, 'internal static class')
+    File.open("src/LiteGuard.Net45/bin/Release/Guard.cs.pp", "w+") { |to| to.write(contents) }
   }
 end
 

@@ -2,11 +2,7 @@
 //  Copyright (c) LiteGuard contributors. All rights reserved.
 // </copyright>
 
-using System;
 using System.Reflection;
-using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("LiteGuard")]
-[assembly: AssemblyDescription("")]
-
-[assembly: CLSCompliant(true)]
+[assembly: AssemblyDescription("The most simple, unambiguous and lightweight guard clause library.")]
