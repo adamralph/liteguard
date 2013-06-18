@@ -2,7 +2,6 @@
 //  Copyright (c) LiteGuard contributors. All rights reserved.
 // </copyright>
 
-using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 
@@ -18,5 +17,3 @@ using System.Reflection;
 [assembly: AssemblyInformationalVersion("0.8.0-beta01")]
 [assembly: SuppressMessage(
     "Microsoft.Usage", "CA2243:AttributeStringLiteralsShouldParseCorrectly", Justification = "Using SemVer in AssemblyInformationalVersion.")]
-
-[assembly: CLSCompliant(true)]
