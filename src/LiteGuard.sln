@@ -35,6 +35,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuspec", "nuspec", "{D0208A
 		LiteGuard.Windows_NT.nuspec = LiteGuard.Windows_NT.nuspec
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{56B4AF74-81A3-445B-9BEE-F044C1106D0B}"
+	ProjectSection(SolutionItems) = preProject
+		test\LiteGuard.Test.ruleset = test\LiteGuard.Test.ruleset
+		test\Settings.StyleCop = test\Settings.StyleCop
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,5 +71,6 @@ Global
 		{D0208A9A-7E9E-4F0E-81FB-0548AF6F5073} = {1DAD0ED8-7F96-4299-BEBB-04F3C25BFC76}
 		{FCADACC8-D552-4BFF-A7E1-16BC169B05C6} = {3CE881F9-3E00-4C16-8A90-9C5F57FA9565}
 		{4DA89A08-6879-4556-BE1A-B0BA043EA2E0} = {3CE881F9-3E00-4C16-8A90-9C5F57FA9565}
+		{3CE881F9-3E00-4C16-8A90-9C5F57FA9565} = {56B4AF74-81A3-445B-9BEE-F044C1106D0B}
 	EndGlobalSection
 EndGlobal
