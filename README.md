@@ -1,5 +1,8 @@
 ![LiteGuard](https://raw.github.com/liteguard/liteguard/master/assets/liteguard_128.png)
 
+[![Build Status](https://travis-ci.org/liteguard/liteguard.png?branch=master)](https://
+travis-ci.org/liteguard/liteguard)
+
 Why, it's lighter than air!
 
 The guard clause library which stands out from the crowd like the faintest passing whisper.
