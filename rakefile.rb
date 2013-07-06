@@ -6,7 +6,7 @@ net20 = "2.0.50727"
 net40 = "4.0.30319"
 xunit_console_net20 = { :command => "packages/xunit.runners.1.9.1/tools/xunit.console.exe", :net_version => net20 }
 xunit_console_net40 = { :command => "packages/xunit.runners.1.9.1/tools/xunit.console.clr4.exe", :net_version => net40 }
-nuget_console = { :command => "packages/NuGet.CommandLine.2.5.0/tools/NuGet.exe", :net_version => net40 }
+nuget_console = { :command => "packages/NuGet.CommandLine.2.6.1/tools/NuGet.exe", :net_version => net40 }
 solution = "src/LiteGuard.sln"
 output = "bin"
 
