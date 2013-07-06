@@ -1,7 +1,6 @@
 ![LiteGuard](https://raw.github.com/liteguard/liteguard/master/assets/liteguard_128.png)
 
-[![Build Status](https://travis-ci.org/liteguard/liteguard.png?branch=master)](https://
-travis-ci.org/liteguard/liteguard)
+[![Build Status](https://travis-ci.org/liteguard/liteguard.png?branch=master)](https://travis-ci.org/liteguard/liteguard)
 
 Why, it's lighter than air!
 
@@ -13,53 +12,43 @@ Get it at [NuGet](https://nuget.org/packages?q=liteguard "LiteGuard on NuGet").
 
 ## How do I use it?
 
-    public void Foo(Bar bar)
-    {
-		Guard.AgainstNullArgument("bar", bar);
-	    Guard.AgainstNullArgumentProperty("bar", "Baz", bar.Baz);
-        Guard.AgainstNullArgumentProperty("bar", "Baz.Bazza", bar.Baz.Bazza);
+```C#
+public void Foo(Bar bar)
+{
+	Guard.AgainstNullArgument("bar", bar);
+    Guard.AgainstNullArgumentProperty("bar", "Baz", bar.Baz);
+    Guard.AgainstNullArgumentProperty("bar", "Baz.Bazza", bar.Baz.Bazza);
 
-        // the rest of your method, nice and safe, wrapped in the protecting arms of LiteGuard
-    }
+    // the rest of your method, nice and safe, wrapped in the protecting arms of LiteGuard
+}
 
-    public void Foo<T>(T bar) where T : class
-    {
-		Guard.AgainstNullArgument("bar", bar);
-        ...
-    }
+public void Foo<T>(T bar) where T : class
+{
+	Guard.AgainstNullArgument("bar", bar);
+    ...
+}
 
-    public void Foo<T>(T bar)
-    {
-		Guard.AgainstNullArgumentIfNullable("bar", bar);
-        ...
-    }
-
-## Sponsors ##
-Our build server is kindly provided by [CodeBetter](http://codebetter.com/) and [JetBrains](http://www.jetbrains.com/).
-
-![YouTrack and TeamCity](http://www.jetbrains.com/img/banners/Codebetter300x250.png)
+public void Foo<T>(T bar)
+{
+	Guard.AgainstNullArgumentIfNullable("bar", bar);
+    ...
+}
+```
 
 ## Why did we create it?
-
-Because there are not enough guard clause libraries.
-
-Naturally everyone writes their own guard clause library but there are only a limited number of developers in the universe.
-
-This means we all have to do our bit in working toward the ultimate number of published guard clause libraries which, at current estimates, is somewhere in the region of 6.02214129(27) × 10^23.
-
-## What makes it different?
 
 The aim of LiteGuard is to be the most simple, unambiguous and lightweight guard clause library available.
 
 ### A very explicit DSL
 
 The names of LiteGuard clauses are unambiguous to ensure correct usage. Misuse should be obvious.
-
-    public void Foo(Bar bar)
-    {
-	    var baz = GetBaz();
-    	Guard.AgainstNullArgument("baz", baz); // clearly incorrect - baz is not an argument
-    }
+```C#
+public void Foo(Bar bar)
+{
+    var baz = GetBaz();
+	Guard.AgainstNullArgument("baz", baz); // clearly incorrect - baz is not an argument
+}
+```
 
 ### No fluent API
 
@@ -88,6 +77,11 @@ No pull request is too small. Even whitespace fixes are appreciated. Before you 
 ## What do the version numbers mean? ##
 
 LiteGuard uses [Semantic Versioning](http://semver.org/). The current release is 0.x which means 'initial development'. Version 1.0 is imminent.
+
+## Sponsors ##
+Our build server is kindly provided by [CodeBetter](http://codebetter.com/) and [JetBrains](http://www.jetbrains.com/).
+
+![YouTrack and TeamCity](http://www.jetbrains.com/img/banners/Codebetter300x250.png)
 
 ## Credits ##
 
