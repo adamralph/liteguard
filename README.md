@@ -1,6 +1,6 @@
 ![LiteGuard](https://raw.github.com/liteguard/liteguard/master/assets/liteguard_128.png)
 
-[![Build Status](https://travis-ci.org/liteguard/liteguard.png?branch=master)](https://travis-ci.org/liteguard/liteguard)
+[![Build Status](https://travis-ci.org/liteguard/liteguard.png?branch=master)](https://travis-ci.org/liteguard/liteguard) [![Build Status](http://teamcity.codebetter.com/app/rest/builds/buildType:%28id:bt973%29/statusIcon)](http://teamcity.codebetter.com/viewType.html?buildTypeId=bt973&guest=1)
 
 Why, it's lighter than air!
 
