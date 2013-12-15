@@ -24,13 +24,9 @@ Note that under Mono, the PCL target is [redirected](https://github.com/liteguar
 
     `gem update --system`
 
-1. Install/update Rake (already included in Ruby 1.9 or later)*:
+1. Install/update Rake, Albacore and Zip*:
 
-    `gem install rake`
-    
-1. Install/update Albacore*:
-
-    `gem install albacore`
+    `gem install rake albacore zip`
 
 1. If you are using Windows and you want to build using the Microsoft .NET framework, ensure you have versions 3.5 and either 4.0 or 4.5 installed.
 
