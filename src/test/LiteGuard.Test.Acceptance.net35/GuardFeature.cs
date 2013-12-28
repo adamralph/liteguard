@@ -37,6 +37,32 @@ namespace LiteGuard.Test.Acceptance
         }
 
         [Scenario]
+        public static void NullNullableValueTypeArgument(string parameterName, int? argument, Exception exception)
+        {
+            "Given a parameter name"
+                .Given(() => parameterName = "foo");
+
+            "And a null argument"
+                .And(() => argument = null);
+
+            "When guarding against a null argument"
+                .When(() => exception = Record.Exception(() => Guard.AgainstNullArgumentIfNullable(parameterName, argument)));
+
+            "Then the exception should be an argument null exception"
+                .Then(() => Assert.IsType<ArgumentNullException>(exception));
+
+            "And the exception message should contain the parameter name and \"null\""
+                .And(() =>
+                {
+                    Assert.Contains(parameterName, exception.Message);
+                    Assert.Contains("null", exception.Message);
+                });
+
+            "And the exception parameter name should be the parameter name"
+                .And(() => Assert.Equal(parameterName, ((ArgumentException)exception).ParamName));
+        }
+
+        [Scenario]
         public static void NullArgumentProperty(string parameterName, string propertyName, object propertyValue, Exception exception)
         {
             "Given a parameter name"
@@ -133,6 +159,22 @@ namespace LiteGuard.Test.Acceptance
 
             "When guarding against a null argument"
                 .When(() => exception = Record.Exception(() => Guard.AgainstNullArgument(parameterName, argument)));
+
+            "Then no exception should be thrown"
+                .Then(() => Assert.Null(exception));
+        }
+
+        [Scenario]
+        public static void NonNullNullableValueTypeArgument(string parameterName, int? argument, Exception exception)
+        {
+            "Given a parameter name"
+                .Given(() => parameterName = "foo");
+
+            "And a non-null argument"
+                .And(() => argument = 123);
+
+            "When guarding against a null argument"
+                .When(() => exception = Record.Exception(() => Guard.AgainstNullArgumentIfNullable(parameterName, argument)));
 
             "Then no exception should be thrown"
                 .Then(() => Assert.Null(exception));
