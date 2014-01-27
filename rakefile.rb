@@ -80,7 +80,7 @@ def execute_xunit(tests)
   tests.each do |test|
     cmd = Exec.new
     prepare_task cmd, test[:console][:command], test[:console][:net_version]
-    cmd.parameters << test[:assembly] << "/html" << test[:assembly] + ".TestResults.html" << "/xml" << test[:assembly] + ".TestResults.xml"
+    cmd.parameters << test[:assembly] << "/html" << fix_path(test[:assembly] + ".TestResults.html") << "/xml" << fix_path(test[:assembly] + ".TestResults.xml")
     cmd.execute  
   end
 end
@@ -101,6 +101,14 @@ def prepare_task(task, command, net_version)
     else
       task.command = command
     end  
+end
+
+def fix_path(path)
+  if is_windows then
+    return File.expand_path(path)
+  else
+    return path
+  end
 end
 
 def use_mono
