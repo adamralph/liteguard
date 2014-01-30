@@ -24,4 +24,7 @@ script: ./travis.sh
 notifications:
   email:
     - liteguard.ch@gmail.com
+  webhooks:
+    urls:
+      - https://webhooks.gitter.im/e/fb4c45d35154322cdbd6
 gemfile: Gemfile
