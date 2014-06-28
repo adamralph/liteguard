@@ -26,6 +26,8 @@ We all have to do our bit in working toward the ultimate number of published gua
   </metadata>
   <files>
     <file src="LiteGuard\bin\Release\Guard.cs.pp" target="content\net35" />
-    <file src="LiteGuard\bin\Release\Guard.cs.pp" target="content\portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1" />
+    <file src="LiteGuard\bin\Release\Guard.cs.pp" target="content\sl5" />
+    <file src="LiteGuard\bin\Release\Guard.cs.pp" target="content\wp8" />
+    <file src="LiteGuard.Pcl\bin\Release\Guard.cs.pp" target="content\portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1" />
   </files>
 </package>

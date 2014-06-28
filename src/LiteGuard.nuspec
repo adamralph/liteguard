@@ -24,6 +24,10 @@ We all have to do our bit in working toward the ultimate number of published gua
   <files>
     <file src="LiteGuard/bin/Release/LiteGuard.dll" target="lib/net35" />
     <file src="LiteGuard/bin/Release/LiteGuard.xml" target="lib/net35" />
+    <file src="LiteGuard/bin/Release/LiteGuard.dll" target="lib/sl5" />
+    <file src="LiteGuard/bin/Release/LiteGuard.xml" target="lib/sl5" />
+    <file src="LiteGuard/bin/Release/LiteGuard.dll" target="lib/wp8" />
+    <file src="LiteGuard/bin/Release/LiteGuard.xml" target="lib/wp8" />
     <file src="LiteGuard.Pcl/bin/Release/LiteGuard.dll" target="lib/portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1" />
     <file src="LiteGuard.Pcl/bin/Release/LiteGuard.xml" target="lib/portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1" />
   </files>
