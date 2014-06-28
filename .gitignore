@@ -1,7 +1,16 @@
 bin
 obj
-StyleCop.Cache
+
 *.suo
 *.user
 
-Thumbs.db
+/src/packages/*
+!/src/packages/NuGet.CommandLine.*
+/src/packages/NuGet.CommandLine.*/*
+/src/packages/NuGet.CommandLine.*/*.*
+!/src/packages/NuGet.CommandLine.*/tools
+/src/packages/NuGet.CommandLine.*/tools/*
+/src/packages/NuGet.CommandLine.*/tools/*.*
+!/src/packages/NuGet.CommandLine.*/tools/NuGet.exe
+
+*.sln.ide
