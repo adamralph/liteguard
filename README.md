@@ -1,6 +1,6 @@
 ![LiteGuard](https://raw.github.com/liteguard/liteguard/master/assets/liteguard_128.png)
 
-[![*nix Build Status](http://img.shields.io/travis/liteguard/liteguard/master.svg?style=flat)](https://travis-ci.org/lietguard/liteguard) [![Windows Build Status](http://img.shields.io/teamcity/codebetter/bt973.svg?style=flat)](http://teamcity.codebetter.com/viewType.html?buildTypeId=bt973&guest=1)
+[![*nix Build Status](http://img.shields.io/travis/liteguard/liteguard/master.svg?style=flat)](https://travis-ci.org/liteguard/liteguard) [![Windows Build Status](http://img.shields.io/teamcity/codebetter/bt973.svg?style=flat)](http://teamcity.codebetter.com/viewType.html?buildTypeId=bt973&guest=1)
 
 Why, it's lighter than air!
 
