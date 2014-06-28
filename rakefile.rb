@@ -66,6 +66,12 @@ task :src do
     contents.sub!(/public static class/, 'internal static class')
     File.open("src/LiteGuard/bin/Release/Guard.cs.pp", "w+") { |to| to.write(contents) }
   }
+  File.open("src/LiteGuard.Pcl/Guard.cs") { |from|
+    contents = from.read
+    contents.sub!(/.*namespace LiteGuard/m, 'namespace $rootnamespace$')
+    contents.sub!(/public static class/, 'internal static class')
+    File.open("src/LiteGuard.Pcl/bin/Release/Guard.cs.pp", "w+") { |to| to.write(contents) }
+  }
 end
 
 desc "Create the nuget packages"

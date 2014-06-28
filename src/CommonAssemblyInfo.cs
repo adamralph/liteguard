@@ -2,9 +2,12 @@
 //  Copyright (c) LiteGuard contributors. All rights reserved.
 // </copyright>
 
+using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 
+[assembly: AssemblyTitle("LiteGuard")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("LiteGuard contributors")]
 [assembly: AssemblyCopyright("Copyright © LiteGuard contributors. All rights reserved.")]
@@ -15,3 +18,5 @@ using System.Reflection;
 [assembly: AssemblyVersion("0.9.0.0")]
 [assembly: AssemblyFileVersion("0.9.0.0")]
 [assembly: AssemblyInformationalVersion("0.9.0")]
+
+[assembly: CLSCompliant(true)]
