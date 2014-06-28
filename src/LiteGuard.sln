@@ -39,9 +39,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiteGuard", "LiteGuard\Lite
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiteGuard.Specifications", "test\LiteGuard.Specifications\LiteGuard.Specifications.csproj", "{FCADACC8-D552-4BFF-A7E1-16BC169B05C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiteGuard.Pcl", "LiteGuard.Pcl\LiteGuard.Pcl.csproj", "{65BCAB3D-F66F-4608-9229-F1B4F72725EB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiteGuard.Pcl.Specifications", "test\LiteGuard.Pcl.Specifications\LiteGuard.Pcl.Specifications.csproj", "{4DA89A08-6879-4556-BE1A-B0BA043EA2E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiteGuard.Specifications.Net40", "test\LiteGuard.Specifications.Net40\LiteGuard.Specifications.Net40.csproj", "{4DA89A08-6879-4556-BE1A-B0BA043EA2E0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiteGuard.Pcl", "LiteGuard.Pcl\LiteGuard.Pcl.csproj", "{65BCAB3D-F66F-4608-9229-F1B4F72725EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

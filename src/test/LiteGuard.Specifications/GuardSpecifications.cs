@@ -5,7 +5,6 @@
 namespace LiteGuard.Specifications
 {
     using System;
-    using FluentAssertions;
     using Xbehave;
     using Xunit;
 
@@ -24,13 +23,17 @@ namespace LiteGuard.Specifications
                 .When(() => exception = Record.Exception(() => Guard.AgainstNullArgument(parameterName, argument)));
 
             "Then the exception should be an argument null exception"
-                .Then(() => exception.Should().BeOfType<ArgumentNullException>());
+                .Then(() => Assert.IsType<ArgumentNullException>(exception));
 
             "And the exception message should contain the parameter name and \"null\""
-                .And(() => exception.Message.Should().Contain(parameterName).And.Contain("null"));
+                .And(() =>
+                {
+                    Assert.Contains(parameterName, exception.Message);
+                    Assert.Contains("null", exception.Message);
+                });
 
             "And the exception parameter name should be the parameter name"
-                .And(() => exception.As<ArgumentException>().ParamName.Should().Be(parameterName));
+                .And(() => Assert.Equal(parameterName, ((ArgumentException)exception).ParamName));
         }
 
         [Scenario]
@@ -49,13 +52,18 @@ namespace LiteGuard.Specifications
                 .When(() => exception = Record.Exception(() => Guard.AgainstNullArgumentProperty(parameterName, propertyName, propertyValue)));
 
             "Then the exception should be an argument exception"
-                .Then(() => exception.Should().BeOfType<ArgumentException>());
+                .Then(() => Assert.IsType<ArgumentException>(exception));
 
             "And the exception message should contain the parameter name, the property name and \"null\""
-                .And(() => exception.Message.Should().Contain(parameterName).And.Contain(propertyName).And.Contain("null"));
+                .And(() =>
+                {
+                    Assert.Contains(parameterName, exception.Message);
+                    Assert.Contains(propertyName, exception.Message);
+                    Assert.Contains("null", exception.Message);
+                });
 
             "And the exception parameter name should be the parameter name"
-                .And(() => exception.As<ArgumentException>().ParamName.Should().Be(parameterName));
+                .And(() => Assert.Equal(parameterName, ((ArgumentException)exception).ParamName));
         }
 
         [Scenario]
@@ -71,13 +79,17 @@ namespace LiteGuard.Specifications
                 .When(() => exception = Record.Exception(() => Guard.AgainstNullArgumentIfNullable(parameterName, argument)));
 
             "Then the exception should be an argument null exception"
-                .Then(() => exception.Should().BeOfType<ArgumentNullException>());
+                .Then(() => Assert.IsType<ArgumentNullException>(exception));
 
             "And the exception message should contain the parameter name and \"null\""
-                .And(() => exception.Message.Should().Contain(parameterName).And.Contain("null"));
+                .And(() =>
+                {
+                    Assert.Contains(parameterName, exception.Message);
+                    Assert.Contains("null", exception.Message);
+                });
 
             "And the exception parameter name should be the parameter name"
-                .And(() => exception.As<ArgumentException>().ParamName.Should().Be(parameterName));
+                .And(() => Assert.Equal(parameterName, ((ArgumentException)exception).ParamName));
         }
 
         [Scenario]
@@ -96,13 +108,18 @@ namespace LiteGuard.Specifications
                 .When(() => exception = Record.Exception(() => Guard.AgainstNullArgumentPropertyIfNullable(parameterName, propertyName, propertyValue)));
 
             "Then the exception should be an argument exception"
-                .Then(() => exception.Should().BeOfType<ArgumentException>());
+                .Then(() => Assert.IsType<ArgumentException>(exception));
 
             "And the exception message should contain the parameter name, the property name and \"null\""
-                .And(() => exception.Message.Should().Contain(parameterName).And.Contain(propertyName).And.Contain("null"));
+                .And(() =>
+                {
+                    Assert.Contains(parameterName, exception.Message);
+                    Assert.Contains(propertyName, exception.Message);
+                    Assert.Contains("null", exception.Message);
+                });
 
             "And the exception parameter name should be the parameter name"
-                .And(() => exception.As<ArgumentException>().ParamName.Should().Be(parameterName));
+                .And(() => Assert.Equal(parameterName, ((ArgumentException)exception).ParamName));
         }
 
         [Scenario]
@@ -118,7 +135,7 @@ namespace LiteGuard.Specifications
                 .When(() => exception = Record.Exception(() => Guard.AgainstNullArgument(parameterName, argument)));
 
             "Then no exception should be thrown"
-                .Then(() => exception.Should().BeNull());
+                .Then(() => Assert.Null(exception));
         }
 
         [Scenario]
@@ -137,7 +154,7 @@ namespace LiteGuard.Specifications
                 .When(() => exception = Record.Exception(() => Guard.AgainstNullArgumentProperty(parameterName, propertyName, propertyValue)));
 
             "Then no exception should be thrown"
-                .Then(() => exception.Should().BeNull());
+                .Then(() => Assert.Null(exception));
         }
 
         [Scenario]
@@ -155,7 +172,7 @@ namespace LiteGuard.Specifications
                 .When(() => exception = Record.Exception(() => Guard.AgainstNullArgumentIfNullable(parameterName, argument)));
 
             "Then no exception should be thrown"
-                .Then(() => exception.Should().BeNull());
+                .Then(() => Assert.Null(exception));
         }
 
         [Scenario]
@@ -176,7 +193,7 @@ namespace LiteGuard.Specifications
                 .When(() => exception = Record.Exception(() => Guard.AgainstNullArgumentPropertyIfNullable(parameterName, propertyName, propertyValue)));
 
             "Then no exception should be thrown"
-                .Then(() => exception.Should().BeNull());
+                .Then(() => Assert.Null(exception));
         }
     }
 }
