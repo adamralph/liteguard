@@ -3,7 +3,6 @@
 // </copyright>
 
 using System;
-using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 
 [assembly: AssemblyTitle("LiteGuard")]
@@ -15,8 +14,8 @@ using System.Reflection;
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyProduct("LiteGuard")]
 
-[assembly: AssemblyVersion("0.9.0.0")]
-[assembly: AssemblyFileVersion("0.9.0.0")]
-[assembly: AssemblyInformationalVersion("0.9.0")]
+[assembly: AssemblyVersion("0.10.0.0")]
+[assembly: AssemblyFileVersion("0.10.0.0")]
+[assembly: AssemblyInformationalVersion("0.10.0")]
 
 [assembly: CLSCompliant(true)]
