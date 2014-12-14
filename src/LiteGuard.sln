@@ -47,6 +47,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiteGuard.Wp8", "LiteGuard.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiteGuard.Sl5", "LiteGuard.Sl5\LiteGuard.Sl5.csproj", "{550DC4CF-70DC-4E9B-A100-7D1DA1F034B9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{656C1055-810F-449F-9BAD-5F57C528A92F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiteGuard.universal", "LiteGuard.universal\LiteGuard.universal.csproj", "{CDFF0528-B8BF-4A74-98E5-FAC833655082}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -143,6 +147,16 @@ Global
 		{550DC4CF-70DC-4E9B-A100-7D1DA1F034B9}.Release|ARM.ActiveCfg = Release|Any CPU
 		{550DC4CF-70DC-4E9B-A100-7D1DA1F034B9}.Release|x64.ActiveCfg = Release|Any CPU
 		{550DC4CF-70DC-4E9B-A100-7D1DA1F034B9}.Release|x86.ActiveCfg = Release|Any CPU
+		{CDFF0528-B8BF-4A74-98E5-FAC833655082}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDFF0528-B8BF-4A74-98E5-FAC833655082}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDFF0528-B8BF-4A74-98E5-FAC833655082}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{CDFF0528-B8BF-4A74-98E5-FAC833655082}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CDFF0528-B8BF-4A74-98E5-FAC833655082}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CDFF0528-B8BF-4A74-98E5-FAC833655082}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDFF0528-B8BF-4A74-98E5-FAC833655082}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDFF0528-B8BF-4A74-98E5-FAC833655082}.Release|ARM.ActiveCfg = Release|Any CPU
+		{CDFF0528-B8BF-4A74-98E5-FAC833655082}.Release|x64.ActiveCfg = Release|Any CPU
+		{CDFF0528-B8BF-4A74-98E5-FAC833655082}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

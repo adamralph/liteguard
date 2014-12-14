@@ -25,11 +25,12 @@ We all have to do our bit in working toward the ultimate number of published gua
     <developmentDependency>true</developmentDependency>
   </metadata>
   <files>
-    <file src="LiteGuard.net35/bin/Release/Guard.cs.pp" target="content/net35" />
-    <file src="LiteGuard.Pcl/bin/Release/Guard.cs.pp"   target="content/portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1" />
-    <file src="LiteGuard.Sl5/bin/Release/Guard.cs.pp"   target="content/sl5" />
-    <file src="LiteGuard.Win8/bin/Release/Guard.cs.pp"  target="content/win8" />
-    <file src="LiteGuard.Wp8/bin/Release/Guard.cs.pp"   target="content/wp8" />
-    <file src="LiteGuard.Wpa81/bin/Release/Guard.cs.pp" target="content/wpa81" />
+    <file src="LiteGuard.net35/bin/Release/Guard.cs.pp"     target="content/net35" />
+    <file src="LiteGuard.Pcl/bin/Release/Guard.cs.pp"       target="content/portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1" />
+    <file src="LiteGuard.Sl5/bin/Release/Guard.cs.pp"       target="content/sl5" />
+    <file src="LiteGuard.universal/bin/Release/Guard.cs.pp" target="content/portable-wpa81+win81" />
+    <file src="LiteGuard.Win8/bin/Release/Guard.cs.pp"      target="content/win8" />
+    <file src="LiteGuard.Wp8/bin/Release/Guard.cs.pp"       target="content/wp8" />
+    <file src="LiteGuard.Wpa81/bin/Release/Guard.cs.pp"     target="content/wpa81" />
   </files>
 </package>
