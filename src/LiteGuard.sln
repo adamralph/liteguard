@@ -37,17 +37,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiteGuard.net35", "LiteGuar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiteGuard.Test.Acceptance.net35", "test\LiteGuard.Test.Acceptance.net35\LiteGuard.Test.Acceptance.net35.csproj", "{FCADACC8-D552-4BFF-A7E1-16BC169B05C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiteGuard.Pcl", "LiteGuard.Pcl\LiteGuard.Pcl.csproj", "{65BCAB3D-F66F-4608-9229-F1B4F72725EB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiteGuard.pcl", "LiteGuard.pcl\LiteGuard.pcl.csproj", "{65BCAB3D-F66F-4608-9229-F1B4F72725EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiteGuard.Win8", "LiteGuard.Win8\LiteGuard.Win8.csproj", "{69707A11-0DB2-4A9B-832A-BE572EA3837D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiteGuard.win8", "LiteGuard.win8\LiteGuard.win8.csproj", "{69707A11-0DB2-4A9B-832A-BE572EA3837D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiteGuard.Wpa81", "LiteGuard.Wpa81\LiteGuard.Wpa81.csproj", "{40F27591-6E5C-42A7-922E-2DE60294474F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiteGuard.wpa81", "LiteGuard.wpa81\LiteGuard.wpa81.csproj", "{40F27591-6E5C-42A7-922E-2DE60294474F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiteGuard.Wp8", "LiteGuard.Wp8\LiteGuard.Wp8.csproj", "{DB41F3C9-232D-406E-A440-A0CC3D5220E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiteGuard.wp8", "LiteGuard.wp8\LiteGuard.wp8.csproj", "{DB41F3C9-232D-406E-A440-A0CC3D5220E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiteGuard.Sl5", "LiteGuard.Sl5\LiteGuard.Sl5.csproj", "{550DC4CF-70DC-4E9B-A100-7D1DA1F034B9}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{656C1055-810F-449F-9BAD-5F57C528A92F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiteGuard.sl5", "LiteGuard.sl5\LiteGuard.sl5.csproj", "{550DC4CF-70DC-4E9B-A100-7D1DA1F034B9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiteGuard.universal", "LiteGuard.universal\LiteGuard.universal.csproj", "{CDFF0528-B8BF-4A74-98E5-FAC833655082}"
 EndProject
