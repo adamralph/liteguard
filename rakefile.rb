@@ -63,7 +63,7 @@ end
 
 desc "Prepare source code for packaging"
 task :src do
-  ["net35", "Pcl", "Sl5", "universal", "Win8", "Wp8", "Wpa81"].each do |platform|
+  ["net35", "Pcl", "Sl5", "universal", "Win8", "win81", "Wp8", "Wpa81"].each do |platform|
       File.open("src/LiteGuard.#{platform}/Guard.cs") { |from|
         contents = from.read
         contents.sub!(/.*namespace LiteGuard/m, 'namespace $rootnamespace$')

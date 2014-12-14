@@ -32,6 +32,8 @@ We all have to do our bit in working toward the ultimate number of published gua
     <file src="LiteGuard.universal/bin/Release/LiteGuard.xml" target="lib/portable-wpa81+win81" />
     <file src="LiteGuard.Win8/bin/Release/LiteGuard.dll"      target="lib/win8" />
     <file src="LiteGuard.Win8/bin/Release/LiteGuard.xml"      target="lib/win8" />
+    <file src="LiteGuard.win81/bin/Release/LiteGuard.dll"     target="lib/win81" />
+    <file src="LiteGuard.win81/bin/Release/LiteGuard.xml"     target="lib/win81" />
     <file src="LiteGuard.Wp8/bin/Release/LiteGuard.dll"       target="lib/wp8" />
     <file src="LiteGuard.Wp8/bin/Release/LiteGuard.xml"       target="lib/wp8" />
     <file src="LiteGuard.Wpa81/bin/Release/LiteGuard.dll"     target="lib/wpa81" />

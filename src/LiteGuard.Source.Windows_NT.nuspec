@@ -30,6 +30,7 @@ We all have to do our bit in working toward the ultimate number of published gua
     <file src="LiteGuard.Sl5\bin\Release\Guard.cs.pp"       target="content\sl5" />
     <file src="LiteGuard.universal\bin\Release\Guard.cs.pp" target="content\portable-wpa81+win81" />
     <file src="LiteGuard.Win8\bin\Release\Guard.cs.pp"      target="content\win8" />
+    <file src="LiteGuard.win81\bin\Release\Guard.cs.pp"     target="content\win81" />
     <file src="LiteGuard.Wp8\bin\Release\Guard.cs.pp"       target="content\wp8" />
     <file src="LiteGuard.Wpa81\bin\Release\Guard.cs.pp"     target="content\wpa81" />
   </files>
