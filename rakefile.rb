@@ -63,25 +63,29 @@ end
 
 desc "Prepare source code for packaging"
 task :src do
-  ["net35", "pcl", "sl5", "universal", "win8", "win81", "wp8", "wpa81"].each do |platform|
-      File.open("src/LiteGuard.#{platform}/Guard.cs") { |from|
-        contents = from.read
-        contents.sub!(/.*namespace LiteGuard/m, 'namespace $rootnamespace$')
-        contents.sub!(/public static class/, 'internal static class')
-        File.open("src/LiteGuard.#{platform}/bin/Release/Guard.cs.pp", "w+") { |to| to.write(contents) }
-      }
+  if !use_mono
+    ["net35", "pcl", "sl5", "universal", "win8", "win81", "wp8", "wpa81"].each do |platform|
+        File.open("src/LiteGuard.#{platform}/Guard.cs") { |from|
+          contents = from.read
+          contents.sub!(/.*namespace LiteGuard/m, 'namespace $rootnamespace$')
+          contents.sub!(/public static class/, 'internal static class')
+          File.open("src/LiteGuard.#{platform}/bin/Release/Guard.cs.pp", "w+") { |to| to.write(contents) }
+        }
+    end
   end
 end
 
 desc "Create the nuget packages"
 task :pack => [:build, :src] do
-  FileUtils.mkpath output
-  execute_nugetpack nuspecs, nuget_console, output
+  if !use_mono
+    FileUtils.mkpath output
+    execute_nugetpack nuspecs, nuget_console, output
+  end
 end
 
 def execute_build(targets, solution)
   build = use_mono ? XBuild.new : MSBuild.new
-  build.properties = { :configuration => :Release }
+  build.properties = { :configuration => use_mono ? :MonoRelease : :Release }
   build.targets = targets
   build.solution = solution
   build.verbosity = use_mono ? :normal : :minimal
