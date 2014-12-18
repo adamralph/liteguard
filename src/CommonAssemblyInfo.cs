@@ -4,6 +4,9 @@
 
 using System;
 using System.Reflection;
+#if NET35 || SILVERLIGHT || NETFX_CORE
+using System.Runtime.InteropServices;
+#endif
 
 [assembly: AssemblyTitle("LiteGuard")]
 [assembly: AssemblyDescription("")]
@@ -19,3 +22,7 @@ using System.Reflection;
 [assembly: AssemblyInformationalVersion("0.10.0")]
 
 [assembly: CLSCompliant(true)]
+
+#if NET35 || SILVERLIGHT || NETFX_CORE
+[assembly: ComVisible(false)]
+#endif

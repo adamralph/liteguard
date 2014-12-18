@@ -4,15 +4,13 @@ require 'fileutils'
 @version = IO.read("src/CommonAssemblyInfo.cs").split(/AssemblyInformationalVersion\("/, 2)[1].split(/"/).first
 net20 = "2.0.50727"
 net40 = "4.0.30319"
-xunit_console_net20 = { :command => "src/packages/xunit.runners.1.9.2/tools/xunit.console.exe", :net_version => net20 }
-xunit_console_net40 = { :command => "src/packages/xunit.runners.1.9.2/tools/xunit.console.clr4.exe", :net_version => net40 }
+xunit_console = { :command => "src/packages/xunit.runners.1.9.2/tools/xunit.console.exe", :net_version => net20 }
 nuget_console = { :command => "src/packages/NuGet.CommandLine.2.8.2/tools/NuGet.exe", :net_version => net40 }
 solution = "src/LiteGuard.sln"
 output = "bin"
 
-specs = [
-  { :console => xunit_console_net20, :assembly => "src/test/LiteGuard.Specifications/bin/Debug/LiteGuard.Specifications.dll" },
-  { :console => xunit_console_net40, :assembly => "src/test/LiteGuard.Pcl.Specifications/bin/Debug/LiteGuard.Specifications.dll" },
+acceptance_tests = [
+  "src/test/LiteGuard.Test.Acceptance.net35/bin/Debug/LiteGuard.Test.Acceptance.net35.dll",
 ]
 
 # NOTE (Adam): nuspec path values fail under Mono on Windows if using / or Mono on Linux if using \
@@ -26,7 +24,7 @@ Albacore.configure do |config|
 end
 
 desc "Execute default tasks"
-task :default => [:spec, :pack]
+task :default => [:accept, :pack]
 
 desc "Use Mono in Windows"
 task :mono do
@@ -53,50 +51,46 @@ task :build => [:clean, :restore] do
   execute_build [:Build], solution
 end
 
-desc "Execute specs"
-task :spec => [:build] do
-  execute_xunit specs
+desc "Execute acceptance tests"
+task :accept => [:build] do
+  acceptance_tests.each do |test|
+    cmd = Exec.new
+    prepare_task cmd, xunit_console[:command], xunit_console[:net_version]
+    cmd.parameters << test << "/html" << fix_path(test + ".TestResults.html") << "/xml" << fix_path(test + ".TestResults.xml")
+    cmd.execute
+  end
 end
 
 desc "Prepare source code for packaging"
 task :src do
-  File.open("src/LiteGuard/Guard.cs") { |from|
-    contents = from.read
-    contents.sub!(/.*namespace LiteGuard/m, 'namespace $rootnamespace$')
-    contents.sub!(/public static class/, 'internal static class')
-    File.open("src/LiteGuard/bin/Release/Guard.cs.pp", "w+") { |to| to.write(contents) }
-  }
-  File.open("src/LiteGuard.Pcl/Guard.cs") { |from|
-    contents = from.read
-    contents.sub!(/.*namespace LiteGuard/m, 'namespace $rootnamespace$')
-    contents.sub!(/public static class/, 'internal static class')
-    File.open("src/LiteGuard.Pcl/bin/Release/Guard.cs.pp", "w+") { |to| to.write(contents) }
-  }
+  if !use_mono
+    ["net35", "pcl", "sl5", "universal", "win8", "win81", "wp8", "wpa81"].each do |platform|
+        File.open("src/LiteGuard.#{platform}/Guard.cs") { |from|
+          contents = from.read
+          contents.sub!(/.*namespace LiteGuard/m, 'namespace $rootnamespace$')
+          contents.sub!(/public static class/, 'internal static class')
+          File.open("src/LiteGuard.#{platform}/bin/Release/Guard.cs.pp", "w+") { |to| to.write(contents) }
+        }
+    end
+  end
 end
 
 desc "Create the nuget packages"
 task :pack => [:build, :src] do
-  FileUtils.mkpath output
-  execute_nugetpack nuspecs, nuget_console, output
+  if !use_mono
+    FileUtils.mkpath output
+    execute_nugetpack nuspecs, nuget_console, output
+  end
 end
 
 def execute_build(targets, solution)
   build = use_mono ? XBuild.new : MSBuild.new
-  build.properties = { :configuration => :Release }
+  build.properties = { :configuration => use_mono ? :MonoRelease : :Release }
   build.targets = targets
   build.solution = solution
   build.verbosity = use_mono ? :normal : :minimal
   build.parameters << "/nologo"
   build.execute
-end
-
-def execute_xunit(tests)
-  tests.each do |test|
-    cmd = Exec.new
-    prepare_task cmd, test[:console][:command], test[:console][:net_version]
-    cmd.parameters << test[:assembly] << "/html" << fix_path(test[:assembly] + ".TestResults.html") << "/xml" << fix_path(test[:assembly] + ".TestResults.xml")
-    cmd.execute  
-  end
 end
 
 def execute_nugetpack(nuspecs, nuget_console, output)
@@ -114,7 +108,7 @@ def prepare_task(task, command, net_version)
       task.parameters << "--runtime=v" + net_version << command
     else
       task.command = command
-    end  
+    end
 end
 
 def fix_path(path)

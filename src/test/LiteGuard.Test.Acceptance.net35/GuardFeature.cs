@@ -1,14 +1,14 @@
-﻿// <copyright file="GuardSpecifications.cs" company="LiteGuard contributors">
+﻿// <copyright file="GuardFeature.cs" company="LiteGuard contributors">
 //  Copyright (c) LiteGuard contributors. All rights reserved.
 // </copyright>
 
-namespace LiteGuard.Specifications
+namespace LiteGuard.Test.Acceptance
 {
     using System;
     using Xbehave;
     using Xunit;
 
-    public static class GuardSpecifications
+    public static class GuardFeature
     {
         [Scenario]
         public static void NullArgument(string parameterName, object argument, Exception exception)
