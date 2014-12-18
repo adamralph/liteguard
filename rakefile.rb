@@ -57,7 +57,7 @@ task :accept => [:build] do
     cmd = Exec.new
     prepare_task cmd, xunit_console[:command], xunit_console[:net_version]
     cmd.parameters << test << "/html" << fix_path(test + ".TestResults.html") << "/xml" << fix_path(test + ".TestResults.xml")
-    cmd.execute  
+    cmd.execute
   end
 end
 
@@ -104,7 +104,7 @@ def prepare_task(task, command, net_version)
       task.parameters << "--runtime=v" + net_version << command
     else
       task.command = command
-    end  
+    end
 end
 
 def fix_path(path)
