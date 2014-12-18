@@ -1,7 +1,7 @@
 language: ruby
 
 rvm:
-  - 1.9.3
+  - 2.1.1
 
 before_install:
   - sudo bash -c "echo deb http://badgerports.org precise main >> /etc/apt/sources.list"
@@ -11,7 +11,7 @@ before_install:
 
 install:
   - gem update --system
-  - gem install rake albacore zip
+  - gem install albacore -v 0.3.6
   - mozroots --import --sync --quiet
   - mono ./src/packages/NuGet.CommandLine.2.8.2/tools/NuGet.exe restore ./src/LiteGuard.sln
 
