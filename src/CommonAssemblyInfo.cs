@@ -4,7 +4,7 @@
 
 using System;
 using System.Reflection;
-#if NET35 || SILVERLIGHT || NETFX_CORE
+#if NET35 || SILVERLIGHT || NETFX_CORE || UNIVERSAL
 using System.Runtime.InteropServices;
 #endif
 
@@ -23,6 +23,6 @@ using System.Runtime.InteropServices;
 
 [assembly: CLSCompliant(true)]
 
-#if NET35 || SILVERLIGHT || NETFX_CORE
+#if NET35 || SILVERLIGHT || NETFX_CORE || UNIVERSAL
 [assembly: ComVisible(false)]
 #endif
