@@ -1,13 +1,14 @@
 require 'albacore'
-require 'fileutils'
 
-@version = IO.read("src/CommonAssemblyInfo.cs").split(/AssemblyInformationalVersion\("/, 2)[1].split(/"/).first
+version = IO.read("src/CommonAssemblyInfo.cs").split(/AssemblyInformationalVersion\("/, 2)[1].split(/"/).first
+msbuild_command = "C:/Program Files (x86)/MSBuild/12.0/Bin/MSBuild.exe"
 net20 = "2.0.50727"
 net40 = "4.0.30319"
 xunit_console = { :command => "src/packages/xunit.runners.1.9.2/tools/xunit.console.exe", :net_version => net20 }
 nuget_console = { :command => "src/packages/NuGet.CommandLine.2.8.2/tools/NuGet.exe", :net_version => net40 }
 solution = "src/LiteGuard.sln"
-output = "bin"
+logs = "artifacts/logs"
+output = "artifacts/output"
 
 acceptance_tests = [
   "src/test/LiteGuard.Test.Acceptance.net35/bin/Debug/LiteGuard.Test.Acceptance.net35.dll",
@@ -36,26 +37,35 @@ end
 
 desc "Restore NuGet packages"
 exec :restore do |cmd|
-  prepare_task cmd, nuget_console[:command], nuget_console[:net_version]
+  prepare_task cmd, nuget_console
   cmd.parameters << "restore #{solution}"
 end
 
+directory logs
+
 desc "Clean solution"
-task :clean do
-  FileUtils.rmtree output
-  execute_build [:Clean], solution
+task :clean => [logs] do
+  if use_mono
+    execute_xbuild solution, "Clean"
+  else
+    execute_msbuild solution, "Clean", msbuild_command, logs
+  end
 end
 
 desc "Build solution"
-task :build => [:clean, :restore] do
-  execute_build [:Build], solution
+task :build => [:clean, :restore, logs] do
+  if use_mono
+    execute_xbuild solution, "Build"
+  else
+    execute_msbuild solution, "Build", msbuild_command, logs
+  end
 end
 
 desc "Execute acceptance tests"
 task :accept => [:build] do
   acceptance_tests.each do |test|
     cmd = Exec.new
-    prepare_task cmd, xunit_console[:command], xunit_console[:net_version]
+    prepare_task cmd, xunit_console
     cmd.parameters << test << "/html" << fix_path(test + ".TestResults.html") << "/xml" << fix_path(test + ".TestResults.xml")
     cmd.execute
   end
@@ -75,40 +85,48 @@ task :src do
   end
 end
 
+directory output
+
 desc "Create the nuget packages"
-task :pack => [:build, :src] do
+task :pack => [:build, :src, output] do
   if !use_mono
-    FileUtils.mkpath output
-    execute_nugetpack nuspecs, nuget_console, output
+    execute_nugetpack nuspecs, nuget_console, version, output
   end
 end
 
-def execute_build(targets, solution)
-  build = use_mono ? XBuild.new : MSBuild.new
-  build.properties = { :configuration => use_mono ? :MonoRelease : :Release }
-  build.targets = targets
+def execute_xbuild(solution, target)
+  build = XBuild.new
+  build.properties = { :configuration => :MonoRelease }
+  build.targets = [target]
   build.solution = solution
   build.verbosity = use_mono ? :normal : :minimal
   build.parameters << "/nologo"
   build.execute
 end
 
-def execute_nugetpack(nuspecs, nuget_console, output)
+def execute_msbuild(solution, target, command, logs)
+  cmd = Exec.new
+  cmd.command = command
+  cmd.parameters "#{solution} /target:#{target} /p:configuration=Release /nr:false /verbosity:minimal /nologo /fl /flp:LogFile=#{logs}/#{target}.log;Verbosity=Detailed;PerformanceSummary"
+  cmd.execute
+end
+
+def execute_nugetpack(nuspecs, console, version, output)
   nuspecs.each do |nuspec|
     cmd = Exec.new
-    prepare_task cmd, nuget_console[:command], nuget_console[:net_version]
-    cmd.parameters << "pack" << nuspec << "-Version" << @version << "-OutputDirectory" << output
+    prepare_task cmd, console
+    cmd.parameters << "pack" << nuspec << "-Version" << version << "-OutputDirectory" << output
     cmd.execute
   end
 end
 
-def prepare_task(task, command, net_version)
-    if use_mono then
-      task.command = "mono"
-      task.parameters << "--runtime=v" + net_version << command
-    else
-      task.command = command
-    end
+def prepare_task(task, console)
+  if use_mono then
+    task.command = "mono"
+    task.parameters << "--runtime=v" + console[:net_version] << console[:command]
+  else
+    task.command = console[:command]
+  end
 end
 
 def fix_path(path)
