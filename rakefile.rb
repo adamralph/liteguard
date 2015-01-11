@@ -5,7 +5,7 @@ msbuild_command = "C:/Program Files (x86)/MSBuild/12.0/Bin/MSBuild.exe"
 net20 = "2.0.50727"
 net40 = "4.0.30319"
 xunit_console = { :command => "src/packages/xunit.runners.1.9.2/tools/xunit.console.exe", :net_version => net20 }
-nuget_console = { :command => "src/packages/NuGet.CommandLine.2.8.2/tools/NuGet.exe", :net_version => net40 }
+nuget_console = { :command => "src/packages/NuGet.CommandLine.2.8.3/tools/NuGet.exe", :net_version => net40 }
 solution = "src/LiteGuard.sln"
 logs = "artifacts/logs"
 output = "artifacts/output"
