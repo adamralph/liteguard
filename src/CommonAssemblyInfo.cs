@@ -1,4 +1,4 @@
-﻿// <copyright file="CommonAssemblyInfo.cs" company="LiteGuard contributors">
+// <copyright file="CommonAssemblyInfo.cs" company="LiteGuard contributors">
 //  Copyright (c) LiteGuard contributors. All rights reserved.
 // </copyright>
 
