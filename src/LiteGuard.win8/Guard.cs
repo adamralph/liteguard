@@ -21,14 +21,18 @@ namespace LiteGuard
         /// <param name="parameterName">Name of the parameter.</param>
         /// <param name="argument">The argument.</param>
         /// <exception cref="System.ArgumentNullException"><paramref name="argument" /> is <c>null</c>.</exception>
-        /// <remarks><typeparamref name="TArgument"/> is restricted to reference types to avoid boxing of value type objects.</remarks>
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Distributed as a source code package.")]
+        /// <remarks>
+        /// <typeparamref name="TArgument"/> is restricted to reference types to avoid boxing of value type objects.
+        /// </remarks>
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Source package.")]
         [DebuggerStepThrough]
-        public static void AgainstNullArgument<TArgument>(string parameterName, [ValidatedNotNull]TArgument argument) where TArgument : class
+        public static void AgainstNullArgument<TArgument>(string parameterName, [ValidatedNotNull]TArgument argument)
+            where TArgument : class
         {
             if (argument == null)
             {
-                throw new ArgumentNullException(parameterName, string.Format(CultureInfo.InvariantCulture, "{0} is null.", parameterName));
+                throw new ArgumentNullException(
+                    parameterName, string.Format(CultureInfo.InvariantCulture, "{0} is null.", parameterName));
             }
         }
 
@@ -42,13 +46,15 @@ namespace LiteGuard
         /// <remarks>
         /// Performs a type check to avoid boxing of value type objects.
         /// </remarks>
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Distributed as a source code package.")]
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Source package.")]
         [DebuggerStepThrough]
-        public static void AgainstNullArgumentIfNullable<TArgument>(string parameterName, [ValidatedNotNull]TArgument argument)
+        public static void AgainstNullArgumentIfNullable<TArgument>(
+            string parameterName, [ValidatedNotNull]TArgument argument)
         {
             if (ReferenceEquals(argument, null))
             {
-                throw new ArgumentNullException(parameterName, string.Format(CultureInfo.InvariantCulture, "{0} is null.", parameterName));
+                throw new ArgumentNullException(
+                    parameterName, string.Format(CultureInfo.InvariantCulture, "{0} is null.", parameterName));
             }
         }
 
@@ -60,15 +66,20 @@ namespace LiteGuard
         /// <param name="propertyName">Name of the property.</param>
         /// <param name="argumentProperty">The argument property.</param>
         /// <exception cref="System.ArgumentException"><paramref name="argumentProperty" /> is <c>null</c>.</exception>
-        /// <remarks><typeparamref name="TProperty"/> is restricted to reference types to avoid boxing of value type objects.</remarks>
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Distributed as a source code package.")]
+        /// <remarks>
+        /// <typeparamref name="TProperty"/> is restricted to reference types to avoid boxing of value type objects.
+        /// </remarks>
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Source package.")]
         [DebuggerStepThrough]
-        public static void AgainstNullArgumentProperty<TProperty>(string parameterName, string propertyName, [ValidatedNotNull]TProperty argumentProperty)
+        public static void AgainstNullArgumentProperty<TProperty>(
+            string parameterName, string propertyName, [ValidatedNotNull]TProperty argumentProperty)
             where TProperty : class
         {
             if (argumentProperty == null)
             {
-                throw new ArgumentException(string.Format(CultureInfo.InvariantCulture, "{0}.{1} is null.", parameterName, propertyName), parameterName);
+                throw new ArgumentException(
+                    string.Format(CultureInfo.InvariantCulture, "{0}.{1} is null.", parameterName, propertyName),
+                    parameterName);
             }
         }
 
@@ -83,19 +94,22 @@ namespace LiteGuard
         /// <remarks>
         /// Performs a type check to avoid boxing of value type objects.
         /// </remarks>
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Distributed as a source code package.")]
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Source package.")]
         [DebuggerStepThrough]
         public static void AgainstNullArgumentPropertyIfNullable<TProperty>(
             string parameterName, string propertyName, [ValidatedNotNull]TProperty argumentProperty)
         {
             if (ReferenceEquals(argumentProperty, null))
             {
-                throw new ArgumentException(string.Format(CultureInfo.InvariantCulture, "{0}.{1} is null.", parameterName, propertyName), parameterName);
+                throw new ArgumentException(
+                    string.Format(CultureInfo.InvariantCulture, "{0}.{1} is null.", parameterName, propertyName),
+                    parameterName);
             }
         }
 
         /// <summary>
-        /// When applied to a parameter, this attribute provides an indication to code analysis that the argument has been null checked.
+        /// When applied to a parameter,
+        /// this attribute provides an indication to code analysis that the argument has been null checked.
         /// </summary>
         private sealed class ValidatedNotNullAttribute : Attribute
         {

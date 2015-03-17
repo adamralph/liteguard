@@ -46,7 +46,8 @@ namespace LiteGuard.Test.Acceptance
                 .And(() => argument = null);
 
             "When guarding against a null argument"
-                .When(() => exception = Record.Exception(() => Guard.AgainstNullArgumentIfNullable(parameterName, argument)));
+                .When(() => exception = Record.Exception(() =>
+                    Guard.AgainstNullArgumentIfNullable(parameterName, argument)));
 
             "Then the exception should be an argument null exception"
                 .Then(() => Assert.IsType<ArgumentNullException>(exception));
@@ -63,7 +64,8 @@ namespace LiteGuard.Test.Acceptance
         }
 
         [Scenario]
-        public static void NullArgumentProperty(string parameterName, string propertyName, object propertyValue, Exception exception)
+        public static void NullArgumentProperty(
+            string parameterName, string propertyName, object propertyValue, Exception exception)
         {
             "Given a parameter name"
                 .Given(() => parameterName = "foo");
@@ -75,7 +77,8 @@ namespace LiteGuard.Test.Acceptance
                 .And(() => propertyValue = null);
 
             "When guarding against a null argument property"
-                .When(() => exception = Record.Exception(() => Guard.AgainstNullArgumentProperty(parameterName, propertyName, propertyValue)));
+                .When(() => exception = Record.Exception(() =>
+                    Guard.AgainstNullArgumentProperty(parameterName, propertyName, propertyValue)));
 
             "Then the exception should be an argument exception"
                 .Then(() => Assert.IsType<ArgumentException>(exception));
@@ -102,7 +105,8 @@ namespace LiteGuard.Test.Acceptance
                 .And(() => argument = null);
 
             "When guarding against a null argument"
-                .When(() => exception = Record.Exception(() => Guard.AgainstNullArgumentIfNullable(parameterName, argument)));
+                .When(() => exception = Record.Exception(() =>
+                    Guard.AgainstNullArgumentIfNullable(parameterName, argument)));
 
             "Then the exception should be an argument null exception"
                 .Then(() => Assert.IsType<ArgumentNullException>(exception));
@@ -119,7 +123,8 @@ namespace LiteGuard.Test.Acceptance
         }
 
         [Scenario]
-        public static void NullGenericArgumentProperty(string parameterName, string propertyName, object propertyValue, Exception exception)
+        public static void NullGenericArgumentProperty(
+            string parameterName, string propertyName, object propertyValue, Exception exception)
         {
             "Given a parameter name"
                 .Given(() => parameterName = "foo");
@@ -131,7 +136,8 @@ namespace LiteGuard.Test.Acceptance
                 .And(() => propertyValue = null);
 
             "When guarding against a null argument property"
-                .When(() => exception = Record.Exception(() => Guard.AgainstNullArgumentPropertyIfNullable(parameterName, propertyName, propertyValue)));
+                .When(() => exception = Record.Exception(() =>
+                    Guard.AgainstNullArgumentPropertyIfNullable(parameterName, propertyName, propertyValue)));
 
             "Then the exception should be an argument exception"
                 .Then(() => Assert.IsType<ArgumentException>(exception));
@@ -174,14 +180,16 @@ namespace LiteGuard.Test.Acceptance
                 .And(() => argument = 123);
 
             "When guarding against a null argument"
-                .When(() => exception = Record.Exception(() => Guard.AgainstNullArgumentIfNullable(parameterName, argument)));
+                .When(() => exception = Record.Exception(() =>
+                    Guard.AgainstNullArgumentIfNullable(parameterName, argument)));
 
             "Then no exception should be thrown"
                 .Then(() => Assert.Null(exception));
         }
 
         [Scenario]
-        public static void NonNullArgumentProperty(string parameterName, string propertyName, object propertyValue, Exception exception)
+        public static void NonNullArgumentProperty(
+            string parameterName, string propertyName, object propertyValue, Exception exception)
         {
             "Given a parameter name"
                 .Given(() => parameterName = "foo");
@@ -193,7 +201,8 @@ namespace LiteGuard.Test.Acceptance
                 .And(() => propertyValue = new object());
 
             "When guarding against a null argument property"
-                .When(() => exception = Record.Exception(() => Guard.AgainstNullArgumentProperty(parameterName, propertyName, propertyValue)));
+                .When(() => exception = Record.Exception(() =>
+                    Guard.AgainstNullArgumentProperty(parameterName, propertyName, propertyValue)));
 
             "Then no exception should be thrown"
                 .Then(() => Assert.Null(exception));
@@ -202,7 +211,8 @@ namespace LiteGuard.Test.Acceptance
         [Scenario]
         [Example("bar")]
         [Example(123)]
-        public static void NonNullGenericArgument<TArgument>(TArgument argument, string parameterName, Exception exception)
+        public static void NonNullGenericArgument<TArgument>(
+            TArgument argument, string parameterName, Exception exception)
         {
             "Given a parameter name"
                 .Given(() => parameterName = "foo");
@@ -211,7 +221,8 @@ namespace LiteGuard.Test.Acceptance
                 .And(() => { });
 
             "When guarding against a null argument"
-                .When(() => exception = Record.Exception(() => Guard.AgainstNullArgumentIfNullable(parameterName, argument)));
+                .When(() => exception = Record.Exception(() =>
+                    Guard.AgainstNullArgumentIfNullable(parameterName, argument)));
 
             "Then no exception should be thrown"
                 .Then(() => Assert.Null(exception));
@@ -220,7 +231,8 @@ namespace LiteGuard.Test.Acceptance
         [Scenario]
         [Example("bar")]
         [Example(123)]
-        public static void NonNullGenericArgumentProperty<TProperty>(TProperty propertyValue, string parameterName, string propertyName, Exception exception)
+        public static void NonNullGenericArgumentProperty<TProperty>(
+            TProperty propertyValue, string parameterName, string propertyName, Exception exception)
         {
             "Given a parameter name"
                 .Given(() => parameterName = "foo");
@@ -232,7 +244,8 @@ namespace LiteGuard.Test.Acceptance
                 .And(() => { });
 
             "When guarding against a null argument property"
-                .When(() => exception = Record.Exception(() => Guard.AgainstNullArgumentPropertyIfNullable(parameterName, propertyName, propertyValue)));
+                .When(() => exception = Record.Exception(() =>
+                    Guard.AgainstNullArgumentPropertyIfNullable(parameterName, propertyName, propertyValue)));
 
             "Then no exception should be thrown"
                 .Then(() => Assert.Null(exception));
