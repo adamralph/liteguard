@@ -74,12 +74,23 @@ end
 desc "Prepare source code for packaging"
 task :src do
   if !use_mono
-    ["net35", "pcl", "sl5", "universal", "win8", "win81", "wp8", "wpa81"].each do |platform|
-        File.open("src/LiteGuard.#{platform}/Guard.cs") { |from|
+    platforms = [
+      { :name => "net35",     :source => "net35" },
+      { :name => "pcl",       :source => "net35" },
+      { :name => "sl5",       :source => "net35" },
+      { :name => "wp8",       :source => "net35" },
+      { :name => "universal", :source => "universal" },
+      { :name => "win8",      :source => "universal" },
+      { :name => "win81",     :source => "universal" },
+      { :name => "wpa81",     :source => "universal" },
+    ]
+
+    platforms.each do |platform|
+        File.open("src/LiteGuard.#{platform[:source]}/Guard.cs") { |from|
           contents = from.read
           contents.sub!(/.*namespace LiteGuard/m, 'namespace $rootnamespace$')
           contents.sub!(/public static class/, 'internal static class')
-          File.open("src/LiteGuard.#{platform}/bin/Release/Guard.cs.pp", "w+") { |to| to.write(contents) }
+          File.open("src/LiteGuard.#{platform[:name]}/bin/Release/Guard.cs.pp", "w+") { |to| to.write(contents) }
         }
     end
   end
