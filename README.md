@@ -8,11 +8,11 @@ The guard clause library which stands out from the crowd like the faintest passi
 
 You'll hardly know it's there!
 
-Compatible with .NET 3.5, Mono 3.2.8*, Windows Store 8, Windows Phone 8.1, Universal Apps 8.1, Xamarin.Android 1.0, Xamarin.iOS 1.0, Windows Phone Silverlight 8 and Silverlight 5 (and later versions of each).
+Compatible with .NET 3.5, Mono 3.2.8<sup>1</sup>, Windows Store 8, Windows Phone 8.1, Universal Apps 8.1, Xamarin.Android 1.0, Xamarin.iOS 1.0, Windows Phone Silverlight 8 and Silverlight 5 (and later versions of each).
 
 Get it at [NuGet](https://nuget.org/packages?q=liteguard "LiteGuard on NuGet").
 
-\* *LiteGuard is also compatible with most versions of Mono 2.x and earlier versions of Mono 3.x, but this is not proven by the CI build.*
+<sup>1 *LiteGuard is also compatible with most versions of Mono 2.x and earlier versions of Mono 3.x, but this is not proven by the CI build.*</sup>
 
 ## How do I use it?
 
