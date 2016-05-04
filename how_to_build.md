@@ -90,6 +90,6 @@ This executes the default build tasks. After the build has completed, the build 
 
     `bundle exec rake -h`
 
-<sup>1 *Earlier versions of Mono may also work if Microsoft.Build.dll is manually added to the Mono GAC.*</sup>
+<sup>1 Earlier versions of Mono may also work if Microsoft.Build.dll is manually added to the Mono GAC.</sup>
 
-<sup>2 *If you are using Linux or OSX, you may have to execute this command using `sudo`.*</sup>
+<sup>2 If you are using Linux or OSX, you may have to execute this command using `sudo`.</sup>
