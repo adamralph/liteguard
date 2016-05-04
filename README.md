@@ -12,7 +12,7 @@ Compatible with .NET 3.5, Mono 3.2.8<sup>1</sup>, Windows Store 8, Windows Phone
 
 Get it at [NuGet](https://nuget.org/packages?q=liteguard "LiteGuard on NuGet").
 
-<sup>1 *LiteGuard is also compatible with most versions of Mono 2.x and earlier versions of Mono 3.x, but this is not proven by the CI build.*</sup>
+<sup>1 LiteGuard is also compatible with most versions of Mono 2.x and earlier versions of Mono 3.x, but this is not proven by the CI build.</sup>
 
 ## How do I use it?
 
