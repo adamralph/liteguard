@@ -3,10 +3,11 @@ language: csharp
 
 install:
   - gem update --system
-  - gem install albacore -v 0.3.6
+  - gem install bundler
+  - bundler install
   - nuget restore ./src/LiteGuard.sln
 
-script: rake
+script: bundle exec rake
 
 notifications:
   email:
