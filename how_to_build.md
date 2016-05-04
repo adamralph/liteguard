@@ -24,25 +24,25 @@ Note that under Mono, the PCL target is [redirected](https://github.com/liteguar
 
   1. Ensure you have Visual Studio 2012 or later or MSBuild 4.5 or later installed.
 
-1. If you are using Linux, install Mono 2.10.9 or later**:
+1. If you are using Linux, install Mono 2.10.9 or later:<sup>1</sup>
 
     `sudo apt-get install mono-complete`
 
-1. If you are using OSX, or if you want to use Mono in Windows, [install Mono 2.10.9 or later](http://www.go-mono.com/mono-downloads/)**.
+1. If you are using OSX, or if you want to use Mono in Windows, [install Mono 2.10.9 or later](http://www.go-mono.com/mono-downloads/).<sup>1</sup>
 
 1. Install Ruby 1.8.7 or later.
 
  For Windows we recommend using the [RubyInstaller](http://rubyinstaller.org/) and selecting 'Add Ruby executables to your PATH' when prompted. For alternatives see the [Ruby download page](http://www.ruby-lang.org/en/downloads/).
 
-1. Using a command prompt, update RubyGems to the latest version:
+1. Using a command prompt, update RubyGems to the latest version:<sup>2</sup>
 
     `gem update --system`
 
-1. Install bundler:
+1. Install bundler:<sup>2</sup>
 
     `gem install bundler`
 
-1. Install gems:
+1. Install gems:<sup>2</sup>
 
     `bundler install`
 
@@ -90,6 +90,6 @@ This executes the default build tasks. After the build has completed, the build 
 
     `bundle exec rake -h`
 
-*If you are using Linux or OSX, you may have to execute this command using `sudo`.
+<sup>1 *Earlier versions of Mono may also work if Microsoft.Build.dll is manually added to the Mono GAC.*</sup>
 
-**Earlier versions of Mono may also work if Microsoft.Build.dll is manually added to the Mono GAC.
+<sup>2 *If you are using Linux or OSX, you may have to execute this command using `sudo`.*</sup>
