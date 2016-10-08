@@ -1,7 +1,7 @@
 require 'albacore'
 
 version = IO.read("src/CommonAssemblyInfo.cs").split(/AssemblyInformationalVersion\("/, 2)[1].split(/"/).first
-msbuild_command = "C:/Program Files (x86)/MSBuild/12.0/Bin/MSBuild.exe"
+msbuild_command = "C:/Program Files (x86)/MSBuild/14.0/Bin/MSBuild.exe"
 net20 = "2.0.50727"
 net40 = "4.0.30319"
 xunit_console = { :command => "src/packages/xunit.runners.1.9.2/tools/xunit.console.exe", :net_version => net20 }

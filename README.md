@@ -1,6 +1,8 @@
 ![LiteGuard](https://raw.github.com/liteguard/liteguard/master/assets/liteguard_128.png)
 
-[![*nix Build Status](http://img.shields.io/travis/liteguard/liteguard/master.svg?style=flat)](https://travis-ci.org/liteguard/liteguard) [![Windows Build Status](http://img.shields.io/teamcity/codebetter/bt973.svg?style=flat)](http://teamcity.codebetter.com/viewType.html?buildTypeId=bt973&guest=1)
+[![NuGet version](https://img.shields.io/nuget/v/LiteGuard.Source.svg?style=flat)](https://www.nuget.org/packages/LiteGuard.Source)
+[![NuGet version](https://img.shields.io/nuget/v/LiteGuard.svg?style=flat)](https://www.nuget.org/packages/LiteGuard)
+[![Build status](https://ci.appveyor.com/api/projects/status/dfxb7jtpp7ldu0b5/branch/master?svg=true)](https://ci.appveyor.com/project/adamralph/liteguard/branch/master)
 
 Why, it's lighter than air!
 
@@ -8,11 +10,9 @@ The guard clause library which stands out from the crowd like the faintest passi
 
 You'll hardly know it's there!
 
-Compatible with .NET 3.5, Mono 3.2.8<sup>1</sup>, Windows Store 8, Windows Phone 8.1, Universal Apps 8.1, Xamarin.Android 1.0, Xamarin.iOS 1.0, Windows Phone Silverlight 8 and Silverlight 5 (and later versions of each).
+Compatible with .NET 3.5, Windows Store 8, Windows Phone 8.1, Universal Apps 8.1, Xamarin.Android 1.0, Xamarin.iOS 1.0, Windows Phone Silverlight 8 and Silverlight 5 (and later versions of each).
 
 Get it at [NuGet](https://nuget.org/packages?q=liteguard "LiteGuard on NuGet").
-
-<sup>1 LiteGuard is also compatible with most versions of Mono 2.x and earlier versions of Mono 3.x, but this is not proven by the CI build.</sup>
 
 ## How do I use it?
 
@@ -68,24 +68,19 @@ In our opinion, it is not the job of a guard clause library to validate argument
 
 ## Where do I get it?
 
-Install it from [Nuget](https://nuget.org/packages/LiteGuard/). For update notifications, follow [@adamralph](https://twitter.com/#!/adamralph).
+Install it from [Nuget](https://nuget.org/packages?q=liteguard). For update notifications, follow [@adamralph](https://twitter.com/#!/adamralph).
 
-To build manually, clone or fork this repository and see ['How to build'](https://github.com/liteguard/liteguard/blob/master/how_to_build.md).
+To build manually, clone or fork this repository and see ['How to build'](/how_to_build.md).
 
 ## Can I help to improve it and/or fix bugs? ##
 
 Absolutely! Please feel free to raise issues, fork the source code, send pull requests, etc.
 
-No pull request is too small. Even whitespace fixes are appreciated. Before you contribute anything make sure you read [CONTRIBUTING.md](https://github.com/liteguard/liteguard/blob/master/CONTRIBUTING.md).
+No pull request is too small. Even whitespace fixes are appreciated. Before you contribute anything make sure you read [CONTRIBUTING.md](/CONTRIBUTING.md).
 
 ## What do the version numbers mean? ##
 
-LiteGuard uses [Semantic Versioning](http://semver.org/). The current release is 0.x which means 'initial development'. Version 1.0 is imminent.
-
-## Sponsors ##
-Our build server is kindly provided by [CodeBetter](http://codebetter.com/) and [JetBrains](http://www.jetbrains.com/).
-
-![YouTrack and TeamCity](http://www.jetbrains.com/img/banners/Codebetter300x250.png)
+LiteGuard uses [Semantic Versioning](http://semver.org/).
 
 ## Credits ##
 
