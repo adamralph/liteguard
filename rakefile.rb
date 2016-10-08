@@ -1,24 +1,22 @@
 require 'albacore'
 
-version = IO.read("src/CommonAssemblyInfo.cs").split(/AssemblyInformationalVersion\("/, 2)[1].split(/"/).first
+version = IO.read("src/LiteGuard/Properties/CommonAssemblyInfo.cs").split(/AssemblyInformationalVersion\("/, 2)[1].split(/"/).first
+version_suffix  = ENV["VERSION_SUFFIX"]
+build           = (ENV["BUILD"] || "").rjust(6, "0");
+build_suffix    = version_suffix.to_s.empty? ? "" : "-build" + build;
 msbuild_command = "C:/Program Files (x86)/MSBuild/14.0/Bin/MSBuild.exe"
-net20 = "2.0.50727"
-net40 = "4.0.30319"
-xunit_console = { :command => "src/packages/xunit.runners.1.9.2/tools/xunit.console.exe", :net_version => net20 }
-nuget_console = { :command => "src/packages/NuGet.CommandLine.2.8.3/tools/NuGet.exe", :net_version => net40 }
-solution = "src/LiteGuard.sln"
+xunit_console = "packages/xunit.runners.1.9.2/tools/xunit.console.clr4.exe"
+nuget_console = ".nuget/NuGet.exe"
+solution = "LiteGuard.sln"
 logs = "artifacts/logs"
 output = "artifacts/output"
 
 acceptance_tests = [
-  "src/test/LiteGuard.Test.Acceptance.net35/bin/Debug/LiteGuard.Test.Acceptance.net35.dll",
+  "tests/LiteGuard.Test.Acceptance.net35/bin/Release/LiteGuard.Test.Acceptance.net35.dll",
+  "tests/LiteGuard.Test.Acceptance.net45/bin/Release/LiteGuard.Test.Acceptance.net45.dll",
 ]
 
-# NOTE (Adam): nuspec path values fail under Mono on Windows if using / or Mono on Linux if using \
-nuspecs = [
-  ["src/LiteGuard", ENV["OS"], "nuspec"].select { |token| token }.join("."),
-  ["src/LiteGuard.Source", ENV["OS"], "nuspec"].select { |token| token }.join("."),
-]
+nuspecs = [ "src/LiteGuard.nuspec", "src/LiteGuard.Source.nuspec", ]
 
 Albacore.configure do |config|
   config.log_level = :verbose
@@ -27,72 +25,37 @@ end
 desc "Execute default tasks"
 task :default => [:accept, :pack]
 
-desc "Use Mono in Windows"
-task :mono do
-  ENV["Mono"] = "x"
-  if ARGV.length == 1 && ARGV[0] = "mono"
-    Rake::Task["default"].invoke
-  end
-end
-
-desc "Restore NuGet packages"
-exec :restore do |cmd|
-  prepare_task cmd, nuget_console
-  cmd.parameters << "restore #{solution}"
-end
-
 directory logs
 
 desc "Clean solution"
 task :clean => [logs] do
-  if use_mono
-    execute_xbuild solution, "Clean"
-  else
-    execute_msbuild solution, "Clean", msbuild_command, logs
-  end
+  execute_msbuild solution, "Clean", msbuild_command, logs
 end
 
 desc "Build solution"
-task :build => [:clean, :restore, logs] do
-  if use_mono
-    execute_xbuild solution, "Build"
-  else
-    execute_msbuild solution, "Build", msbuild_command, logs
-  end
+task :build => [:clean, logs] do
+  execute_msbuild solution, "Build", msbuild_command, logs
 end
 
 desc "Execute acceptance tests"
 task :accept => [:build] do
   acceptance_tests.each do |test|
     cmd = Exec.new
-    prepare_task cmd, xunit_console
-    cmd.parameters << test << "/html" << fix_path(test + ".TestResults.html") << "/xml" << fix_path(test + ".TestResults.xml")
+    cmd.command = xunit_console
+    cmd.parameters << test << "/html" << File.expand_path(test + ".TestResults.html") << "/xml" << File.expand_path(test + ".TestResults.xml")
     cmd.execute
   end
 end
 
 desc "Prepare source code for packaging"
 task :src do
-  if !use_mono
-    platforms = [
-      { :name => "net35",     :source => "net35" },
-      { :name => "pcl",       :source => "net35" },
-      { :name => "sl5",       :source => "net35" },
-      { :name => "wp8",       :source => "net35" },
-      { :name => "universal", :source => "universal" },
-      { :name => "win8",      :source => "universal" },
-      { :name => "win81",     :source => "universal" },
-      { :name => "wpa81",     :source => "universal" },
-    ]
-
-    platforms.each do |platform|
-        File.open("src/LiteGuard.#{platform[:source]}/Guard.cs") { |from|
-          contents = from.read
-          contents.sub!(/.*namespace LiteGuard/m, 'namespace $rootnamespace$')
-          contents.sub!(/public static class/, 'internal static class')
-          File.open("src/LiteGuard.#{platform[:name]}/bin/Release/Guard.cs.pp", "w+") { |to| to.write(contents) }
-        }
-    end
+  ["net35", ""].each do |platform|
+      File.open("src/LiteGuard.#{platform}/Guard.cs") { |from|
+        contents = from.read
+        contents.sub!(/.*namespace LiteGuard/m, 'namespace $rootnamespace$')
+        contents.sub!(/public static class/, 'internal static class')
+        File.open("src/LiteGuard.#{platform}/bin/Release/Guard.cs.pp", "w+") { |to| to.write(contents) }
+      }
   end
 end
 
@@ -100,19 +63,12 @@ directory output
 
 desc "Create the nuget packages"
 task :pack => [:build, :src, output] do
-  if !use_mono
-    execute_nugetpack nuspecs, nuget_console, version, output
+  nuspecs.each do |nuspec|
+    cmd = Exec.new
+    cmd.command = nuget_console
+    cmd.parameters "pack #{nuspec} -Version #{version}#{version_suffix}#{build_suffix} -OutputDirectory #{output}"
+    cmd.execute
   end
-end
-
-def execute_xbuild(solution, target)
-  build = XBuild.new
-  build.properties = { :configuration => :MonoRelease }
-  build.targets = [target]
-  build.solution = solution
-  build.verbosity = use_mono ? :normal : :minimal
-  build.parameters << "/nologo"
-  build.execute
 end
 
 def execute_msbuild(solution, target, command, logs)
@@ -120,38 +76,4 @@ def execute_msbuild(solution, target, command, logs)
   cmd.command = command
   cmd.parameters "#{solution} /target:#{target} /p:configuration=Release /nr:false /verbosity:minimal /nologo /fl /flp:LogFile=#{logs}/#{target}.log;Verbosity=Detailed;PerformanceSummary"
   cmd.execute
-end
-
-def execute_nugetpack(nuspecs, console, version, output)
-  nuspecs.each do |nuspec|
-    cmd = Exec.new
-    prepare_task cmd, console
-    cmd.parameters << "pack" << nuspec << "-Version" << version << "-OutputDirectory" << output
-    cmd.execute
-  end
-end
-
-def prepare_task(task, console)
-  if use_mono then
-    task.command = "mono"
-    task.parameters << "--runtime=v" + console[:net_version] << console[:command]
-  else
-    task.command = console[:command]
-  end
-end
-
-def fix_path(path)
-  if is_windows then
-    return File.expand_path(path)
-  else
-    return path
-  end
-end
-
-def use_mono
-  return !is_windows || ENV["Mono"]
-end
-
-def is_windows
-  return ENV["OS"] == "Windows_NT"
 end

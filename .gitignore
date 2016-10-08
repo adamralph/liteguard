@@ -1,17 +1,14 @@
 artifacts/
 bin/
 obj/
+.vs/
 
 *.suo
 *.user
 
-/src/packages/*
-!/src/packages/NuGet.CommandLine.*
-/src/packages/NuGet.CommandLine.*/*
-/src/packages/NuGet.CommandLine.*/*.*
-!/src/packages/NuGet.CommandLine.*/tools
-/src/packages/NuGet.CommandLine.*/tools/*
-/src/packages/NuGet.CommandLine.*/tools/*.*
-!/src/packages/NuGet.CommandLine.*/tools/NuGet.exe
+packages
+
+.nuget/[Nn]u[Gg]et.exe
 
 *.sln.ide
+project.lock.json

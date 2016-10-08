@@ -1,6 +1,4 @@
-// <copyright file="Guard.cs" company="LiteGuard contributors">
-//  Copyright (c) LiteGuard contributors. All rights reserved.
-// </copyright>
+// Copyright (c) LiteGuard contributors. All rights reserved.
 
 namespace LiteGuard
 {
