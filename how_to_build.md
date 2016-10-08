@@ -5,14 +5,7 @@ It also replicates the build on the Continuous Integration build server and is t
 
 *Don't be put off by the prerequisites!* It only takes a few minutes to set them up and only needs to be done once. If you haven't used [Rake](http://rake.rubyforge.org/ "RAKE -- Ruby Make") before then you're in for a real treat!
 
-You can also build the solution using Visual Studio 2012 or later, but this doesn't provide the same assurances as the Rake build.
-
-At the time of writing the build is confirmed to work on:
-
-* Windows + Microsoft .NET framework
-* Windows + Mono
-* Linux + Mono
-* OSX + Mono
+You can also build the solution using Visual Studio 2015 or later, but this doesn't provide the same assurances as the Rake build.
 
 Note that under Mono, the PCL target is [redirected](https://github.com/liteguard/liteguard/blob/master/src/Microsoft.Portable.CSharp.targets) to build against .NET framework 4.0, due to lack of support for PCL in Mono at the time of writing. This means the PCL output in the NuGet package produced by a Mono build cannot be used :frowning:.
 
