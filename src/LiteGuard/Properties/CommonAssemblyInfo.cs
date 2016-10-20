@@ -1,12 +1,8 @@
-// <copyright file="CommonAssemblyInfo.cs" company="LiteGuard contributors">
-//  Copyright (c) LiteGuard contributors. All rights reserved.
-// </copyright>
+// Copyright (c) LiteGuard contributors. All rights reserved.
 
 using System;
 using System.Reflection;
-#if NET35 || SILVERLIGHT || NETFX_CORE || UNIVERSAL
 using System.Runtime.InteropServices;
-#endif
 
 [assembly: AssemblyTitle("LiteGuard")]
 [assembly: AssemblyDescription("")]
@@ -17,12 +13,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyProduct("LiteGuard")]
 
-[assembly: AssemblyVersion("0.12.0.0")]
-[assembly: AssemblyFileVersion("0.12.0.0")]
-[assembly: AssemblyInformationalVersion("0.12.0")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0")]
+[assembly: AssemblyInformationalVersion("1.0.0")]
 
 [assembly: CLSCompliant(true)]
-
-#if NET35 || SILVERLIGHT || NETFX_CORE || UNIVERSAL
 [assembly: ComVisible(false)]
-#endif

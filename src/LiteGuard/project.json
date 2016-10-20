@@ -1,0 +1,21 @@
+{
+  "version": "1.0.0",
+  "dependencies": {
+    "StyleCop.Analyzers": {
+      "version": "1.0.0",
+      "type": "build"
+    },
+    "System.Diagnostics.Debug": "4.0.11",
+    "System.Diagnostics.Tools": "4.0.1",
+    "System.Globalization": "4.0.11"
+  },
+  "frameworks": {
+    "netstandard1.0": {
+    }
+  },
+  "buildOptions": {
+    "xmlDoc": true,
+    "additionalArguments": [ "/ruleset:../LiteGuard.ruleset", "/additionalfile:../../stylecop.json" ],
+    "define": []
+  }
+}
