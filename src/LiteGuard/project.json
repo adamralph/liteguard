@@ -16,6 +16,5 @@
   "buildOptions": {
     "xmlDoc": true,
     "additionalArguments": [ "/ruleset:../LiteGuard.ruleset", "/additionalfile:../../stylecop.json" ],
-    "define": []
   }
 }
