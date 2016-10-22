@@ -1,4 +1,5 @@
 require 'albacore'
+require 'fileutils'
 
 version = IO.read("src/LiteGuard/Properties/CommonAssemblyInfo.cs").split(/AssemblyInformationalVersion\("/, 2)[1].split(/"/).first
 version_suffix  = ENV["VERSION_SUFFIX"]
@@ -49,12 +50,13 @@ end
 
 desc "Prepare source code for packaging"
 task :src do
-  ["net35", ""].each do |platform|
-      File.open("src/LiteGuard.#{platform}/Guard.cs") { |from|
+  [{:source => "net35", :platform => "net35"} , {:source => "", :platform => "netstandard1.0"}].each do |file|
+      File.open("src/LiteGuard.#{file[:source]}/Guard.cs") { |from|
         contents = from.read
         contents.sub!(/.*namespace LiteGuard/m, 'namespace $rootnamespace$')
         contents.sub!(/public static class/, 'internal static class')
-        File.open("src/LiteGuard.#{platform}/bin/Release/Guard.cs.pp", "w+") { |to| to.write(contents) }
+        FileUtils.mkdir_p "src/contentFiles/cs/#{file[:platform]}/"
+        File.open("src/contentFiles/cs/#{file[:platform]}/Guard.cs.pp", "w+") { |to| to.write(contents) }
       }
   end
 end
