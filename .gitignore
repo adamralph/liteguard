@@ -1,5 +1,6 @@
 artifacts/
 bin/
+contentFiles/
 obj/
 .vs/
 
