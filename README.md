@@ -10,9 +10,7 @@ The guard clause library which stands out from the crowd like the faintest passi
 
 You'll hardly know it's there!
 
-Get it at [NuGet](https://nuget.org/packages?q=liteguard "LiteGuard on NuGet").
-
-To build from source, clone or fork this repository and see ['How to build'](/how_to_build.md).
+Get it from [NuGet](https://nuget.org/packages?q=liteguard "LiteGuard on NuGet") or [build from source](#build-from-source).
 
 ## Usage
 
@@ -66,6 +64,16 @@ A fluent API requires the creation of objects which serve no purpose other than 
 Many guard clause libraries provide a huge range of methods for determining whether arguments satisfy all manner of business rules.
 
 In my opinion, it is not the job of a guard clause library to validate arguments against business rules. I believe the role of a guard clause library is to prevent method calls with null arguments or null argument values. Ideally, I'd like such things to be built into .NET languages. If that ever happens I will happily allow LiteGuard to retire gracefully to a small but comfortable home near the seaside with a carriage clock and a little Havanese.
+
+## Build from source
+
+Clone this repo, navigate to your clone folder and execute `build.cmd`. The only prerequisite you need is MSBuild 14, which is also included in Visual Studio 2015.
+
+`build.cmd` executes the default build targets which include compilation, test execution and packaging. After the build has completed, the build artifacts will be located in `artifacts/output/`.
+
+For full usage details for `build.cmd`, execute `build.cmd -?`. See  [simple-targets-csx](https://github.com/adamralph/simple-targets-csx) for more info.
+
+You can also build the solution using Visual Studio 2015 or later. At the time of writing the build is only confirmed to work on Windows.
 
 ## Can I help to improve it and/or fix bugs?
 
