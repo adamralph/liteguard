@@ -7,7 +7,7 @@ First of all, thank you for wanting to contribute! We really appreciate all the 
 1. [Fork](http://help.github.com/forking/) on GitHub
 1. Make sure your you set autoclrf to false. `git config --local core.autocrlf false`
 1. Clone your fork locally
-1. Configure the upstream repo (`git remote add upstream git://github.com/liteguard/liteguard.git`)
+1. Configure the upstream repo (`git remote add upstream git://github.com/adamralph/liteguard.git`)
 1. Create a local branch (`git checkout -b myBranch`)
 1. Work on your feature
 1. Rebase if required (see below)
