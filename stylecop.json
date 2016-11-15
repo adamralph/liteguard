@@ -5,7 +5,7 @@
       "newlineAtEndOfFile": "require"
     },
     "documentationRules": {
-      "copyrightText": "Copyright (c) LiteGuard contributors. All rights reserved.",
+      "copyrightText": "Copyright (c) 2013 Adam Ralph.",
       "xmlHeader": false,
 
       "documentInterfaces": false,

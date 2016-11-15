@@ -5,9 +5,9 @@
     <version>0.0.0</version>
     <title>LiteGuard.Source</title>
     <authors>Adam Ralph, LiteGuard contributors</authors>
-    <projectUrl>https://github.com/liteguard/liteguard</projectUrl>
-    <iconUrl>https://raw.github.com/liteguard/liteguard/master/assets/liteguard_128.png</iconUrl>
-    <licenseUrl>https://github.com/liteguard/liteguard/blob/master/license.txt</licenseUrl>
+    <projectUrl>https://github.com/adamralph/liteguard</projectUrl>
+    <iconUrl>https://raw.github.com/adamralph/liteguard/master/assets/liteguard_128.png</iconUrl>
+    <licenseUrl>https://github.com/adamralph/liteguard/blob/master/license.txt</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>The most simple, unambiguous and lightweight guard clause library. This is the source code package. Also available as a binary package (LiteGuard).</summary>
     <description>Why, it's lighter than air!
@@ -20,7 +20,7 @@ This is the LiteGuard source code package. Also available as a binary package (L
 After installing this package you may change the source code as required to match your coding conventions.
 
 We all have to do our bit in working toward the ultimate number of published guard clause libraries which, at current estimates, is somewhere in the region of 6.02214129(27) × 10^23.</description>
-    <copyright>Copyright (c) LiteGuard contributors. (liteguard.ch@gmail.com)</copyright>
+    <copyright>Copyright (c) 2013 Adam Ralph.</copyright>
     <tags>guard clause arguments light avogadro</tags>
     <developmentDependency>true</developmentDependency>
     <dependencies>

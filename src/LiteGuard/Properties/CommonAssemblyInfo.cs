@@ -1,4 +1,4 @@
-// Copyright (c) LiteGuard contributors. All rights reserved.
+// Copyright (c) 2013 Adam Ralph.
 
 using System;
 using System.Reflection;
@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("LiteGuard contributors")]
-[assembly: AssemblyCopyright("Copyright © LiteGuard contributors. All rights reserved.")]
+[assembly: AssemblyCopyright("Copyright (c) 2013 Adam Ralph.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyProduct("LiteGuard")]

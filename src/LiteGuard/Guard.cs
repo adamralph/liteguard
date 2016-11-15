@@ -1,4 +1,4 @@
-// Copyright (c) LiteGuard contributors. All rights reserved.
+// Copyright (c) 2013 Adam Ralph.
 
 namespace LiteGuard
 {

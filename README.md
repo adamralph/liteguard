@@ -1,4 +1,4 @@
-![LiteGuard](https://raw.github.com/liteguard/liteguard/master/assets/liteguard_128.png)
+![LiteGuard](https://raw.github.com/adamralph/liteguard/master/assets/liteguard_128.png)
 
 [![NuGet version](https://img.shields.io/nuget/v/LiteGuard.Source.svg?style=flat)](https://www.nuget.org/packages/LiteGuard.Source)
 [![NuGet version](https://img.shields.io/nuget/v/LiteGuard.svg?style=flat)](https://www.nuget.org/packages/LiteGuard)
