@@ -13,7 +13,7 @@ You can also build the solution using Visual Studio 2015 or later, but this does
 
 1. Install Ruby 1.8.7 or later.
 
- For Windows we recommend using the [RubyInstaller](http://rubyinstaller.org/) and selecting 'Add Ruby executables to your PATH' when prompted. For alternatives see the [Ruby download page](http://www.ruby-lang.org/en/downloads/).
+ For Windows I recommend using the [RubyInstaller](http://rubyinstaller.org/) and selecting 'Add Ruby executables to your PATH' when prompted. For alternatives see the [Ruby download page](http://www.ruby-lang.org/en/downloads/).
 
 1. Using a command prompt, update RubyGems to the latest version:
 
