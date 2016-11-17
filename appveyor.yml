@@ -6,14 +6,13 @@ branches:
   - master
 skip_tags: true
 environment:
-  PATH: 'C:\Ruby200\bin;%PATH%'
-  BUILD: $(APPVEYOR_BUILD_NUMBER)
-install:
-- cmd: bundle install
+  BUILD_NUMBER: $(APPVEYOR_BUILD_NUMBER)
 build_script:
 - cmd: build.cmd
 nuget:
   disable_publish_on_pr: true
 test: off
 artifacts:
-- path: ./artifacts/*/*.*
+- path: artifacts/*/*.*
+- path: tests/**/*TestResults.*
+deploy: off

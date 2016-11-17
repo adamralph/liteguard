@@ -26,4 +26,4 @@ if not exist .nuget\NuGet.exe (
 .nuget\NuGet.exe restore .\LiteGuard.sln -MSBuildVersion 14
 
 :: run script
-call bundle exec rake %*
+"%ProgramFiles(x86)%\MSBuild\14.0\Bin\csi.exe" .\build.csx %*

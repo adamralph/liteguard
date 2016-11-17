@@ -12,5 +12,8 @@ max_line_length = 120
 [*.cs]
 indent_size = 4
 
+[*.csx]
+indent_size = 4
+
 [*.cmd]
 max_line_length = 9999
