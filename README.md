@@ -81,4 +81,4 @@ No pull request is too small. Even whitespace fixes are appreciated.
 
 ---
 
-LiteGuard logo designed by [Vanja Pakaski](https://github.com/vanpak).
+<sub>LiteGuard logo designed by [Vanja Pakaski](https://github.com/vanpak).</sub>
