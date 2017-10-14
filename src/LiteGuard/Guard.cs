@@ -49,7 +49,11 @@ namespace LiteGuard
         public static void AgainstNullArgumentIfNullable<TArgument>(
             string parameterName, [ValidatedNotNull]TArgument argument)
         {
+#if NETSTANDARD2_0
+            if (typeof(TArgument).IsNullableType() && argument == null)
+#else
             if (ReferenceEquals(argument, null))
+#endif
             {
                 throw new ArgumentNullException(
                     parameterName, string.Format(CultureInfo.InvariantCulture, "{0} is null.", parameterName));
@@ -97,13 +101,32 @@ namespace LiteGuard
         public static void AgainstNullArgumentPropertyIfNullable<TProperty>(
             string parameterName, string propertyName, [ValidatedNotNull]TProperty argumentProperty)
         {
+#if NETSTANDARD2_0
+            if (typeof(TProperty).IsNullableType() && argumentProperty == null)
+#else
             if (ReferenceEquals(argumentProperty, null))
+#endif
             {
                 throw new ArgumentException(
                     string.Format(CultureInfo.InvariantCulture, "{0}.{1} is null.", parameterName, propertyName),
                     parameterName);
             }
         }
+
+#if NETSTANDARD2_0
+        /// <summary>
+        /// Determines whether the specified type is a nullable type.
+        /// </summary>
+        /// <param name="type">The type.</param>
+        /// <returns>
+        ///   <c>true</c> if the specified type is a nullable type; otherwise, <c>false</c>.
+        /// </returns>
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Source package.")]
+        private static bool IsNullableType(this Type type)
+        {
+            return !type.IsValueType || (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>));
+        }
+#endif
 
         /// <summary>
         /// When applied to a parameter,

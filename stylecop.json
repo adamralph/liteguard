@@ -6,13 +6,7 @@
     },
     "documentationRules": {
       "copyrightText": "Copyright (c) 2013 Adam Ralph.",
-      "xmlHeader": false,
-
-      "documentInterfaces": false,
-      "documentExposedElements": false,
-      "documentInternalElements": false,
-
-      "fileNamingConvention": "metadata"
+      "xmlHeader": false
     }
   }
 }

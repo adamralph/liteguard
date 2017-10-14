@@ -67,13 +67,11 @@ In my opinion, it is not the job of a guard clause library to validate arguments
 
 ## Build from source
 
-Clone this repo, navigate to your clone folder and execute `build.cmd`. The only prerequisite you need is MSBuild 14, which is also included in Visual Studio 2015.
+Clone this repo, navigate to your clone folder and execute `build.cmd`. The only prerequisite you need is the .NET Core CLI 2.0.
 
 `build.cmd` executes the default build targets which include compilation, test execution and packaging. After the build has completed, the build artifacts will be located in `artifacts/output/`.
 
 For full usage details for `build.cmd`, execute `build.cmd -?`. See  [simple-targets-csx](https://github.com/adamralph/simple-targets-csx) for more info.
-
-You can also build the solution using Visual Studio 2015 or later. At the time of writing the build is only confirmed to work on Windows.
 
 ## Can I help to improve it and/or fix bugs?
 
@@ -81,5 +79,6 @@ Absolutely! Please feel free to raise issues, fork the source code, send pull re
 
 No pull request is too small. Even whitespace fixes are appreciated.
 
--
+---
+
 LiteGuard logo designed by [Vanja Pakaski](https://github.com/vanpak).
