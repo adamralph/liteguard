@@ -4,7 +4,6 @@ pull_requests:
 branches:
   only:
   - master
-skip_tags: true
 environment:
   BUILD_NUMBER: $(APPVEYOR_BUILD_NUMBER)
 build_script:
