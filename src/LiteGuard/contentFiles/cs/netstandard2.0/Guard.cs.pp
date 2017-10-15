@@ -1,6 +1,6 @@
 // Copyright (c) 2013 Adam Ralph.
 
-namespace LiteGuard
+namespace $rootnamespace$
 {
     using System;
     using System.Diagnostics;
@@ -10,7 +10,7 @@ namespace LiteGuard
     /// <summary>
     /// Provides guard clauses.
     /// </summary>
-    public static class Guard
+    internal static class Guard
     {
         /// <summary>
         /// Guards against a null argument.

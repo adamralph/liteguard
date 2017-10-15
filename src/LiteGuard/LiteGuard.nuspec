@@ -13,27 +13,18 @@
     <description>Why, it's lighter than air!
 The aim of LiteGuard is to be the most simple, unambiguous and lightweight guard clause library available.
 
-Supported platforms: .NET Framework 3.5. and .NET Platform Standard 1.0
+Supported platforms: .NET Standard 1.0 onwards.
 
 This is the LiteGuard binary package. Also available as a source code package (LiteGuard.Source). If your project is an application or library which is not packaged and/or exported for use in other solutions then the binary package is usually the best choice. If you are writing a library which is packaged and/or exported for use in other solutions then the source code package is usually the best choice.
 
 We all have to do our bit in working toward the ultimate number of published guard clause libraries which, at current estimates, is somewhere in the region of 6.02214129(27) × 10^23.</description>
     <copyright>Copyright (c) 2013 Adam Ralph.</copyright>
     <tags>guard clause arguments light avogadro</tags>
-    <dependencies>
-      <group targetFramework="net35">
-      </group>
-      <group targetFramework="netstandard1.0">
-        <dependency id="System.Diagnostics.Debug" version="4.0.11" />
-        <dependency id="System.Diagnostics.Tools" version="4.0.1" />
-        <dependency id="System.Globalization"     version="4.0.11" />
-      </group>
-    </dependencies>
   </metadata>
   <files>
-    <file src="LiteGuard.net35\bin\Release\LiteGuard.dll"           target="lib\net35" />
-    <file src="LiteGuard.net35\bin\Release\LiteGuard.xml"           target="lib\net35" />
-    <file src="LiteGuard\bin\Release\netstandard1.0\LiteGuard.dll"  target="lib\netstandard1.0" />
-    <file src="LiteGuard\bin\Release\netstandard1.0\LiteGuard.xml"  target="lib\netstandard1.0" />
+    <file src="bin\Release\netstandard1.0\LiteGuard.dll"  target="lib\netstandard1.0" />
+    <file src="bin\Release\netstandard1.0\LiteGuard.xml"  target="lib\netstandard1.0" />
+    <file src="bin\Release\netstandard2.0\LiteGuard.dll"  target="lib\netstandard2.0" />
+    <file src="bin\Release\netstandard2.0\LiteGuard.xml"  target="lib\netstandard2.0" />
   </files>
 </package>
