@@ -42,21 +42,6 @@ targets.Add(
 targets.Add("output", () => Directory.CreateDirectory(output));
 
 targets.Add(
-    "content",
-    () =>
-    {
-            var code = File.ReadAllText($"src/LiteGuard/Guard.cs")
-                .Replace("namespace LiteGuard", "namespace $rootnamespace$")
-                .Replace("public static class", "internal static class");
-
-            Directory.CreateDirectory($"src/LiteGuard/contentFiles/cs/netstandard1.0");
-            File.WriteAllText($"src/LiteGuard/contentFiles/cs/netstandard1.0/Guard.cs.pp", code);
-
-            Directory.CreateDirectory($"src/LiteGuard/contentFiles/cs/netstandard2.0");
-            File.WriteAllText($"src/LiteGuard/contentFiles/cs/netstandard2.0/Guard.cs.pp", code);
-    });
-
-targets.Add(
     "pack",
     DependsOn("build", "output"),
     () =>
