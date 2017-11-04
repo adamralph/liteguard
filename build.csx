@@ -1,4 +1,4 @@
-#load "packages/simple-targets-csx.5.2.1/simple-targets.csx"
+#load "packages/simple-targets-csx.5.3.0/simple-targets.csx"
 #load "scripts/cmd.csx"
 
 using System;
@@ -20,8 +20,8 @@ var version = File.ReadAllText("src/LiteGuard/LiteGuard.csproj")
 var logs = "./artifacts/logs";
 var output = "./artifacts/output";
 var nuget = ".nuget/v4.3.0/NuGet.exe";
-var xunitNet452 = "packages/xunit.runner.console.2.3.0/tools/net452/xunit.console.exe";
-var xunitNetCoreApp2 = "packages/xunit.runner.console.2.3.0/tools/netcoreapp2.0/xunit.console.dll";
+var xunitNet452 = "packages/xunit.runner.console.2.3.1/tools/net452/xunit.console.exe";
+var xunitNetCoreApp2 = "packages/xunit.runner.console.2.3.1/tools/netcoreapp2.0/xunit.console.dll";
 
 // targets
 var targets = new TargetDictionary();
