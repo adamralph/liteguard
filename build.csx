@@ -1,5 +1,6 @@
+#r "packages/SimpleExec.2.0.0/lib/netstandard1.3/SimpleExec.dll"
+
 #load "packages/simple-targets-csx.6.0.0/contentFiles/csx/any/simple-targets.csx"
-#load "scripts/cmd.csx"
 
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using static SimpleTargets;
+using static SimpleExec.Command;
 
 // version
 var versionSuffix = Environment.GetEnvironmentVariable("VERSION_SUFFIX") ?? "";
@@ -31,9 +33,9 @@ targets.Add("logs", () => Directory.CreateDirectory(logs));
 targets.Add(
     "build",
     DependsOn("logs"),
-    () => Cmd(
+    () => Run(
         "dotnet",
-        $"build LiteGuard.sln /property:Configuration=Release /nologo /maxcpucount " +
+        "build LiteGuard.sln /property:Configuration=Release /nologo /maxcpucount " +
             $"/fl /flp:LogFile={logs}/build.log;Verbosity=Detailed;PerformanceSummary " +
             $"/bl:{logs}/build.binlog"));
 
@@ -46,10 +48,10 @@ targets.Add(
     {
         foreach (var nuspec in new[] { "./src/LiteGuard/LiteGuard.nuspec", "./src/LiteGuard/LiteGuard.Source.nuspec", })
         {
-            Cmd(nuget, $"pack {nuspec} -Version {version} -OutputDirectory {output} -NoPackageAnalysis");
+            Run(nuget, $"pack {nuspec} -Version {version} -OutputDirectory {output} -NoPackageAnalysis");
         }
     });
 
-targets.Add("test", DependsOn("build"), () => Cmd("dotnet", $"xunit -configuration Release -nobuild", "./tests/LiteGuardTests"));
+targets.Add("test", DependsOn("build"), () => Run("dotnet", $"xunit -configuration Release -nobuild", "./tests/LiteGuardTests"));
 
 Run(Args, targets);
