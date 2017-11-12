@@ -1,13 +1,17 @@
 using System;
 using System.Diagnostics;
 
-public static void Cmd(string fileName, string args)
+public static void Cmd(string fileName, string args) => Cmd(fileName, args, "");
+
+public static void Cmd(string fileName, string args, string workingDirectory)
 {
     using (var process = new Process())
     {
-        process.StartInfo = new ProcessStartInfo {
+        process.StartInfo = new ProcessStartInfo
+        {
             FileName = $"\"{fileName}\"",
             Arguments = args,
+            WorkingDirectory = workingDirectory,
             UseShellExecute = false,
         };
 
