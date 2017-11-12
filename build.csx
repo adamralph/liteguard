@@ -20,8 +20,6 @@ var version = File.ReadAllText("src/LiteGuard/LiteGuard.csproj")
 var logs = "./artifacts/logs";
 var output = "./artifacts/output";
 var nuget = ".nuget/v4.3.0/NuGet.exe";
-var xunitNet452 = "packages/xunit.runner.console.2.3.1/tools/net452/xunit.console.exe";
-var xunitNetCoreApp2 = "packages/xunit.runner.console.2.3.1/tools/netcoreapp2.0/xunit.console.dll";
 
 // targets
 var targets = new TargetDictionary();
@@ -52,16 +50,6 @@ targets.Add(
         }
     });
 
-targets.Add(
-    "test",
-    DependsOn("build"),
-    () =>
-    {
-        var net452 = Path.GetFullPath("tests/LiteGuardTests/bin/Release/net452/LiteGuardTests.dll");
-        Cmd($"{xunitNet452}", $"{net452} -html {net452}.TestResults.html -xml {net452}.TestResults.xml");
-
-        var netcoreApp2 = Path.GetFullPath("tests/LiteGuardTests/bin/Release/netcoreapp2.0/LiteGuardTests.dll");
-        Cmd("dotnet", $"{xunitNetCoreApp2} {netcoreApp2} -html {netcoreApp2}.TestResults.html -xml {netcoreApp2}.TestResults.xml");
-    });
+targets.Add("test", DependsOn("build"), () => Cmd("dotnet", $"xunit -configuration Release -nobuild", "./tests/LiteGuardTests"));
 
 Run(Args, targets);

@@ -13,5 +13,4 @@ nuget:
 test: off
 artifacts:
 - path: artifacts/*/*.*
-- path: tests/**/*TestResults.*
 deploy: off
