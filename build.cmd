@@ -2,18 +2,18 @@
 cd %~dp0
 setlocal EnableDelayedExpansion
 
-set NUGET_VERSION=4.3.0
 set CSI_VERSION=2.4.0
+set NUGET_VERSION=4.3.0
 
-set NUGET_URI=https://dist.nuget.org/win-x86-commandline/v%NUGET_VERSION%/NuGet.exe
+set SCRIPT=%~n0.csx
 set PACKAGES_CONFIG=packages.config
 set PACKAGES_DIR=packages\
 set CSI_EXE=%PACKAGES_DIR%\Microsoft.Net.Compilers.%CSI_VERSION%\tools\csi.exe
-set SCRIPT=%~n0.csx
+set NUGET_URI=https://dist.nuget.org/win-x86-commandline/v%NUGET_VERSION%/NuGet.exe
 set NUGET_EXE_DIR=.nuget\v%NUGET_VERSION%\
 set NUGET_EXE=%NUGET_EXE_DIR%NuGet.exe
 set NUGET_CACHE_DIR=%LOCALAPPDATA%\%NUGET_EXE_DIR%
-set NUGET_CACHE=%NUGET_CACHE_DIR%NuGet.exe
+set NUGET_CACHE=%LOCALAPPDATA%\%NUGET_EXE%
 
 if not exist %NUGET_EXE% (
   if not exist %NUGET_CACHE% (
