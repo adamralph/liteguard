@@ -32,11 +32,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiteGuard", "src\LiteGuard\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiteGuardTests", "tests\LiteGuardTests\LiteGuardTests.csproj", "{CEB82628-CB56-415F-B278-37E57699BF09}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{F58E7322-4DA3-482B-880D-7A5CA01A19CC}"
-	ProjectSection(SolutionItems) = preProject
-		scripts\cmd.csx = scripts\cmd.csx
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
