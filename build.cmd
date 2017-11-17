@@ -17,17 +17,17 @@ set NUGET_CACHE=%LOCALAPPDATA%\%NUGET_EXE%
 
 if not exist %NUGET_EXE% (
   if not exist %NUGET_CACHE% (
-    if not exist %NUGET_CACHE_DIR% mkdir %NUGET_CACHE_DIR% || exit /b %ERRORLEVEL%
+    if not exist %NUGET_CACHE_DIR% mkdir %NUGET_CACHE_DIR% || exit /b
     echo %~nx0: Downloading '%NUGET_URI%' to '%NUGET_CACHE%'...
-    @powershell -NoProfile -ExecutionPolicy unrestricted -Command "Invoke-WebRequest '%NUGET_URI%' -OutFile '%NUGET_CACHE%'" || exit /b %ERRORLEVEL%
+    @powershell -NoProfile -ExecutionPolicy unrestricted -Command "Invoke-WebRequest '%NUGET_URI%' -OutFile '%NUGET_CACHE%'" || exit /b
   )
 
   echo %~nx0: Copying '%NUGET_CACHE%' to '%NUGET_EXE_DIR%'...
-  xcopy %NUGET_CACHE% %NUGET_EXE_DIR% /q || exit /b %ERRORLEVEL%
+  xcopy %NUGET_CACHE% %NUGET_EXE_DIR% /q || exit /b
 )
 
 echo %~nx0: Restoring NuGet packages for '%SCRIPT%'...
-%NUGET_EXE% restore %PACKAGES_CONFIG% -PackagesDirectory %PACKAGES_DIR% || exit /b %ERRORLEVEL%
+%NUGET_EXE% restore %PACKAGES_CONFIG% -PackagesDirectory %PACKAGES_DIR% || exit /b
 
 echo %~nx0: Running '%SCRIPT%'...
 %CSI_EXE% %SCRIPT% %*
