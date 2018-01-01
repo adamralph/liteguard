@@ -12,5 +12,6 @@ nuget:
   disable_publish_on_pr: true
 test: off
 artifacts:
-- path: artifacts/*/*.*
+- path: '*.*log'
+- path: 'src/**/*.nupkg'
 deploy: off
