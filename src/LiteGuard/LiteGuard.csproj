@@ -3,9 +3,13 @@
     <TargetFrameworks>netstandard1.0;netstandard2.0</TargetFrameworks>
     <AssemblyName>LiteGuard</AssemblyName>
     <Description>LiteGuard</Description>
-    <Version>2.1.0</Version>
+    <VersionPrefix>2.1.0</VersionPrefix>
+    <VersionSuffix>$(VERSION_SUFFIX)</VersionSuffix>
     <FileVersion>2.1.0</FileVersion>
     <AssemblyVersion>2.0.0.0</AssemblyVersion>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NuspecFile>$(NUSPEC_FILE)</NuspecFile>
+    <NuspecProperties Condition=" '$(VersionSuffix)' == '' ">Version=$(VersionPrefix)</NuspecProperties>
+    <NuspecProperties Condition=" '$(VersionSuffix)' != '' ">Version=$(VersionPrefix)-$(VersionSuffix)</NuspecProperties>
   </PropertyGroup>
 </Project>

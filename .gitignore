@@ -1,6 +1,8 @@
 .nuget/
 .vs/
-artifacts/
 bin/
 obj/
 packages/
+
+*.log
+*.binlog
