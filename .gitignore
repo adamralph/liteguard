@@ -1,8 +1,6 @@
-.nuget/
 .vs/
 bin/
 obj/
-packages/
 
 *.log
 *.binlog

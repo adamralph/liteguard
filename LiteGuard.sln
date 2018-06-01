@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFiles", "SolutionFiles", "{1DAD0ED8-7F96-4299-BEBB-04F3C25BFC76}"
 	ProjectSection(SolutionItems) = preProject
@@ -9,10 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFiles", "SolutionFi
 		.gitignore = .gitignore
 		appveyor.yml = appveyor.yml
 		build.cmd = build.cmd
-		build.csx = build.csx
 		Directory.Build.props = Directory.Build.props
 		LICENSE = LICENSE
-		packages.config = packages.config
 		README.md = README.md
 		stylecop.json = stylecop.json
 	EndProjectSection
@@ -32,6 +30,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiteGuard", "src\LiteGuard\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiteGuardTests", "tests\LiteGuardTests\LiteGuardTests.csproj", "{CEB82628-CB56-415F-B278-37E57699BF09}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "targets", "targets", "{2588D480-54B0-4A0C-8CD2-45AEE061FFEA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Targets", "targets\Targets.csproj", "{552B86AE-2089-4789-B1FF-0461FDF5F5DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +48,10 @@ Global
 		{CEB82628-CB56-415F-B278-37E57699BF09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CEB82628-CB56-415F-B278-37E57699BF09}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CEB82628-CB56-415F-B278-37E57699BF09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{552B86AE-2089-4789-B1FF-0461FDF5F5DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{552B86AE-2089-4789-B1FF-0461FDF5F5DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{552B86AE-2089-4789-B1FF-0461FDF5F5DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{552B86AE-2089-4789-B1FF-0461FDF5F5DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +59,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{91C58BF7-315D-47C1-BA60-CC9BA0B779F8} = {5BF2A559-0478-4C78-A258-7E45EE82BCEB}
 		{CEB82628-CB56-415F-B278-37E57699BF09} = {56B4AF74-81A3-445B-9BEE-F044C1106D0B}
+		{552B86AE-2089-4789-B1FF-0461FDF5F5DC} = {2588D480-54B0-4A0C-8CD2-45AEE061FFEA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8354BA78-15BA-4931-9F19-6424A3F430F3}

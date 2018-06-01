@@ -71,7 +71,7 @@ Clone this repo, navigate to your clone folder and execute `build.cmd`. The only
 
 `build.cmd` executes the default build targets which include compilation, test execution and packaging. After the build has completed, the build artifacts will be located in `artifacts/output/`.
 
-For full usage details for `build.cmd`, execute `build.cmd -?`. See  [simple-targets-csx](https://github.com/adamralph/simple-targets-csx) for more info.
+For full usage details for `build.cmd`, execute `build.cmd -?`. See  [Bullseye](https://github.com/adamralph/bullseye) for more info.
 
 ## Can I help to improve it and/or fix bugs?
 
