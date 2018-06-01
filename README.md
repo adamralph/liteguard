@@ -67,7 +67,7 @@ In my opinion, it is not the job of a guard clause library to validate arguments
 
 ## Build from source
 
-Clone this repo, navigate to your clone folder and execute `build.cmd`. The only prerequisite you need is [.NET Core SDK 2.0.0](https://dot.net/core).
+Clone this repo, navigate to your clone folder and execute `build.cmd`.
 
 `build.cmd` executes the default build targets which include compilation, test execution and packaging. After the build has completed, the build artifacts will be located in `artifacts/output/`.
 

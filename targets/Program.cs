@@ -38,7 +38,7 @@ internal class Program
         Add(
             "test",
             DependsOn("build"),
-            () => RunAsync("dotnet", $"xunit -configuration Release -nobuild", "./tests/LiteGuardTests"));
+            () => RunAsync("dotnet", $"test ./tests/LiteGuardTests/LiteGuardTests.csproj --configuration Release --no-build"));
 
         return RunAsync(args);
     }
