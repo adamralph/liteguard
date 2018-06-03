@@ -15,13 +15,7 @@ internal class Program
 
         Add("default", DependsOn("pack", "test"));
 
-        Add(
-            "build",
-            () => RunAsync(
-                "dotnet",
-                "build LiteGuard.sln /property:Configuration=Release /maxcpucount " +
-                    $"/fl /flp:LogFile=build.log;Verbosity=Detailed;PerformanceSummary " +
-                    $"/bl:build.binlog"));
+        Add("build", () => RunAsync("dotnet", "build LiteGuard.sln --configuration Release"));
 
         Add(
             "pack",
