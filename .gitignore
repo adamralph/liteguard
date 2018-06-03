@@ -1,6 +1,3 @@
 .vs/
 bin/
 obj/
-
-*.log
-*.binlog
