@@ -1,8 +1,10 @@
 <img src="https://raw.github.com/adamralph/liteguard/master/assets/liteguard_256.png" width="128" />
 
-[![NuGet version](https://img.shields.io/nuget/v/LiteGuard.Source.svg?style=flat)](https://www.nuget.org/packages/LiteGuard.Source)
-[![NuGet version](https://img.shields.io/nuget/v/LiteGuard.svg?style=flat)](https://www.nuget.org/packages/LiteGuard)
-[![Build status](https://ci.appveyor.com/api/projects/status/dfxb7jtpp7ldu0b5/branch/master?svg=true)](https://ci.appveyor.com/project/adamralph/liteguard/branch/master)
+# LiteGuard
+
+_[![NuGet version](https://img.shields.io/nuget/v/LiteGuard.Source.svg?style=flat)](https://www.nuget.org/packages/LiteGuard.Source)_
+_[![NuGet version](https://img.shields.io/nuget/v/LiteGuard.svg?style=flat)](https://www.nuget.org/packages/LiteGuard)_
+_[![Build status](https://ci.appveyor.com/api/projects/status/dfxb7jtpp7ldu0b5/branch/master?svg=true)](https://ci.appveyor.com/project/adamralph/liteguard/branch/master)_
 
 Why, it's lighter than air!
 
@@ -10,9 +12,11 @@ The guard clause library which stands out from the crowd like the faintest passi
 
 You'll hardly know it's there!
 
-Get it from [NuGet](https://nuget.org/packages?q=liteguard "LiteGuard on NuGet") or [build from source](#build-from-source).
+LiteGuard is a .NET package available as [source](https://www.nuget.org/packages/LiteGuard.Source) or [binary](https://www.nuget.org/packages/LiteGuard) for writing guard clauses.
 
-## Usage
+Platform support: [.NET Standard 1.0 and upwards](https://docs.microsoft.com/en-us/dotnet/standard/net-standard).
+
+## Quick start
 
 ```C#
 public void Foo(Bar bar)
@@ -64,20 +68,6 @@ A fluent API requires the creation of objects which serve no purpose other than 
 Many guard clause libraries provide a huge range of methods for determining whether arguments satisfy all manner of business rules.
 
 In my opinion, it is not the job of a guard clause library to validate arguments against business rules. I believe the role of a guard clause library is to prevent method calls with null arguments or null argument values. Ideally, I'd like such things to be built into .NET languages. If that ever happens I will happily allow LiteGuard to retire gracefully to a small but comfortable home near the seaside with a carriage clock and a little Havanese.
-
-## Build from source
-
-Clone this repo, navigate to your clone folder and execute `build.cmd`.
-
-`build.cmd` executes the default build targets which include compilation, test execution and packaging. After the build has completed, the build artifacts will be located in `artifacts/output/`.
-
-For full usage details for `build.cmd`, execute `build.cmd -?`. See  [Bullseye](https://github.com/adamralph/bullseye) for more info.
-
-## Can I help to improve it and/or fix bugs?
-
-Absolutely! Please feel free to raise issues, fork the source code, send pull requests, etc.
-
-No pull request is too small. Even whitespace fixes are appreciated.
 
 ---
 
