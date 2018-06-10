@@ -1,15 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.0;netstandard2.0</TargetFrameworks>
-    <AssemblyName>LiteGuard</AssemblyName>
-    <Description>LiteGuard</Description>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <FileVersion>2.1.0</FileVersion>
     <VersionPrefix>2.1.0</VersionPrefix>
     <VersionSuffix>$(VERSION_SUFFIX)</VersionSuffix>
-    <FileVersion>2.1.0</FileVersion>
-    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <TargetFrameworks>netstandard1.0;netstandard2.0</TargetFrameworks>
     <NuspecFile>$(NUSPEC_FILE)</NuspecFile>
     <NuspecProperties Condition=" '$(VersionSuffix)' == '' ">Version=$(VersionPrefix)</NuspecProperties>
     <NuspecProperties Condition=" '$(VersionSuffix)' != '' ">Version=$(VersionPrefix)-$(VersionSuffix)</NuspecProperties>
   </PropertyGroup>
+
 </Project>
