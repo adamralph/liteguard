@@ -1,8 +1,6 @@
 // Copyright (c) 2013 Adam Ralph.
 
 using System;
-using System.IO;
-using System.Reflection;
 using System.Threading.Tasks;
 using static Bullseye.Targets;
 using static SimpleExec.Command;
@@ -11,8 +9,6 @@ internal class Program
 {
     public static Task<int> Main(string[] args)
     {
-        Directory.SetCurrentDirectory(Path.Combine(Assembly.GetExecutingAssembly().Location, "../../../../.."));
-
         Add("default", DependsOn("pack", "test"));
 
         Add("build", () => RunAsync("dotnet", "build LiteGuard.sln --configuration Release"));

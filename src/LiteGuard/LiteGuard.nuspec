@@ -1,15 +1,8 @@
 <?xml version="1.0"?>
 <package>
   <metadata>
-    <id>LiteGuard</id>
-    <version>0.0.0</version>
-    <title>LiteGuard</title>
     <authors>Adam Ralph, LiteGuard contributors</authors>
-    <projectUrl>https://github.com/adamralph/liteguard</projectUrl>
-    <iconUrl>https://raw.github.com/adamralph/liteguard/master/assets/liteguard_256.png</iconUrl>
-    <licenseUrl>https://github.com/adamralph/liteguard/blob/master/LICENSE</licenseUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <summary>The most simple, unambiguous and lightweight guard clause library. This is the binary package. Also available as a source code package (LiteGuard.Source).</summary>
+    <copyright>Copyright (c) 2013 Adam Ralph.</copyright>
     <description>Why, it's lighter than air!
 The aim of LiteGuard is to be the most simple, unambiguous and lightweight guard clause library available.
 
@@ -18,8 +11,14 @@ Supported platforms: .NET Standard 1.0 onwards.
 This is the LiteGuard binary package. Also available as a source code package (LiteGuard.Source). If your project is an application or library which is not packaged and/or exported for use in other solutions then the binary package is usually the best choice. If you are writing a library which is packaged and/or exported for use in other solutions then the source code package is usually the best choice.
 
 We all have to do our bit in working toward the ultimate number of published guard clause libraries which, at current estimates, is somewhere in the region of 6.02214129(27) × 10^23.</description>
-    <copyright>Copyright (c) 2013 Adam Ralph.</copyright>
+    <iconUrl>https://raw.github.com/adamralph/liteguard/master/assets/liteguard_256.png</iconUrl>
+    <id>LiteGuard</id>
+    <licenseUrl>https://github.com/adamralph/liteguard/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/adamralph/liteguard</projectUrl>
+    <summary>The most simple, unambiguous and lightweight guard clause library. This is the binary package. Also available as a source code package (LiteGuard.Source).</summary>
     <tags>guard clause arguments light avogadro</tags>
+    <title>LiteGuard</title>
+    <version>0.0.0</version>
   </metadata>
   <files>
     <file src="bin\Release\netstandard1.0\LiteGuard.dll"  target="lib\netstandard1.0" />
