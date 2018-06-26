@@ -7,7 +7,7 @@ using static SimpleExec.Command;
 
 internal class Program
 {
-    public static Task<int> Main(string[] args)
+    public static Task Main(string[] args)
     {
         Add("default", DependsOn("pack", "test"));
 
