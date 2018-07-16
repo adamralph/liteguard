@@ -11,6 +11,7 @@ namespace $rootnamespace$
     /// <summary>
     /// Provides guard clauses.
     /// </summary>
+    [DebuggerNonUserCode]
     internal static class Guard
     {
         /// <summary>

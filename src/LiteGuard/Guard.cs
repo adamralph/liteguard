@@ -10,6 +10,7 @@ namespace LiteGuard
     /// <summary>
     /// Provides guard clauses.
     /// </summary>
+    [DebuggerNonUserCode]
     public static class Guard
     {
         /// <summary>
