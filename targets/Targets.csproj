@@ -11,8 +11,4 @@
     <PackageReference Include="SimpleExec" Version="2.2.0" />
   </ItemGroup>
 
-  <PropertyGroup>
-    <CodeAnalysisRuleSet>Targets.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-
 </Project>

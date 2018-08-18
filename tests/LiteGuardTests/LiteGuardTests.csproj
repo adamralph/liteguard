@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <LangVersion>latest</LangVersion>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <TargetFrameworks>netcoreapp1.1;netcoreapp2.1</TargetFrameworks>
   </PropertyGroup>
@@ -14,9 +15,5 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\LiteGuard\LiteGuard.csproj" />
   </ItemGroup>
-
-  <PropertyGroup>
-    <CodeAnalysisRuleSet>LiteGuardTests.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
 
 </Project>
