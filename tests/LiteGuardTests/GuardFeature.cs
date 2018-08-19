@@ -1,5 +1,3 @@
-// Copyright (c) 2013 Adam Ralph.
-
 namespace LiteGuardTests.Acceptance
 {
     using System;
