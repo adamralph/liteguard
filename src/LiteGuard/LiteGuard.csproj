@@ -1,17 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <AssemblyVersion>2.0.0.0</AssemblyVersion>
-    <FileVersion>2.2.0</FileVersion>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <LangVersion>3</LangVersion>
     <NoWarn>$(NoWarn);NU5105</NoWarn>
+    <TargetFrameworks>netstandard1.0;netstandard2.0</TargetFrameworks>
     <VersionPrefix>2.2.0</VersionPrefix>
     <VersionSuffix>$(VERSION_SUFFIX)</VersionSuffix>
   </PropertyGroup>
 
   <PropertyGroup>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <TargetFrameworks>netstandard1.0;netstandard2.0</TargetFrameworks>
     <NuspecFile>$(NUSPEC_FILE)</NuspecFile>
     <NuspecProperties Condition=" '$(VersionSuffix)' == '' ">Version=$(VersionPrefix)</NuspecProperties>
     <NuspecProperties Condition=" '$(VersionSuffix)' != '' ">Version=$(VersionPrefix)-$(VersionSuffix)</NuspecProperties>
