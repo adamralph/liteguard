@@ -5,20 +5,23 @@
     <LangVersion>3</LangVersion>
     <NoWarn>$(NoWarn);NU5105</NoWarn>
     <TargetFrameworks>netstandard1.0;netstandard2.0</TargetFrameworks>
-    <VersionPrefix>2.2.0</VersionPrefix>
-    <VersionSuffix>$(VERSION_SUFFIX)</VersionSuffix>
   </PropertyGroup>
 
   <PropertyGroup>
     <NuspecFile>$(NUSPEC_FILE)</NuspecFile>
-    <NuspecProperties Condition=" '$(VersionSuffix)' == '' ">Version=$(VersionPrefix)</NuspecProperties>
-    <NuspecProperties Condition=" '$(VersionSuffix)' != '' ">Version=$(VersionPrefix)-$(VersionSuffix)</NuspecProperties>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeQuality.Analyzers" Version="2.6.2" PrivateAssets="All" />
+    <PackageReference Include="MinVer" Version="1.0.0-alpha.5" PrivateAssets="All" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.0.2" PrivateAssets="All" />
     <AdditionalFiles Include="$(MSBuildThisFileDirectory)stylecop.json" Link="stylecop.json" />
   </ItemGroup>
+
+  <Target Name="AfterMinVer" AfterTargets="MinVer">
+    <PropertyGroup>
+      <NuspecProperties>Version=$(Version)</NuspecProperties>
+    </PropertyGroup>
+  </Target>
 
 </Project>
