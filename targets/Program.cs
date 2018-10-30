@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using static Bullseye.Targets;
 using static SimpleExec.Command;
@@ -7,6 +9,12 @@ internal class Program
 {
     public static Task Main(string[] args)
     {
+        var testFrameworks = new List<string> { "netcoreapp2.1" };
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        {
+            testFrameworks.Add("netcoreapp1.1");
+        }
+
         Target("default", DependsOn("pack", "test"));
 
         Target("build", () => RunAsync("dotnet", "build LiteGuard.sln --configuration Release"));
@@ -24,7 +32,8 @@ internal class Program
         Target(
             "test",
             DependsOn("build"),
-            () => RunAsync("dotnet", $"test ./tests/LiteGuardTests/LiteGuardTests.csproj --configuration Release --no-build"));
+            testFrameworks,
+            framework => RunAsync("dotnet", $"test ./tests/LiteGuardTests/LiteGuardTests.csproj --configuration Release --no-build --framework {framework}"));
 
         return RunTargetsAsync(args);
     }
