@@ -7,6 +7,7 @@ namespace $rootnamespace$
     using System.Diagnostics;
     using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
+    using System.Runtime.CompilerServices;
 
     /// <summary>
     /// Provides guard clauses.
@@ -26,6 +27,7 @@ namespace $rootnamespace$
         /// </remarks>
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Source package.")]
         [DebuggerStepThrough]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void AgainstNullArgument<TArgument>(string parameterName, [ValidatedNotNull]TArgument argument)
             where TArgument : class
         {
@@ -48,6 +50,7 @@ namespace $rootnamespace$
         /// </remarks>
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Source package.")]
         [DebuggerStepThrough]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void AgainstNullArgumentIfNullable<TArgument>(
             string parameterName, [ValidatedNotNull]TArgument argument)
         {
@@ -71,6 +74,7 @@ namespace $rootnamespace$
         /// </remarks>
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Source package.")]
         [DebuggerStepThrough]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void AgainstNullArgumentProperty<TProperty>(
             string parameterName, string propertyName, [ValidatedNotNull]TProperty argumentProperty)
             where TProperty : class
@@ -96,6 +100,7 @@ namespace $rootnamespace$
         /// </remarks>
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Source package.")]
         [DebuggerStepThrough]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void AgainstNullArgumentPropertyIfNullable<TProperty>(
             string parameterName, string propertyName, [ValidatedNotNull]TProperty argumentProperty)
         {
@@ -115,6 +120,7 @@ namespace $rootnamespace$
         ///   <c>true</c> if the specified type is a nullable type; otherwise, <c>false</c>.
         /// </returns>
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Source package.")]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private static bool IsNullableType(this Type type)
         {
             return !type.IsValueType || (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>));
