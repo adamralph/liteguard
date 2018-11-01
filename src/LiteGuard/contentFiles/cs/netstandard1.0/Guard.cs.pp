@@ -7,7 +7,6 @@ namespace $rootnamespace$
     using System.Diagnostics;
     using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
-    using System.Runtime.CompilerServices;
 
     /// <summary>
     /// Provides guard clauses.
@@ -27,7 +26,6 @@ namespace $rootnamespace$
         /// </remarks>
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Source package.")]
         [DebuggerStepThrough]
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void AgainstNullArgument<TArgument>(string parameterName, [ValidatedNotNull]TArgument argument)
             where TArgument : class
         {
@@ -50,7 +48,6 @@ namespace $rootnamespace$
         /// </remarks>
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Source package.")]
         [DebuggerStepThrough]
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void AgainstNullArgumentIfNullable<TArgument>(
             string parameterName, [ValidatedNotNull]TArgument argument)
         {
@@ -74,7 +71,6 @@ namespace $rootnamespace$
         /// </remarks>
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Source package.")]
         [DebuggerStepThrough]
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void AgainstNullArgumentProperty<TProperty>(
             string parameterName, string propertyName, [ValidatedNotNull]TProperty argumentProperty)
             where TProperty : class
@@ -100,7 +96,6 @@ namespace $rootnamespace$
         /// </remarks>
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Source package.")]
         [DebuggerStepThrough]
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void AgainstNullArgumentPropertyIfNullable<TProperty>(
             string parameterName, string propertyName, [ValidatedNotNull]TProperty argumentProperty)
         {
