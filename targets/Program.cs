@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
+using SimpleExec;
 using static Bullseye.Targets;
 using static SimpleExec.Command;
 
@@ -35,6 +36,6 @@ internal class Program
             testFrameworks,
             framework => RunAsync("dotnet", $"test ./tests/LiteGuardTests/LiteGuardTests.csproj --configuration Release --no-build --framework {framework}"));
 
-        return RunTargetsAsync(args);
+        return RunTargetsAndExitAsync<CommandException>(args);
     }
 }
