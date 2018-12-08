@@ -36,6 +36,6 @@ internal class Program
             testFrameworks,
             framework => RunAsync("dotnet", $"test ./tests/LiteGuardTests/LiteGuardTests.csproj --configuration Release --no-build --framework {framework}"));
 
-        return RunTargetsAndExitAsync<CommandException>(args);
+        return RunTargetsAndExitAsync(args, ex => ex is NonZeroExitCodeException);
     }
 }
