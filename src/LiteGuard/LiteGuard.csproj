@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <IsTestProject>false</IsTestProject>
     <LangVersion>3</LangVersion>
     <NoWarn>$(NoWarn);NU5105</NoWarn>
     <TargetFrameworks>netstandard1.0;netstandard2.0</TargetFrameworks>
