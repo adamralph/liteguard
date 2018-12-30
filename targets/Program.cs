@@ -10,15 +10,9 @@ internal class Program
 {
     public static Task Main(string[] args)
     {
-        var testFrameworks = new List<string> { "netcoreapp2.2" };
-        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-        {
-            testFrameworks.Add("netcoreapp1.1");
-        }
-
         Target("default", DependsOn("pack", "test"));
 
-        Target("build", () => RunAsync("dotnet", "build LiteGuard.sln --configuration Release"));
+        Target("build", () => RunAsync("dotnet", "build --configuration Release"));
 
         Target(
             "pack",
@@ -33,8 +27,7 @@ internal class Program
         Target(
             "test",
             DependsOn("build"),
-            testFrameworks,
-            framework => RunAsync("dotnet", $"test ./tests/LiteGuardTests/LiteGuardTests.csproj --configuration Release --no-build --framework {framework}"));
+            () => RunAsync("dotnet", $"test --configuration Release --no-build"));
 
         return RunTargetsAndExitAsync(args, ex => ex is NonZeroExitCodeException);
     }
