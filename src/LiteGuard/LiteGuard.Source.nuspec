@@ -14,7 +14,7 @@ We all have to do our bit in working toward the ultimate number of published gua
     <developmentDependency>true</developmentDependency>
     <iconUrl>https://raw.github.com/adamralph/liteguard/master/assets/liteguard_256.png</iconUrl>
     <id>LiteGuard.Source</id>
-    <licenseUrl>https://github.com/adamralph/liteguard/blob/master/LICENSE</licenseUrl>
+    <license type="expression">MIT</license>
     <projectUrl>https://github.com/adamralph/liteguard</projectUrl>
     <summary>The most simple, unambiguous and lightweight guard clause library. This is the source code package. Also available as a binary package (LiteGuard).</summary>
     <version>0.0.0</version>
