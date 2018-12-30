@@ -10,7 +10,7 @@ internal class Program
 {
     public static Task Main(string[] args)
     {
-        var testFrameworks = new List<string> { "netcoreapp2.1" };
+        var testFrameworks = new List<string> { "netcoreapp2.2" };
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
         {
             testFrameworks.Add("netcoreapp1.1");
