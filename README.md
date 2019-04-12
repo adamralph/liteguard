@@ -5,6 +5,7 @@
 _[![NuGet version](https://img.shields.io/nuget/dt/LiteGuard.svg?style=flat&label=nuget%3A%20LiteGuard)](https://www.nuget.org/packages/LiteGuard)_
 _[![NuGet version](https://img.shields.io/nuget/dt/LiteGuard.Source.svg?style=flat&label=nuget%3A%20LiteGuard.Source)](https://www.nuget.org/packages/LiteGuard.Source)_
 _[![Build status](https://ci.appveyor.com/api/projects/status/dfxb7jtpp7ldu0b5/branch/master?svg=true)](https://ci.appveyor.com/project/adamralph/liteguard/branch/master)_
+_[![Build status](https://img.shields.io/travis/adamralph/liteguard/master.svg?logo=travis)](https://travis-ci.org/adamralph/liteguard/branches)_
 
 Why, it's lighter than air!
 
