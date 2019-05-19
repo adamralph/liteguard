@@ -2,27 +2,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFiles", "SolutionFiles", "{1DAD0ED8-7F96-4299-BEBB-04F3C25BFC76}"
-	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
-		.gitattributes = .gitattributes
-		.gitignore = .gitignore
-		appveyor.yml = appveyor.yml
-		build.cmd = build.cmd
-		LICENSE = LICENSE
-		README.md = README.md
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{56B4AF74-81A3-445B-9BEE-F044C1106D0B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5BF2A559-0478-4C78-A258-7E45EE82BCEB}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "assets", "assets", "{B428FC19-B485-4CF7-B637-22EC615413C5}"
-	ProjectSection(SolutionItems) = preProject
-		assets\liteguard_128.png = assets\liteguard_128.png
-		assets\liteguard_1280.png = assets\liteguard_1280.png
-		assets\liteguard_256.png = assets\liteguard_256.png
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiteGuard", "src\LiteGuard\LiteGuard.csproj", "{91C58BF7-315D-47C1-BA60-CC9BA0B779F8}"
 EndProject
