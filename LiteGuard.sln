@@ -2,15 +2,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{56B4AF74-81A3-445B-9BEE-F044C1106D0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiteGuard", "LiteGuard\LiteGuard.csproj", "{91C58BF7-315D-47C1-BA60-CC9BA0B779F8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5BF2A559-0478-4C78-A258-7E45EE82BCEB}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiteGuard", "src\LiteGuard\LiteGuard.csproj", "{91C58BF7-315D-47C1-BA60-CC9BA0B779F8}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiteGuardTests", "tests\LiteGuardTests\LiteGuardTests.csproj", "{CEB82628-CB56-415F-B278-37E57699BF09}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "targets", "targets", "{2588D480-54B0-4A0C-8CD2-45AEE061FFEA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiteGuardTests", "LiteGuardTests\LiteGuardTests.csproj", "{CEB82628-CB56-415F-B278-37E57699BF09}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Targets", "targets\Targets.csproj", "{552B86AE-2089-4789-B1FF-0461FDF5F5DC}"
 EndProject
@@ -35,11 +29,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{91C58BF7-315D-47C1-BA60-CC9BA0B779F8} = {5BF2A559-0478-4C78-A258-7E45EE82BCEB}
-		{CEB82628-CB56-415F-B278-37E57699BF09} = {56B4AF74-81A3-445B-9BEE-F044C1106D0B}
-		{552B86AE-2089-4789-B1FF-0461FDF5F5DC} = {2588D480-54B0-4A0C-8CD2-45AEE061FFEA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8354BA78-15BA-4931-9F19-6424A3F430F3}

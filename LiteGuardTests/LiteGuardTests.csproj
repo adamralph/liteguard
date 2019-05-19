@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\LiteGuard\LiteGuard.csproj" />
+    <ProjectReference Include="..\LiteGuard\LiteGuard.csproj" />
   </ItemGroup>
 
 </Project>
