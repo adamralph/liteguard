@@ -1,4 +1,4 @@
-namespace LiteGuardTests.Acceptance
+namespace LiteGuardTests
 {
     using System;
     using LiteGuard;
