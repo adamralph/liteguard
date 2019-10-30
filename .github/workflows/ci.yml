@@ -20,9 +20,11 @@ jobs:
         dotnet-version: '3.0.100'
     - run: dotnet --info
     - uses: actions/checkout@af513c7a016048ae468971c52ed77d9562c7c819
-    - if: contains(matrix.runs-on, 'windows')
-      run: ./build.cmd
-    - if: contains(matrix.runs-on, 'macOS') || contains(matrix.runs-on, 'ubuntu')
-      run: ./build.sh
+    - name: Run ./build.cmd
+      if: contains(matrix.runs-on, 'windows')
+      run: New-Item -ItemType file -Force "$env:USERPROFILE/.dotnet/$(dotnet --version).dotnetFirstUseSentinel" | Out-Null; ./build.cmd
+    - name: Run ./build.sh
+      if: contains(matrix.runs-on, 'macOS') || contains(matrix.runs-on, 'ubuntu')
+      run: touch "$HOME/.dotnet/$(dotnet --version).dotnetFirstUseSentinel" && ./build.sh
     - if: matrix.runs-on == 'ubuntu-18.04'
       run: ./push.sh ${{ secrets.MYGET_ADAMRALPH_CI_API_KEY }}
