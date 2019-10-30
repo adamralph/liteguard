@@ -11,7 +11,7 @@ Supported platforms: .NET Standard 1.0 onwards.
 This is the LiteGuard binary package. Also available as a source code package (LiteGuard.Source). If your project is an application or library which is not packaged and/or exported for use in other solutions then the binary package is usually the best choice. If you are writing a library which is packaged and/or exported for use in other solutions then the source code package is usually the best choice.
 
 We all have to do our bit in working toward the ultimate number of published guard clause libraries which, at current estimates, is somewhere in the region of 6.02214129(27) × 10^23.</description>
-    <iconUrl>https://raw.github.com/adamralph/liteguard/master/assets/liteguard_256.png</iconUrl>
+    <icon>liteguard_256.png</icon>
     <id>LiteGuard</id>
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/adamralph/liteguard</projectUrl>
@@ -19,6 +19,7 @@ We all have to do our bit in working toward the ultimate number of published gua
     <version>0.0.0</version>
   </metadata>
   <files>
+    <file src="..\assets\liteguard_256.png"  target="" />
     <file src="bin\Release\netstandard1.0\LiteGuard.dll"  target="lib\netstandard1.0" />
     <file src="bin\Release\netstandard1.0\LiteGuard.xml"  target="lib\netstandard1.0" />
     <file src="bin\Release\netstandard2.0\LiteGuard.dll"  target="lib\netstandard2.0" />
