@@ -10,7 +10,7 @@ internal class Program
     {
         Target("default", DependsOn("pack", "test"));
 
-        Target("build", () => RunAsync("dotnet", "build --configuration Release /nologo"));
+        Target("build", () => RunAsync("dotnet", "build --configuration Release --nologo"));
 
         Target(
             "pack",
@@ -19,13 +19,13 @@ internal class Program
             async nuspec =>
             {
                 Environment.SetEnvironmentVariable("NUSPEC_FILE", nuspec, EnvironmentVariableTarget.Process);
-                await RunAsync("dotnet", "pack LiteGuard --configuration Release --no-build /nologo");
+                await RunAsync("dotnet", "pack LiteGuard --configuration Release --no-build --nologo");
             });
 
         Target(
             "test",
             DependsOn("build"),
-            () => RunAsync("dotnet", "test --configuration Release --no-build /nologo"));
+            () => RunAsync("dotnet", "test --configuration Release --no-build --nologo"));
 
         return RunTargetsAndExitAsync(args, ex => ex is NonZeroExitCodeException);
     }
