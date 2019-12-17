@@ -18,8 +18,7 @@ internal class Program
             ForEach("LiteGuard.nuspec", "LiteGuard.Source.nuspec"),
             async nuspec =>
             {
-                Environment.SetEnvironmentVariable("NUSPEC_FILE", nuspec, EnvironmentVariableTarget.Process);
-                await RunAsync("dotnet", "pack LiteGuard --configuration Release --no-build --nologo");
+                await RunAsync("dotnet", "pack LiteGuard --configuration Release --no-build --nologo", configureEnvironment: env => env.Add("NUSPEC_FILE", nuspec));
             });
 
         Target(
