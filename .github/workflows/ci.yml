@@ -27,4 +27,6 @@ jobs:
       if: contains(matrix.runs-on, 'macOS') || contains(matrix.runs-on, 'ubuntu')
       run: touch "$HOME/.dotnet/$(dotnet --version).dotnetFirstUseSentinel" && ./build.sh
     - if: matrix.runs-on == 'ubuntu-latest'
-      run: ./push.sh ${{ secrets.MYGET_ADAMRALPH_CI_API_KEY }}
+      env:
+        MYGET_ADAMRALPH_CI_API_KEY: ${{ secrets.MYGET_ADAMRALPH_CI_API_KEY }}
+      run: ./push.sh
