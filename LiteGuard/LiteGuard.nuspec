@@ -2,15 +2,7 @@
 <package>
   <metadata>
     <authors>Adam Ralph, LiteGuard contributors</authors>
-    <description>Why, it's lighter than air!
-
-The aim of LiteGuard is to be the most simple, unambiguous, and lightweight guard clause library available.
-
-Supported platforms: .NET Standard 1.0 onwards.
-
-This is the LiteGuard binary package. Also available as a source code package (LiteGuard.Source). If your project is an application or library which is not packaged and/or exported for use in other solutions then the binary package is usually the best choice. If you are writing a library which is packaged and/or exported for use in other solutions then the source code package is usually the best choice.
-
-We all have to do our bit in working toward the ultimate number of published guard clause libraries which, at current estimates, is somewhere in the region of 6.02214129(27) × 10^23.</description>
+    <description>The most simple, unambiguous, and lightweight .NET guard clause library.</description>
     <icon>liteguard_256.png</icon>
     <id>LiteGuard</id>
     <license type="expression">MIT</license>
