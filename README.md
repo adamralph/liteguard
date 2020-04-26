@@ -12,9 +12,11 @@ The guard clause library which stands out from the crowd like the faintest passi
 
 You'll hardly know it's there!
 
-LiteGuard is a .NET package available as [source](https://www.nuget.org/packages/LiteGuard.Source) or [binary](https://www.nuget.org/packages/LiteGuard) for writing guard clauses.
+LiteGuard is a .NET package available as [source](https://www.nuget.org/packages/LiteGuard.Source) or [binary](https://www.nuget.org/packages/LiteGuard) for writing guard clauses. If your project is an application or library which is not packaged and/or exported for use in other solutions then the binary package is usually the best choice. If you are writing a library which is packaged and/or exported for use in other solutions then the source code package is usually the best choice.
 
 Platform support: [.NET Standard 1.0 and upwards](https://docs.microsoft.com/en-us/dotnet/standard/net-standard).
+
+We all have to do our bit in working toward the ultimate number of published guard clause libraries which, at current estimates, is somewhere in the region of 6.02214129(27) × 10^23.
 
 ## Quick start
 
