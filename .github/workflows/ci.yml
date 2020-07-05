@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runs-on: [macOS-latest, ubuntu-latest, windows-latest]
+        runs-on: [macos-10.15, ubuntu-18.04, windows-2019]
     name: ${{ matrix.runs-on }}
     runs-on: ${{ matrix.runs-on }}
     steps:
@@ -24,9 +24,9 @@ jobs:
       if: contains(matrix.runs-on, 'windows')
       run: New-Item -ItemType file -Force "$env:USERPROFILE/.dotnet/$(dotnet --version).dotnetFirstUseSentinel" | Out-Null; ./build.cmd
     - name: Run ./build.sh
-      if: contains(matrix.runs-on, 'macOS') || contains(matrix.runs-on, 'ubuntu')
+      if: contains(matrix.runs-on, 'macos') || contains(matrix.runs-on, 'ubuntu')
       run: touch "$HOME/.dotnet/$(dotnet --version).dotnetFirstUseSentinel" && ./build.sh
-    - if: matrix.runs-on == 'ubuntu-latest'
+    - if: matrix.runs-on == 'ubuntu-18.04'
       env:
         MYGET_ADAMRALPH_CI_API_KEY: ${{ secrets.MYGET_ADAMRALPH_CI_API_KEY }}
       run: ./push.sh
