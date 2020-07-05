@@ -6,6 +6,8 @@ on:
     tags:
     - '*.*.*'
   pull_request:
+env:
+  DOTNET_NOLOGO: true
 jobs:
   build:
     strategy:
@@ -22,10 +24,10 @@ jobs:
     - uses: actions/checkout@28c7f3d2b5162b5ddd3dfd9a45aa55eaf396478b
     - name: Run ./build.cmd
       if: contains(matrix.runs-on, 'windows')
-      run: New-Item -ItemType file -Force "$env:USERPROFILE/.dotnet/$(dotnet --version).dotnetFirstUseSentinel" | Out-Null; ./build.cmd
+      run: ./build.cmd
     - name: Run ./build.sh
       if: contains(matrix.runs-on, 'macos') || contains(matrix.runs-on, 'ubuntu')
-      run: touch "$HOME/.dotnet/$(dotnet --version).dotnetFirstUseSentinel" && ./build.sh
+      run: ./build.sh
     - if: matrix.runs-on == 'ubuntu-18.04'
       env:
         MYGET_ADAMRALPH_CI_API_KEY: ${{ secrets.MYGET_ADAMRALPH_CI_API_KEY }}
