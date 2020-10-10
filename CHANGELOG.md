@@ -94,4 +94,3 @@
 ### Enhancements
 
 - [#2: add clauses with unrestricted type parameters](https://github.com/adamralph/liteguard/issues/2)
-
