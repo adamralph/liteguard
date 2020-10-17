@@ -1,0 +1,5 @@
+LiteGuard.Guard
+static LiteGuard.Guard.AgainstNullArgument<TArgument>(string parameterName, TArgument argument) -> void
+static LiteGuard.Guard.AgainstNullArgumentIfNullable<TArgument>(string parameterName, TArgument argument) -> void
+static LiteGuard.Guard.AgainstNullArgumentProperty<TProperty>(string parameterName, string propertyName, TProperty argumentProperty) -> void
+static LiteGuard.Guard.AgainstNullArgumentPropertyIfNullable<TProperty>(string parameterName, string propertyName, TProperty argumentProperty) -> void
