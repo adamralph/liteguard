@@ -22,7 +22,7 @@
 
 ### Other
 
-- [#145: **[BREAKING]** Target netstandard1.0 and netstandard2.0 only](https://github.com/adamralph/liteguard/issues/145)
+- [#145: **[BREAKING]** Target .NET Standard 1.0 and .NET Standard 2.0 only](https://github.com/adamralph/liteguard/issues/145)
 - [#146: **[BREAKING]** Target SDK style projects only in source package](https://github.com/adamralph/liteguard/issues/146)
 
 ## 1.1.0
