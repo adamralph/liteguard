@@ -1,0 +1,81 @@
+{
+  "version": "0.1",
+  "language": "en-GB",
+  "languageSettings": [
+    {
+      "languageId": "bash",
+      "words": [
+        "adamralph",
+        "nupkg",
+        "pipefail"
+      ]
+    },
+    {
+      "languageId": "csharp",
+      "words": [
+        "nologo",
+        "Xbehave",
+        "Xunit"
+      ]
+    },
+    {
+      "languageId": "csproj",
+      "words": [
+        "netcoreapp",
+        "netstandard",
+        "visualstudio",
+        "Xbehave",
+        "xunit"
+      ]
+    },
+    {
+      "languageId": "markdown",
+      "words": [
+        "Bazz",
+        "nameof"
+      ]
+    },
+    {
+      "languageId": "nuspec",
+      "words": [
+        "netstandard"
+      ]
+    }
+  ],
+  "overrides": [
+    {
+      "filename": "{*.cmd,*.cs,*.csproj,*.sh}",
+      "language": "en-US"
+    },
+    {
+      "filename": "*.cs.pp",
+      "languageId": "csharp"
+    },
+    {
+      "filename": "*.csproj",
+      "languageId": "csproj"
+    },
+    {
+      "filename": "{.cspell.json,PublicAPI.*.txt}",
+      "enabled": false
+    },
+    {
+      "filename": "*.nuspec",
+      "languageId": "nuspec"
+    },
+    {
+      "filename": "*.sh",
+      "languageId": "bash"
+    }
+  ],
+  "words": [
+    "Havanese",
+    "LiteGuard",
+    "StyleCop",
+    "MyGet",
+    "NuGet",
+    "Pakaski",
+    "Vanja",
+    "Xamarin"
+  ]
+}
