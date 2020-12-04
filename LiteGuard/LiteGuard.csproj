@@ -1,7 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <LangVersion>3</LangVersion>
     <MinVerSkip Condition="'$(Configuration)' == 'Debug'">true</MinVerSkip>
     <NoWarn>$(NoWarn);NU5128</NoWarn>
@@ -13,7 +15,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.1" PrivateAssets="All" />
     <PackageReference Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" Version="3.3.1" PrivateAssets="All" />
     <PackageReference Include="MinVer" Version="2.3.1" PrivateAssets="All" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" PrivateAssets="All" />
