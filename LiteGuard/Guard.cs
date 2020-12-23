@@ -25,7 +25,7 @@ namespace LiteGuard
         /// </remarks>
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Source package.")]
         [DebuggerStepThrough]
-        public static void AgainstNullArgument<TArgument>(string parameterName, [ValidatedNotNull]TArgument argument)
+        public static void AgainstNullArgument<TArgument>(string parameterName, [ValidatedNotNull] TArgument argument)
             where TArgument : class
         {
             if (argument == null)
@@ -48,7 +48,7 @@ namespace LiteGuard
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Source package.")]
         [DebuggerStepThrough]
         public static void AgainstNullArgumentIfNullable<TArgument>(
-            string parameterName, [ValidatedNotNull]TArgument argument)
+            string parameterName, [ValidatedNotNull] TArgument argument)
         {
 #if NETSTANDARD2_0
             if (typeof(TArgument).IsNullableType() && argument == null)
@@ -75,7 +75,7 @@ namespace LiteGuard
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Source package.")]
         [DebuggerStepThrough]
         public static void AgainstNullArgumentProperty<TProperty>(
-            string parameterName, string propertyName, [ValidatedNotNull]TProperty argumentProperty)
+            string parameterName, string propertyName, [ValidatedNotNull] TProperty argumentProperty)
             where TProperty : class
         {
             if (argumentProperty == null)
@@ -100,7 +100,7 @@ namespace LiteGuard
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Source package.")]
         [DebuggerStepThrough]
         public static void AgainstNullArgumentPropertyIfNullable<TProperty>(
-            string parameterName, string propertyName, [ValidatedNotNull]TProperty argumentProperty)
+            string parameterName, string propertyName, [ValidatedNotNull] TProperty argumentProperty)
         {
 #if NETSTANDARD2_0
             if (typeof(TProperty).IsNullableType() && argumentProperty == null)
