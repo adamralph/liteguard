@@ -1,12 +1,12 @@
 // Copyright (c) 2013 Adam Ralph.
 
+using System;
+using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
+
 namespace LiteGuard
 {
-    using System;
-    using System.Diagnostics;
-    using System.Diagnostics.CodeAnalysis;
-    using System.Globalization;
-
     /// <summary>
     /// Provides guard clauses.
     /// </summary>
