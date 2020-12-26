@@ -2,8 +2,8 @@
 
 # LiteGuard
 
-_[![LiteGuard NuGet version](https://img.shields.io/nuget/dt/LiteGuard.svg?style=flat&label=nuget%3A%20LiteGuard)](https://www.nuget.org/packages/LiteGuard)_
-_[![LiteGuard.Source NuGet version](https://img.shields.io/nuget/dt/LiteGuard.Source.svg?style=flat&label=nuget%3A%20LiteGuard.Source)](https://www.nuget.org/packages/LiteGuard.Source)_
+_[![LiteGuard NuGet version](https://img.shields.io/nuget/v/LiteGuard.svg?style=flat&label=nuget%3A%20LiteGuard)](https://www.nuget.org/packages/LiteGuard)_
+_[![LiteGuard.Source NuGet version](https://img.shields.io/nuget/v/LiteGuard.Source.svg?style=flat&label=nuget%3A%20LiteGuard.Source)](https://www.nuget.org/packages/LiteGuard.Source)_
 
 _[![Build status](https://github.com/adamralph/liteguard/workflows/.github/workflows/ci.yml/badge.svg)](https://github.com/adamralph/liteguard/actions)_
 _[![CodeQL analysis](https://github.com/adamralph/liteguard/workflows/.github/workflows/codeql-analysis.yml/badge.svg)](https://github.com/adamralph/liteguard/actions?query=workflow%3A.github%2Fworkflows%2Fcodeql-analysis.yml)_
