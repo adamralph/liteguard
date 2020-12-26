@@ -7,6 +7,7 @@ _[![LiteGuard.Source NuGet version](https://img.shields.io/nuget/v/LiteGuard.Sou
 
 _[![Build status](https://github.com/adamralph/liteguard/workflows/.github/workflows/ci.yml/badge.svg)](https://github.com/adamralph/liteguard/actions)_
 _[![CodeQL analysis](https://github.com/adamralph/liteguard/workflows/.github/workflows/codeql-analysis.yml/badge.svg)](https://github.com/adamralph/liteguard/actions?query=workflow%3A.github%2Fworkflows%2Fcodeql-analysis.yml)_
+_[![Lint](https://github.com/adamralph/liteguard/workflows/.github/workflows/lint.yml/badge.svg)](https://github.com/adamralph/liteguard/actions?query=workflow%3A.github%2Fworkflows%2Flint.yml)_
 _[![Spell check](https://github.com/adamralph/liteguard/workflows/.github/workflows/spell-check.yml/badge.svg)](https://github.com/adamralph/liteguard/actions?query=workflow%3A.github%2Fworkflows%2Fspell-check.yml)_
 
 Why, it's lighter than air!
