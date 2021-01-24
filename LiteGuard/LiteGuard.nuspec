@@ -7,7 +7,7 @@
     <id>LiteGuard</id>
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/adamralph/liteguard</projectUrl>
-    <releaseNotes>https://github.com/adamralph/liteguard/blob/master/CHANGELOG.md</releaseNotes>
+    <releaseNotes>https://github.com/adamralph/liteguard/blob/main/CHANGELOG.md</releaseNotes>
     <summary>The most simple, unambiguous, and lightweight guard clause library. This is the binary package. Also available as a source code package (LiteGuard.Source).</summary>
     <version>0.0.0</version>
   </metadata>

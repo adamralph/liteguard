@@ -1,4 +1,4 @@
-<img src="https://raw.github.com/adamralph/liteguard/master/assets/liteguard_256.png" width="128" />
+<img src="https://raw.github.com/adamralph/liteguard/main/assets/liteguard_256.png" width="128" />
 
 # LiteGuard
 
