@@ -2,6 +2,17 @@
 
 # LiteGuard
 
+**This project is no longer maintained.**
+
+With recent C# language features, there's no need for a guard clause library.
+
+```C#
+arg1?.Foo();
+myField = arg2 ?? throw new ArgumentNullException(nameof(arg2));
+arg3 = arg3 ?? throw new ArgumentNullException(nameof(arg3));
+// etc.
+```
+
 _[![LiteGuard NuGet version](https://img.shields.io/nuget/v/LiteGuard.svg?style=flat&label=nuget%3A%20LiteGuard)](https://www.nuget.org/packages/LiteGuard)_
 _[![LiteGuard.Source NuGet version](https://img.shields.io/nuget/v/LiteGuard.Source.svg?style=flat&label=nuget%3A%20LiteGuard.Source)](https://www.nuget.org/packages/LiteGuard.Source)_
 
